@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Reformulează minutele ședințelor cu o singură instrucțiune | Minutes.AI",
+    "description": "Noua funcție AI Edit de la Minutes.AI îți permite să rafinezi, restructurezi și personalizezi minutele de ședință generate automat cu instrucțiuni în limbaj natural. Fă-le potrivite pentru conducere, concise sau orientate pe acțiuni instantaneu.",
+    "ogTitle": "AI Edit: Minutele tale, așa cum le vrei — cu puterea AI",
+    "ogDescription": "Nu te mai mulțumi cu note de ședință generice. AI Edit transformă minutele tale cu instrucțiuni simple precum 'fă-le mai scurte' sau 'extrage sarcinile în detaliu'.",
+    "ld": {
+      "headline": "AI Edit: Reformulează minutele ședințelor cu o singură instrucțiune",
+      "description": "Prezentarea funcției AI Edit de la Minutes.AI care permite utilizatorilor să rafineze minutele generate automat prin instrucțiuni în limbaj natural."
+    }
+  },
+  "aria": {
+    "home": "Pagina principală Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funcție nouă"
+  },
+  "hero": {
+    "kicker": "Funcție nouă",
+    "h1": "AI Edit: Minutele tale exact așa cum ai nevoie",
+    "tagline": "Minutele de ședință generate automat sunt un punct de plecare excelent — dar rareori perfecte din prima. Cu AI Edit, poți acum rafina, restructura și personaliza minutele tale cu instrucțiuni simple în limbaj natural. Spune-i AI-ului ce ai nevoie și privește cum se transformă minutele tale.",
+    "subtag": "Gata cu editările manuale plictisitoare. O singură instrucțiune transformă minutele brute într-un document rafinat și adaptat scopului tău.",
+    "badges": ["Editare în limbaj natural", "Îmbunătățire instantanee", "Conștient de context"]
+  },
+
+  "problem": {
+    "h2": "Problema \u201Eaproape perfect\u201D",
+    "p1": "Minutele de ședință generate de AI sunt incredibil de utile — captează automat discuțiile, deciziile și sarcinile. Dar a existat întotdeauna un decalaj între ceea ce produce AI-ul și ceea ce ai cu adevărat nevoie.",
+    "p2": "Poate formatul nu se potrivește stilului echipei tale. Poate e prea detaliat pentru un raport executiv rapid sau prea scurt când ai nevoie de sarcini detaliate. Până acum, singura opțiune era rescrierea manuală — ceea ce anulează însuși scopul utilizării AI-ului.",
+    "quote": "\u201ERezumatul AI-ului e bun, dar petrec mereu 15 minute ajustându-l.\u201D"
+  },
+
+  "solution": {
+    "h2": "Spune-i AI-ului ce vrei",
+    "p1": "**AI Edit** schimbă totul. În loc să editezi minutele rând cu rând, pur și simplu dai AI-ului o instrucțiune în limbaj natural — și el restructurează întregul document pentru tine.",
+    "p2": "E ca și cum ai avea un editor personal care înțelege contextul, tonul și scopul. Fie că ai nevoie de o rescriere completă sau de o ajustare subtilă, AI Edit se ocupă fără efort.",
+    "highlights": [
+      "**\u201EFă-le potrivite pentru conducere"** — Elimină detaliile și evidențiază deciziile și rezultatele cheie.",
+      "**\u201EFă-le mai concise"** — Elimină redundanțele păstrând fiecare punct esențial.",
+      "**\u201EExtrage sarcinile în detaliu"** — Creează o listă detaliată de sarcini cu responsabili și termene.",
+      "**\u201ERescrie pentru echipa de inginerie"** — Ajustează tonul și focusul pentru un public tehnic.",
+      "**\u201EAdaugă un rezumat la început"** — Generează o prezentare scurtă fără a modifica conținutul."
+    ]
+  },
+
+  "usps": {
+    "h2": "De ce AI Edit schimbă regulile jocului",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Problema veche rezolvată în sfârșit",
+        "desc": "Alte servicii AI pentru minute generează note și se opresc acolo. AI Edit merge mai departe — îți permite să continui rafinarea până când rezultatul corespunde exact cu ceea ce aveai în minte."
+      },
+      {
+        "icon": "message",
+        "title": "Limbaj natural, fără curbă de învățare",
+        "desc": "Fără șabloane. Fără meniuri derulante. Fără setări complicate. Scrie pur și simplu ce vrei în limbajul de zi cu zi și AI Edit înțelege intenția ta."
+      },
+      {
+        "icon": "refresh",
+        "title": "Editează de câte ori dorești",
+        "desc": "Nu ești mulțumit de primul rezultat? Dă o altă instrucțiune. Poți rafina același document de nenumărate ori — fără limită."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Prețuri simple și transparente",
+    "p1": "AI Edit este disponibil în toate planurile Minutes.AI. Alege planul care se potrivește fluxului tău de lucru.",
+    "trial": { "name": "Pachet de probă", "detail": "120 min", "foot": "$1.99 (Fără expirare)" },
+    "light": { "name": "Pachet Light", "detail": "1200 min", "foot": "$11.99 (Fără expirare)" },
+    "monthly": { "name": "Lunar", "detail": "Nelimitat", "foot": "$16.99 / lună" },
+    "annual": { "name": "Anual", "detail": "Nelimitat", "foot": "$149.99 / an" },
+    "free": { "badge": "Bilet zilnic gratuit", "text": "Încearcă gratuit 3 minute în fiecare zi — fără card de credit." },
+    "bullets": [
+      "**Pachete de timp**: Ideale pentru utilizare ocazională — minutele nu expiră niciodată.",
+      "**Abonamente**: Înregistrare și editare nelimitată pentru utilizatorii activi.",
+      "**100+ limbi**: Înregistrează și editează minute în peste 100 de limbi."
+    ],
+    "foot": {
+      "pre": "* Prețurile sunt afișate în {currency}.",
+      "post": "Taxele pot fi aplicate la checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Încearcă AI Edit acum",
+    "text": "Înregistrează o ședință, generează minutele și încearcă AI Edit. Te vei întreba cum ai lucrat vreodată fără el.",
+    "openBrowser": "Deschide Minutes.AI (Web)",
+    "downloadIOS": "Descarcă aplicația iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Funcție",
+    "category": "Actualizare produs"
+  }
+}

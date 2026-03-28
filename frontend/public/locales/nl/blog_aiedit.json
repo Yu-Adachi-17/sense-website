@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Herwerk je vergadernotulen met één instructie | Minutes.AI",
+    "description": "De nieuwe AI Edit-functie van Minutes.AI laat je automatisch gegenereerde vergadernotulen verfijnen, herstructureren en aanpassen met instructies in natuurlijke taal. Maak ze directie-klaar, beknopt of actiegericht in een handomdraai.",
+    "ogTitle": "AI Edit: Jouw notulen, op jouw manier — aangedreven door AI",
+    "ogDescription": "Neem geen genoegen meer met generieke vergadernotities. AI Edit hervormt je notulen met simpele instructies zoals 'maak het beknopter' of 'extraheer actiepunten in detail'.",
+    "ld": {
+      "headline": "AI Edit: Herwerk je vergadernotulen met één instructie",
+      "description": "Introductie van de AI Edit-functie van Minutes.AI waarmee gebruikers automatisch gegenereerde notulen kunnen verfijnen met instructies in natuurlijke taal."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Startpagina"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nieuwe functie"
+  },
+  "hero": {
+    "kicker": "Nieuwe functie",
+    "h1": "AI Edit: Jouw notulen precies zoals je ze wilt",
+    "tagline": "Automatisch gegenereerde vergadernotulen zijn een prima start — maar zelden perfect bij de eerste poging. Met AI Edit kun je nu je notulen verfijnen, herstructureren en aanpassen met simpele instructies in natuurlijke taal. Vertel de AI wat je nodig hebt en zie je notulen transformeren.",
+    "subtag": "Geen saaie handmatige bewerkingen meer. Eén instructie transformeert ruwe notulen in een gepolijst, doelgericht document.",
+    "badges": ["Bewerken in natuurlijke taal", "Direct verfijnen", "Contextbewust"]
+  },
+
+  "problem": {
+    "h2": "Het 'bijna perfect'-probleem",
+    "p1": "AI-gegenereerde vergadernotulen zijn ontzettend handig — ze leggen automatisch discussies, besluiten en actiepunten vast. Maar er zit altijd een kloof tussen wat de AI oplevert en wat je echt nodig hebt.",
+    "p2": "Misschien past het format niet bij de stijl van je team. Misschien is het te uitgebreid voor een snel directierapport, of te beknopt als je gedetailleerde actiepunten nodig hebt. Tot nu toe was handmatig herschrijven de enige optie — waarmee het hele doel van AI vervalt.",
+    "quote": "\"De AI-samenvatting is goed, maar ik besteed altijd 15 minuten aan het aanpassen.\""
+  },
+
+  "solution": {
+    "h2": "Vertel de AI gewoon wat je wilt",
+    "p1": "**AI Edit** verandert alles. In plaats van je notulen regel voor regel te bewerken, geef je de AI simpelweg een instructie in natuurlijke taal — en het herstructureert het hele document voor je.",
+    "p2": "Het is alsof je een persoonlijke redacteur hebt die context, toon en doel begrijpt. Of je nu een volledige herschrijving of een subtiele aanpassing nodig hebt, AI Edit regelt het moeiteloos.",
+    "highlights": [
+      "**\"Maak het directie-geschikt\"** — Verwijdert details en benadrukt belangrijke besluiten en resultaten.",
+      "**\"Maak het beknopter\"** — Verwijdert overtolligheid met behoud van alle essentiële punten.",
+      "**\"Extraheer gedetailleerde actiepunten\"** — Haalt gedetailleerde taken eruit met verantwoordelijken en deadlines.",
+      "**\"Herschrijf voor het engineeringteam\"** — Past toon en focus aan voor een technisch publiek.",
+      "**\"Voeg bovenaan een samenvatting toe\"** — Genereert een kort overzicht zonder de rest te wijzigen."
+    ]
+  },
+
+  "usps": {
+    "h2": "Waarom AI Edit een doorbraak is",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Eindelijk het eeuwige probleem opgelost",
+        "desc": "Andere AI-notulendiensten genereren notities en stoppen daar. AI Edit gaat verder — het laat je blijven verfijnen tot het resultaat precies overeenkomt met wat je voor ogen had."
+      },
+      {
+        "icon": "message",
+        "title": "Natuurlijke taal, geen leercurve",
+        "desc": "Geen sjablonen. Geen dropdownmenu's. Geen ingewikkelde instellingen. Typ gewoon wat je wilt in alledaagse taal en AI Edit begrijpt je bedoeling."
+      },
+      {
+        "icon": "refresh",
+        "title": "Bewerk zo vaak als je wilt",
+        "desc": "Niet tevreden met de eerste bewerking? Geef een nieuwe instructie. Je kunt hetzelfde document keer op keer verfijnen — zonder limiet."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Eenvoudige, transparante prijzen",
+    "p1": "AI Edit is beschikbaar bij alle Minutes.AI-abonnementen. Kies het plan dat bij je werkwijze past.",
+    "trial": { "name": "Proefpakket", "detail": "120 min", "foot": "$1.99 (Vervalt niet)" },
+    "light": { "name": "Light-pakket", "detail": "1200 min", "foot": "$11.99 (Vervalt niet)" },
+    "monthly": { "name": "Maandelijks", "detail": "Onbeperkt", "foot": "$16.99 / maand" },
+    "annual": { "name": "Jaarlijks", "detail": "Onbeperkt", "foot": "$149.99 / jaar" },
+    "free": { "badge": "Gratis dagticket", "text": "Probeer het elke dag 3 minuten gratis — geen creditcard nodig." },
+    "bullets": [
+      "**Tijdpakketten**: Ideaal voor incidenteel gebruik — minuten verlopen nooit.",
+      "**Abonnementen**: Onbeperkt opnemen en bewerken voor veelgebruikers.",
+      "**100+ talen**: Neem op en bewerk notulen in meer dan 100 talen."
+    ],
+    "foot": {
+      "pre": "* Prijzen weergegeven in {currency}.",
+      "post": "Bij afrekenen kunnen belastingen van toepassing zijn."
+    }
+  },
+
+  "cta": {
+    "h2": "Probeer AI Edit nu",
+    "text": "Neem een vergadering op, genereer je notulen en probeer AI Edit. Je zult je afvragen hoe je ooit zonder hebt gewerkt.",
+    "openBrowser": "Open Minutes.AI (Web)",
+    "downloadIOS": "Download iOS-app"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Functie",
+    "category": "Productupdate"
+  }
+}

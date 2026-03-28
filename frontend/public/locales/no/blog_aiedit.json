@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Omform møtereferatene dine med én enkel instruksjon | Minutes.AI",
+    "description": "Minutes.AI sin nye AI Edit-funksjon lar deg forbedre, omstrukturere og tilpasse automatisk genererte møtereferater med instruksjoner på naturlig språk. Gjør dem ledelsesklare, konsise eller handlingsorienterte på et øyeblikk.",
+    "ogTitle": "AI Edit: Dine referater, på din måte — drevet av AI",
+    "ogDescription": "Slutt å nøye deg med generiske møtenotater. AI Edit lar deg omforme referater med enkle instruksjoner som 'gjør det kortere' eller 'trekk ut handlingspunkter i detalj'.",
+    "ld": {
+      "headline": "AI Edit: Omform møtereferatene dine med én enkel instruksjon",
+      "description": "En introduksjon til Minutes.AI sin AI Edit-funksjon som lar brukere forbedre automatisk genererte referater med instruksjoner på naturlig språk."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Hjemmeside"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Ny funksjon"
+  },
+  "hero": {
+    "kicker": "Ny funksjon",
+    "h1": "AI Edit: Dine referater nøyaktig slik du vil ha dem",
+    "tagline": "Automatisk genererte møtereferater er en flott start — men sjelden perfekte på første forsøk. Med AI Edit kan du nå forbedre, omstrukturere og tilpasse referatene dine med enkle instruksjoner på naturlig språk. Fortell AI-en hva du trenger, og se referatene dine forvandle seg.",
+    "subtag": "Slutt med kjedelige manuelle endringer. Én enkel instruksjon forvandler råe referater til et polert, formålsrettet dokument.",
+    "badges": ["Redigering på naturlig språk", "Umiddelbar forbedring", "Kontekstbevisst"]
+  },
+
+  "problem": {
+    "h2": "Problemet med det «nesten perfekte»",
+    "p1": "AI-genererte møtereferater er utrolig nyttige — de fanger diskusjoner, beslutninger og handlingspunkter automatisk. Men det har alltid vært et gap mellom det AI-en produserer og det du faktisk trenger.",
+    "p2": "Kanskje formatet ikke passer teamets stil. Kanskje er det for utfyllende for en rask ledelsesrapport, eller for kort når du trenger detaljerte handlingspunkter. Frem til nå var eneste alternativ å omskrive manuelt — som undergraver hele hensikten med å bruke AI.",
+    "quote": "\"AI-oppsummeringen er bra, men jeg ender alltid med å bruke 15 minutter på å tilpasse den.\""
+  },
+
+  "solution": {
+    "h2": "Bare fortell AI-en hva du vil ha",
+    "p1": "**AI Edit** endrer alt. I stedet for å redigere referatene dine linje for linje, gir du bare AI-en en instruksjon på naturlig språk — og den omstrukturerer hele dokumentet for deg.",
+    "p2": "Det er som å ha en personlig redaktør som forstår kontekst, tone og formål. Enten du trenger en fullstendig omskriving eller en subtil justering, håndterer AI Edit det uanstrengt.",
+    "highlights": [
+      "**\"Gjør det ledelsesklart\"** — Fjerner detaljer og fremhever viktige beslutninger og resultater.",
+      "**\"Gjør det mer konsist\"** — Fjerner gjentakelser og beholder alle kritiske punkter.",
+      "**\"Trekk ut detaljerte handlingspunkter\"** — Identifiserer detaljerte oppgaver med ansvarlige og frister.",
+      "**\"Omskriv for ingeniørteamet\"** — Tilpasser tone og fokus for et teknisk publikum.",
+      "**\"Legg til et sammendrag øverst\"** — Genererer en kort oversikt uten å endre brødteksten."
+    ]
+  },
+
+  "usps": {
+    "h2": "Hvorfor AI Edit er banebrytende",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Endelig løst det evige problemet",
+        "desc": "Andre AI-referattjenester genererer notater og stopper der. AI Edit går lenger — den lar deg fortsette å forbedre til resultatet matcher nøyaktig det du hadde i tankene."
+      },
+      {
+        "icon": "message",
+        "title": "Naturlig språk, ingen læringskurve",
+        "desc": "Ingen maler. Ingen nedtrekksmenyer. Ingen kompliserte innstillinger. Skriv bare hva du vil på vanlig norsk, og AI Edit forstår intensjonen din."
+      },
+      {
+        "icon": "refresh",
+        "title": "Rediger så mange ganger du vil",
+        "desc": "Ikke fornøyd med det første resultatet? Gi en ny instruksjon. Du kan forbedre det samme dokumentet igjen og igjen — uten begrensning."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Enkle, transparente priser",
+    "p1": "AI Edit er tilgjengelig på alle Minutes.AI-planer. Velg planen som passer arbeidsflyten din.",
+    "trial": { "name": "Prøvepakke", "detail": "120 min", "foot": "$1.99 (Utløper ikke)" },
+    "light": { "name": "Light-pakke", "detail": "1200 min", "foot": "$11.99 (Utløper ikke)" },
+    "monthly": { "name": "Månedlig", "detail": "Ubegrenset", "foot": "$16.99 / md." },
+    "annual": { "name": "Årlig", "detail": "Ubegrenset", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis daglig billett", "text": "Prøv gratis i 3 minutter hver dag — ingen kredittkort nødvendig." },
+    "bullets": [
+      "**Tidspakker**: Perfekte for sporadisk bruk — minuttene utløper aldri.",
+      "**Abonnement**: Ubegrenset opptak og redigering for superbrukere.",
+      "**100+ språk**: Ta opp og rediger referater på over 100 språk."
+    ],
+    "foot": {
+      "pre": "* Priser vist i {currency}.",
+      "post": "Avgifter kan tilkomme ved betaling."
+    }
+  },
+
+  "cta": {
+    "h2": "Prøv AI Edit nå",
+    "text": "Ta opp et møte, generer referatene dine og prøv AI Edit. Du vil lure på hvordan du noen gang klarte deg uten.",
+    "openBrowser": "Åpne Minutes.AI (Web)",
+    "downloadIOS": "Last ned iOS-appen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publisert",
+    "type": "Funksjon",
+    "category": "Produktoppdatering"
+  }
+}

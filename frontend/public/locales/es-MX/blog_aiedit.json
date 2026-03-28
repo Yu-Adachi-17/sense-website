@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Transforma las minutas de tus juntas con una sola instrucción | Minutes.AI",
+    "description": "La nueva función AI Edit de Minutes.AI te permite refinar, reestructurar y personalizar las minutas generadas automáticamente con instrucciones en lenguaje natural. Hazlas ejecutivas, concisas o enfocadas en acciones al instante.",
+    "ogTitle": "AI Edit: Tus minutas, a tu manera — con el poder de la IA",
+    "ogDescription": "Deja de conformarte con notas de junta genéricas. AI Edit te permite transformar las minutas con instrucciones simples como 'hazlo conciso' o 'extrae las tareas a detalle'.",
+    "ld": {
+      "headline": "AI Edit: Transforma las minutas de tus juntas con una sola instrucción",
+      "description": "Presentación de la función AI Edit de Minutes.AI que permite a los usuarios refinar minutas generadas automáticamente mediante instrucciones en lenguaje natural."
+    }
+  },
+  "aria": {
+    "home": "Inicio de Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nueva función"
+  },
+  "hero": {
+    "kicker": "Nueva función",
+    "h1": "AI Edit: Tus minutas exactamente como las necesitas",
+    "tagline": "Las minutas de juntas generadas automáticamente son un gran punto de partida, pero rara vez quedan perfectas a la primera. Con AI Edit, ahora puedes refinar, reestructurar y personalizar tus minutas con instrucciones sencillas en lenguaje natural. Dile a la IA lo que necesitas y observa cómo se transforman tus minutas.",
+    "subtag": "Se acabaron las tediosas ediciones manuales. Una sola instrucción convierte minutas en bruto en un documento pulido y adaptado a tus necesidades.",
+    "badges": ["Edición en lenguaje natural", "Refinamiento instantáneo", "Comprensión del contexto"]
+  },
+
+  "problem": {
+    "h2": "El problema del «casi perfecto»",
+    "p1": "Las minutas de juntas generadas por IA son increíblemente útiles: capturan automáticamente las discusiones, decisiones y tareas. Pero siempre ha habido una brecha entre lo que produce la IA y lo que realmente necesitas.",
+    "p2": "Quizá el formato no va con el estilo de tu equipo. Quizá es demasiado extenso para un reporte ejecutivo rápido, o muy breve cuando necesitas tareas detalladas. Hasta ahora, la única opción era reescribirlo a mano, lo cual le quita todo el sentido a usar IA.",
+    "quote": "«El resumen de la IA está bien, pero siempre termino dedicando 15 minutos a retocarlo.»"
+  },
+
+  "solution": {
+    "h2": "Simplemente dile a la IA lo que quieres",
+    "p1": "**AI Edit** lo cambia todo. En lugar de editar tus minutas línea por línea, solo tienes que dar una instrucción en lenguaje natural, y la IA reestructura todo el documento por ti.",
+    "p2": "Es como tener un editor personal que entiende el contexto, el tono y el propósito. Ya sea una reescritura completa o un ajuste sutil, AI Edit lo maneja sin esfuerzo.",
+    "highlights": [
+      "**«Hazlo apto para dirección»** — Elimina los detalles y destaca las decisiones y resultados clave.",
+      "**«Hazlo más conciso»** — Elimina redundancias sin perder ningún punto importante.",
+      "**«Extrae las tareas a detalle»** — Genera una lista detallada de tareas con responsables y plazos.",
+      "**«Reescríbelo para el equipo de ingeniería»** — Ajusta el tono y el enfoque para un público técnico.",
+      "**«Agrega un resumen al inicio»** — Genera una síntesis breve sin alterar el contenido."
+    ]
+  },
+
+  "usps": {
+    "h2": "Por qué AI Edit marca la diferencia",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Por fin se resuelve el eterno problema",
+        "desc": "Otros servicios de minutas con IA generan notas y ahí se quedan. AI Edit va más allá: te permite seguir refinando hasta que el resultado sea exactamente lo que tenías en mente."
+      },
+      {
+        "icon": "message",
+        "title": "Lenguaje natural, sin curva de aprendizaje",
+        "desc": "Sin plantillas. Sin menús desplegables. Sin configuraciones complicadas. Escribe lo que quieres en lenguaje cotidiano y AI Edit entenderá tu intención."
+      },
+      {
+        "icon": "refresh",
+        "title": "Modifica tantas veces como quieras",
+        "desc": "¿No te convence el primer resultado? Da otra instrucción. Puedes refinar el mismo documento una y otra vez, sin límite."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Precios sencillos y transparentes",
+    "p1": "AI Edit está disponible en todos los planes de Minutes.AI. Elige el que mejor se adapte a tu forma de trabajar.",
+    "trial": { "name": "Paquete de Prueba", "detail": "120 min", "foot": "$1.99 (Sin caducidad)" },
+    "light": { "name": "Paquete Light", "detail": "1200 min", "foot": "$11.99 (Sin caducidad)" },
+    "monthly": { "name": "Mensual", "detail": "Ilimitado", "foot": "$16.99 / mes" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / año" },
+    "free": { "badge": "Ticket diario gratuito", "text": "Pruébalo gratis durante 3 minutos cada día — sin tarjeta de crédito." },
+    "bullets": [
+      "**Paquetes de tiempo**: Ideales para uso ocasional — los minutos no caducan nunca.",
+      "**Suscripciones**: Grabación y edición ilimitadas para usuarios frecuentes.",
+      "**Más de 100 idiomas**: Graba y edita minutas en más de 100 idiomas."
+    ],
+    "foot": {
+      "pre": "* Precios mostrados en {currency}.",
+      "post": "Pueden aplicarse impuestos en el momento del pago."
+    }
+  },
+
+  "cta": {
+    "h2": "Prueba AI Edit ahora",
+    "text": "Graba una junta, genera tus minutas y prueba AI Edit. Te preguntarás cómo pudiste trabajar sin él.",
+    "openBrowser": "Abrir Minutes.AI (Web)",
+    "downloadIOS": "Descargar app para iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Función",
+    "category": "Actualización de producto"
+  }
+}
