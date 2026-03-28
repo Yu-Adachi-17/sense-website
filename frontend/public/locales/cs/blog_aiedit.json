@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Přetvořte zápisy z jednání jediným pokynem | Minutes.AI",
+    "description": "Nová funkce AI Edit od Minutes.AI vám umožní upravovat, restrukturalizovat a přizpůsobit automaticky generované zápisy z jednání pomocí pokynů v přirozeném jazyce. Okamžitě je upravte pro vedení, zkraťte nebo zaměřte na úkoly.",
+    "ogTitle": "AI Edit: Vaše zápisy, vaše pravidla — s pomocí AI",
+    "ogDescription": "Přestaňte se spokojovat s obecnými poznámkami z jednání. AI Edit vám umožní přetvořit zápisy jednoduchými pokyny jako 'zkrať to' nebo 'vytáhni podrobné úkoly'.",
+    "ld": {
+      "headline": "AI Edit: Přetvořte zápisy z jednání jediným pokynem",
+      "description": "Představení funkce AI Edit od Minutes.AI, která uživatelům umožňuje upravovat automaticky generované zápisy pomocí pokynů v přirozeném jazyce."
+    }
+  },
+  "aria": {
+    "home": "Domovská stránka Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nová funkce"
+  },
+  "hero": {
+    "kicker": "Nová funkce",
+    "h1": "AI Edit: Vaše zápisy přesně tak, jak je potřebujete",
+    "tagline": "Automaticky generované zápisy z jednání jsou skvělý začátek — ale málokdy jsou dokonalé na první pokus. S AI Edit můžete své zápisy upravovat, restrukturalizovat a přizpůsobit pomocí jednoduchých pokynů v přirozeném jazyce. Řekněte AI, co potřebujete, a sledujte proměnu svých zápisů.",
+    "subtag": "Žádné zdlouhavé ruční úpravy. Jediný pokyn promění surové zápisy v uhlazený, účelový dokument.",
+    "badges": ["Editace v přirozeném jazyce", "Okamžité úpravy", "Rozumí kontextu"]
+  },
+
+  "problem": {
+    "h2": "Problém ‚skoro dokonalého'",
+    "p1": "Zápisy z jednání generované AI jsou nesmírně užitečné — automaticky zachycují diskuse, rozhodnutí a úkoly. Ale vždy tu byl rozdíl mezi tím, co AI vytvoří, a tím, co skutečně potřebujete.",
+    "p2": "Možná formát neodpovídá stylu vašeho týmu. Možná je to příliš rozvláčné pro stručnou zprávu pro vedení, nebo naopak příliš stručné, když potřebujete podrobné úkoly. Dosud jedinou možností bylo ruční přepisování — což maří celý smysl používání AI.",
+    "quote": "\u201EShrnutí od AI je dobré, ale vždycky nad ním strávím 15 minut úpravami.\u201C"
+  },
+
+  "solution": {
+    "h2": "Stačí říct AI, co chcete",
+    "p1": "**AI Edit** mění pravidla hry. Místo ručního upravování zápisů řádek po řádku jednoduše zadáte pokyn v přirozeném jazyce — a AI restrukturalizuje celý dokument za vás.",
+    "p2": "Je to jako mít osobního editora, který rozumí kontextu, tónu i účelu. Ať potřebujete kompletní přepis nebo drobnou úpravu, AI Edit to zvládne bez námahy.",
+    "highlights": [
+      "**\u201EUprav to pro vedení\u201C** — Odstraní detaily a zvýrazní klíčová rozhodnutí a výsledky.",
+      "**\u201EZkrať to\u201C** — Odstraní nadbytečnosti a zachová všechny důležité body.",
+      "**\u201EVytáhni podrobné úkoly\u201C** — Extrahuje detailní seznam úkolů s odpovědnými osobami a termíny.",
+      "**\u201EPřepiš to pro vývojový tým\u201C** — Přizpůsobí tón a zaměření technickému publiku.",
+      "**\u201EPřidej shrnutí na začátek\u201C** — Vygeneruje stručný přehled bez změny obsahu."
+    ]
+  },
+
+  "usps": {
+    "h2": "Proč je AI Edit revoluční",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Konečně vyřešený věčný problém",
+        "desc": "Ostatní služby pro AI zápisy vygenerují poznámky a tím to končí. AI Edit jde dál — umožňuje vám zdokonalovat výstup, dokud přesně neodpovídá vašim představám."
+      },
+      {
+        "icon": "message",
+        "title": "Přirozený jazyk, žádné učení",
+        "desc": "Žádné šablony. Žádné rozbalovací nabídky. Žádné složité nastavení. Jednoduše napište, co chcete, a AI Edit pochopí váš záměr."
+      },
+      {
+        "icon": "refresh",
+        "title": "Upravujte, kolikrát chcete",
+        "desc": "Nejste spokojení s prvním výsledkem? Zadejte další pokyn. Tentýž dokument můžete vylepšovat znovu a znovu — bez limitu."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Jednoduché a transparentní ceny",
+    "p1": "AI Edit je dostupný ve všech tarifech Minutes.AI. Vyberte si tarif, který vyhovuje vašemu stylu práce.",
+    "trial": { "name": "Zkušební balíček", "detail": "120 min", "foot": "$1.99 (bez expirace)" },
+    "light": { "name": "Lehký balíček", "detail": "1200 min", "foot": "$11.99 (bez expirace)" },
+    "monthly": { "name": "Měsíční", "detail": "Neomezeně", "foot": "$16.99 / měs." },
+    "annual": { "name": "Roční", "detail": "Neomezeně", "foot": "$149.99 / rok" },
+    "free": { "badge": "Denní lístek zdarma", "text": "Vyzkoušejte zdarma na 3 minuty každý den — bez platební karty." },
+    "bullets": [
+      "**Časové balíčky**: Ideální pro příležitostné použití — minuty nikdy nevyprší.",
+      "**Předplatné**: Neomezené nahrávání a editace pro náročné uživatele.",
+      "**100+ jazyků**: Nahrávejte a editujte zápisy ve více než 100 jazycích."
+    ],
+    "foot": {
+      "pre": "* Ceny jsou uvedeny v {currency}.",
+      "post": "Při platbě může být účtována daň."
+    }
+  },
+
+  "cta": {
+    "h2": "Vyzkoušejte AI Edit",
+    "text": "Nahrajte jednání, vygenerujte zápis a vyzkoušejte AI Edit. Budete se divit, jak jste bez něj mohli pracovat.",
+    "openBrowser": "Otevřít Minutes.AI (web)",
+    "downloadIOS": "Stáhnout iOS aplikaci"
+  },
+
+  "meta": {
+    "h2": "Informace o článku",
+    "published": "Publikováno",
+    "type": "Funkce",
+    "category": "Aktualizace produktu"
+  }
+}

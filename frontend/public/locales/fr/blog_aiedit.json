@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit : Transformez vos comptes rendus de réunion en une seule instruction | Minutes.AI",
+    "description": "La nouvelle fonctionnalité AI Edit de Minutes.AI vous permet d'affiner, restructurer et personnaliser vos comptes rendus générés automatiquement grâce à des instructions en langage naturel. Rendez-les synthétiques, exécutifs ou orientés actions instantanément.",
+    "ogTitle": "AI Edit : Vos comptes rendus, à votre façon — propulsés par l'IA",
+    "ogDescription": "Fini les notes de réunion génériques. AI Edit transforme vos comptes rendus avec des instructions simples comme 'résume' ou 'extrais les actions en détail'.",
+    "ld": {
+      "headline": "AI Edit : Transformez vos comptes rendus de réunion en une seule instruction",
+      "description": "Présentation de la fonctionnalité AI Edit de Minutes.AI qui permet aux utilisateurs d'affiner les comptes rendus générés automatiquement grâce à des instructions en langage naturel."
+    }
+  },
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nouvelle fonctionnalité"
+  },
+  "hero": {
+    "kicker": "Nouvelle fonctionnalité",
+    "h1": "AI Edit : Vos comptes rendus exactement comme vous les voulez",
+    "tagline": "Les comptes rendus de réunion générés automatiquement sont un excellent point de départ — mais rarement parfaits du premier coup. Avec AI Edit, vous pouvez désormais affiner, restructurer et personnaliser vos comptes rendus avec de simples instructions en langage naturel. Dites à l'IA ce dont vous avez besoin et regardez vos comptes rendus se transformer.",
+    "subtag": "Fini les modifications manuelles fastidieuses. Une seule instruction transforme un brouillon en document soigné et adapté à vos besoins.",
+    "badges": ["Édition en langage naturel", "Amélioration instantanée", "Sensible au contexte"]
+  },
+
+  "problem": {
+    "h2": "Le problème du « presque parfait »",
+    "p1": "Les comptes rendus générés par l'IA sont incroyablement utiles — ils capturent automatiquement les discussions, les décisions et les actions. Mais il y a toujours un écart entre ce que l'IA produit et ce dont vous avez réellement besoin.",
+    "p2": "Le format ne correspond peut-être pas au style de votre équipe. C'est peut-être trop détaillé pour un rapport exécutif rapide, ou trop bref quand vous avez besoin d'actions précises. Jusqu'ici, la seule solution était de tout réécrire manuellement — ce qui annule l'intérêt même de l'IA.",
+    "quote": "« Le résumé de l'IA est bien, mais je passe toujours 15 minutes à le retoucher. »"
+  },
+
+  "solution": {
+    "h2": "Dites simplement à l'IA ce que vous voulez",
+    "p1": "**AI Edit** change la donne. Au lieu de modifier vos comptes rendus ligne par ligne, donnez simplement une instruction en langage naturel à l'IA — et elle restructure tout le document pour vous.",
+    "p2": "C'est comme avoir un rédacteur personnel qui comprend le contexte, le ton et l'objectif. Que vous ayez besoin d'une réécriture complète ou d'un ajustement subtil, AI Edit s'en charge sans effort.",
+    "highlights": [
+      "**« Rends-le adapté à la direction »** — Supprime les détails et met en avant les décisions clés et les résultats.",
+      "**« Rends-le plus concis »** — Élimine les redondances tout en préservant chaque point essentiel.",
+      "**« Extrais les actions en détail »** — Identifie les tâches précises avec responsables et échéances.",
+      "**« Réécris pour l'équipe technique »** — Adapte le ton et l'orientation pour un public technique.",
+      "**« Ajoute un résumé en haut »** — Génère une synthèse rapide sans modifier le corps du document."
+    ]
+  },
+
+  "usps": {
+    "h2": "Pourquoi AI Edit change tout",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Le problème récurrent enfin résolu",
+        "desc": "Les autres services de comptes rendus IA génèrent des notes et s'arrêtent là. AI Edit va plus loin — il vous permet de continuer à affiner jusqu'à ce que le résultat corresponde exactement à vos attentes."
+      },
+      {
+        "icon": "message",
+        "title": "Langage naturel, aucune courbe d'apprentissage",
+        "desc": "Pas de modèles. Pas de menus déroulants. Pas de réglages compliqués. Tapez simplement ce que vous voulez et AI Edit comprend votre intention."
+      },
+      {
+        "icon": "refresh",
+        "title": "Modifiez autant de fois que vous le souhaitez",
+        "desc": "Le premier résultat ne vous convient pas ? Donnez une autre instruction. Vous pouvez affiner le même document encore et encore — sans aucune limite."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Tarification simple et transparente",
+    "p1": "AI Edit est disponible dans toutes les formules Minutes.AI. Choisissez celle qui correspond à votre façon de travailler.",
+    "trial": { "name": "Pack Découverte", "detail": "120 min", "foot": "$1.99 (Sans expiration)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (Sans expiration)" },
+    "monthly": { "name": "Mensuel", "detail": "Illimité", "foot": "$16.99 / mois" },
+    "annual": { "name": "Annuel", "detail": "Illimité", "foot": "$149.99 / an" },
+    "free": { "badge": "Ticket gratuit quotidien", "text": "Essayez gratuitement pendant 3 minutes chaque jour — sans carte bancaire." },
+    "bullets": [
+      "**Packs de temps** : Idéaux pour un usage occasionnel — les minutes n'expirent jamais.",
+      "**Abonnements** : Enregistrement et édition illimités pour les utilisateurs intensifs.",
+      "**100+ langues** : Enregistrez et éditez vos comptes rendus dans plus de 100 langues."
+    ],
+    "foot": {
+      "pre": "* Prix affichés en {currency}.",
+      "post": "Des taxes peuvent s'appliquer lors du paiement."
+    }
+  },
+
+  "cta": {
+    "h2": "Essayez AI Edit maintenant",
+    "text": "Enregistrez une réunion, générez votre compte rendu et testez AI Edit. Vous vous demanderez comment vous avez pu travailler sans.",
+    "openBrowser": "Ouvrir Minutes.AI (Web)",
+    "downloadIOS": "Télécharger l'app iOS"
+  },
+
+  "meta": {
+    "h2": "Méta",
+    "published": "Publié",
+    "type": "Fonctionnalité",
+    "category": "Mise à jour produit"
+  }
+}

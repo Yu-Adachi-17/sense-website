@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Omforma dina mötesprotokoll med en enda instruktion | Minutes.AI",
+    "description": "Minutes.AI:s nya AI Edit-funktion låter dig förfina, omstrukturera och anpassa automatiskt genererade mötesprotokoll med instruktioner på naturligt språk. Gör dem chefsanpassade, koncisa eller åtgärdsinriktade direkt.",
+    "ogTitle": "AI Edit: Dina protokoll, på ditt sätt — drivna av AI",
+    "ogDescription": "Nöj dig inte med generiska mötesanteckningar. AI Edit låter dig omforma protokoll med enkla instruktioner som 'gör det kortare' eller 'extrahera åtgärdspunkter i detalj'.",
+    "ld": {
+      "headline": "AI Edit: Omforma dina mötesprotokoll med en enda instruktion",
+      "description": "En introduktion till Minutes.AI:s AI Edit-funktion som låter användare förfina automatiskt genererade protokoll med instruktioner på naturligt språk."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Startsida"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Ny funktion"
+  },
+  "hero": {
+    "kicker": "Ny funktion",
+    "h1": "AI Edit: Dina protokoll precis som du vill ha dem",
+    "tagline": "Automatiskt genererade mötesprotokoll är en utmärkt start — men sällan perfekta på första försöket. Med AI Edit kan du nu förfina, omstrukturera och anpassa dina protokoll med enkla instruktioner på naturligt språk. Berätta för AI:n vad du behöver och se dina protokoll förvandlas.",
+    "subtag": "Slut med tråkiga manuella redigeringar. En enda instruktion förvandlar råprotokoll till ett polerat, ändamålsenligt dokument.",
+    "badges": ["Redigering på naturligt språk", "Omedelbar förfining", "Kontextmedveten"]
+  },
+
+  "problem": {
+    "h2": "Problemet med det 'nästan perfekta'",
+    "p1": "AI-genererade mötesprotokoll är otroligt användbara — de fångar diskussioner, beslut och åtgärdspunkter automatiskt. Men det har alltid funnits ett gap mellan vad AI:n producerar och vad du faktiskt behöver.",
+    "p2": "Kanske passar formatet inte ditt teams stil. Kanske är det för utförligt för en snabb chefsrapport, eller för kortfattat när du behöver detaljerade åtgärdspunkter. Hittills var det enda alternativet att manuellt skriva om — vilket motverkar hela poängen med att använda AI.",
+    "quote": "\"AI-sammanfattningen är bra, men jag lägger alltid 15 minuter på att justera den.\""
+  },
+
+  "solution": {
+    "h2": "Berätta bara för AI:n vad du vill ha",
+    "p1": "**AI Edit** förändrar allt. Istället för att manuellt redigera dina protokoll rad för rad ger du helt enkelt AI:n en instruktion på naturligt språk — och den omstrukturerar hela dokumentet åt dig.",
+    "p2": "Det är som att ha en personlig redaktör som förstår kontext, ton och syfte. Oavsett om du behöver en komplett omskrivning eller en subtil justering, hanterar AI Edit det utan ansträngning.",
+    "highlights": [
+      "**\"Gör det chefsanpassat\"** — Tar bort detaljer och lyfter fram viktiga beslut och resultat.",
+      "**\"Gör det mer koncist\"** — Tar bort överflöd och bevarar alla kritiska punkter.",
+      "**\"Extrahera detaljerade åtgärdspunkter\"** — Plockar ut detaljerade uppgifter med ansvariga och deadlines.",
+      "**\"Skriv om för teknikteamet\"** — Anpassar ton och fokus för en teknisk publik.",
+      "**\"Lägg till en sammanfattning överst\"** — Genererar en kort översikt utan att ändra brödtexten."
+    ]
+  },
+
+  "usps": {
+    "h2": "Varför AI Edit är banbrytande",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Äntligen löst det eviga problemet",
+        "desc": "Andra AI-protokolltjänster genererar anteckningar och stannar där. AI Edit går längre — det låter dig fortsätta förfina tills resultatet matchar exakt det du hade i åtanke."
+      },
+      {
+        "icon": "message",
+        "title": "Naturligt språk, ingen inlärningskurva",
+        "desc": "Inga mallar. Inga dropdown-menyer. Inga komplicerade inställningar. Skriv bara vad du vill på vanlig svenska och AI Edit förstår din avsikt."
+      },
+      {
+        "icon": "refresh",
+        "title": "Redigera hur många gånger du vill",
+        "desc": "Inte nöjd med första redigeringen? Ge en ny instruktion. Du kan förfina samma dokument om och om igen — det finns ingen gräns."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Enkla, transparenta priser",
+    "p1": "AI Edit finns tillgängligt i alla Minutes.AI-planer. Välj den plan som passar ditt arbetsflöde.",
+    "trial": { "name": "Testpaket", "detail": "120 min", "foot": "$1.99 (Ingen utgångstid)" },
+    "light": { "name": "Light-paket", "detail": "1200 min", "foot": "$11.99 (Ingen utgångstid)" },
+    "monthly": { "name": "Månadsvis", "detail": "Obegränsat", "foot": "$16.99 / mån" },
+    "annual": { "name": "Årsvis", "detail": "Obegränsat", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis daglig biljett", "text": "Testa gratis i 3 minuter varje dag — inget kreditkort krävs." },
+    "bullets": [
+      "**Tidspaket**: Perfekta för tillfällig användning — minuterna löper aldrig ut.",
+      "**Prenumerationer**: Obegränsad inspelning och redigering för frekventa användare.",
+      "**100+ språk**: Spela in och redigera protokoll på över 100 språk."
+    ],
+    "foot": {
+      "pre": "* Priser visas i {currency}.",
+      "post": "Moms kan tillkomma vid betalning."
+    }
+  },
+
+  "cta": {
+    "h2": "Testa AI Edit nu",
+    "text": "Spela in ett möte, generera dina protokoll och prova AI Edit. Du kommer att undra hur du någonsin klarade dig utan.",
+    "openBrowser": "Öppna Minutes.AI (Webb)",
+    "downloadIOS": "Ladda ner iOS-appen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Funktion",
+    "category": "Produktuppdatering"
+  }
+}

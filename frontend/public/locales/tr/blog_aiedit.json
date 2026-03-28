@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Toplantı Tutanaklarınızı Tek Bir Komutla Dönüştürün | Minutes.AI",
+    "description": "Minutes.AI'ın yeni AI Edit özelliği, otomatik oluşturulan toplantı tutanaklarını doğal dil komutlarıyla iyileştirmenize, yeniden yapılandırmanıza ve özelleştirmenize olanak tanır. Anında yönetici özeti, özet veya görev odaklı hale getirin.",
+    "ogTitle": "AI Edit: Tutanaklarınız, İstediğiniz Gibi — Yapay Zeka Destekli",
+    "ogDescription": "Genel geçer toplantı notlarıyla yetinmeyin. AI Edit, 'kısalt' veya 'görevleri ayrıntılı çıkar' gibi basit komutlarla tutanaklarınızı dönüştürür.",
+    "ld": {
+      "headline": "AI Edit: Toplantı Tutanaklarınızı Tek Bir Komutla Dönüştürün",
+      "description": "Kullanıcıların otomatik oluşturulan tutanakları doğal dil komutlarıyla iyileştirmesine olanak tanıyan Minutes.AI'ın AI Edit özelliğinin tanıtımı."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Yeni Özellik"
+  },
+  "hero": {
+    "kicker": "Yeni Özellik",
+    "h1": "AI Edit: Tutanaklarınız Tam İstediğiniz Gibi",
+    "tagline": "Otomatik oluşturulan toplantı tutanakları harika bir başlangıçtır — ama ilk seferde mükemmel olmaları nadirdir. AI Edit ile artık tutanaklarınızı basit doğal dil komutlarıyla iyileştirebilir, yeniden yapılandırabilir ve özelleştirebilirsiniz. Yapay zekaya neye ihtiyacınız olduğunu söyleyin ve tutanaklarınızın dönüşümünü izleyin.",
+    "subtag": "Sıkıcı manuel düzenlemeler artık geride kaldı. Tek bir komut, ham tutanakları cilalı, amaca yönelik bir belgeye dönüştürür.",
+    "badges": ["Doğal Dil ile Düzenleme", "Anında İyileştirme", "Bağlam Farkındalığı"]
+  },
+
+  "problem": {
+    "h2": "'Neredeyse Mükemmel' Sorunu",
+    "p1": "Yapay zeka tarafından oluşturulan toplantı tutanakları inanılmaz derecede faydalıdır — tartışmaları, kararları ve görevleri otomatik olarak yakalar. Ancak yapay zekanın ürettiği ile gerçekten ihtiyacınız olan arasında her zaman bir boşluk olmuştur.",
+    "p2": "Belki format ekibinizin tarzına uymuyor. Belki hızlı bir yönetici raporu için çok ayrıntılı ya da detaylı görevlere ihtiyacınız olduğunda çok kısa. Şimdiye kadar tek seçenek elle yeniden yazmaktı — bu da yapay zeka kullanmanın amacını ortadan kaldırır.",
+    "quote": "\"Yapay zeka özeti iyi, ama her seferinde 15 dakika düzeltme yapıyorum.\""
+  },
+
+  "solution": {
+    "h2": "Yapay Zekaya Ne İstediğinizi Söyleyin",
+    "p1": "**AI Edit** her şeyi değiştiriyor. Tutanaklarınızı satır satır düzenlemek yerine, yapay zekaya doğal dilde bir komut vermeniz yeterli — tüm belgeyi sizin için yeniden yapılandırır.",
+    "p2": "Bağlamı, tonu ve amacı anlayan kişisel bir editörünüz varmış gibi. İster tam bir yeniden yazım ister ince bir ayar olsun, AI Edit bunu zahmetsizce halleder.",
+    "highlights": [
+      "**\"Yönetim için uygun hale getir\"** — Ayrıntıları kaldırır, kilit kararları ve sonuçları öne çıkarır.",
+      "**\"Daha kısa yap\"** — Tekrarları kaldırır, tüm kritik noktaları korur.",
+      "**\"Ayrıntılı görevleri çıkar\"** — Sorumluları ve son tarihleri içeren detaylı görev listesi oluşturur.",
+      "**\"Mühendislik ekibi için yeniden yaz\"** — Tonu ve odağı teknik kitleye uyarlar.",
+      "**\"Başa bir özet ekle\"** — Ana metni değiştirmeden kısa bir genel bakış oluşturur."
+    ]
+  },
+
+  "usps": {
+    "h2": "AI Edit Neden Devrim Niteliğinde",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Kronik Sorun Sonunda Çözüldü",
+        "desc": "Diğer yapay zeka tutanak servisleri notları oluşturur ve orada bırakır. AI Edit daha ileri gider — sonuç tam olarak istediğinizle eşleşene kadar iyileştirmeye devam etmenize olanak tanır."
+      },
+      {
+        "icon": "message",
+        "title": "Doğal Dil, Öğrenme Gerektirmez",
+        "desc": "Şablon yok. Açılır menü yok. Karmaşık ayar yok. İstediğinizi günlük dilinizle yazın, AI Edit niyetinizi anlar."
+      },
+      {
+        "icon": "refresh",
+        "title": "İstediğiniz Kadar Düzenleyin",
+        "desc": "İlk sonuçtan memnun değil misiniz? Başka bir komut verin. Aynı belgeyi sınırsızca iyileştirebilirsiniz."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Basit ve Şeffaf Fiyatlandırma",
+    "p1": "AI Edit tüm Minutes.AI planlarında kullanılabilir. İş akışınıza uygun planı seçin.",
+    "trial": { "name": "Deneme Paketi", "detail": "120 min", "foot": "$1.99 (Süresiz)" },
+    "light": { "name": "Light Paketi", "detail": "1200 min", "foot": "$11.99 (Süresiz)" },
+    "monthly": { "name": "Aylık", "detail": "Sınırsız", "foot": "$16.99 / ay" },
+    "annual": { "name": "Yıllık", "detail": "Sınırsız", "foot": "$149.99 / yıl" },
+    "free": { "badge": "Ücretsiz Günlük Bilet", "text": "Her gün 3 dakika ücretsiz deneyin — kredi kartı gerekmez." },
+    "bullets": [
+      "**Zaman Paketleri**: Ara sıra kullanım için ideal — dakikalar asla sona ermez.",
+      "**Abonelikler**: Yoğun kullanıcılar için sınırsız kayıt ve düzenleme.",
+      "**100+ Dil**: 100'den fazla dilde tutanak kaydedin ve düzenleyin."
+    ],
+    "foot": {
+      "pre": "* Fiyatlar {currency} cinsinden gösterilmektedir.",
+      "post": "Ödeme sırasında vergiler uygulanabilir."
+    }
+  },
+
+  "cta": {
+    "h2": "AI Edit'i Şimdi Deneyin",
+    "text": "Bir toplantı kaydedin, tutanaklarınızı oluşturun ve AI Edit'i deneyin. Onsuz nasıl çalıştığınıza şaşıracaksınız.",
+    "openBrowser": "Minutes.AI'ı Aç (Web)",
+    "downloadIOS": "iOS Uygulamasını İndir"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlanma Tarihi",
+    "type": "Özellik",
+    "category": "Ürün Güncellemesi"
+  }
+}

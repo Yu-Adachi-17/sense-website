@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Besprechungsprotokolle mit einem einzigen Befehl umgestalten | Minutes.AI",
+    "description": "Die neue AI Edit-Funktion von Minutes.AI ermöglicht es Ihnen, automatisch erstellte Besprechungsprotokolle mit natürlichsprachlichen Anweisungen zu verfeinern, umzustrukturieren und anzupassen. Sofort führungstauglich, prägnant oder aktionsorientiert.",
+    "ogTitle": "AI Edit: Ihre Protokolle, ganz nach Ihren Wünschen — mit KI",
+    "ogDescription": "Geben Sie sich nicht mit generischen Besprechungsnotizen zufrieden. AI Edit formt Ihre Protokolle mit einfachen Anweisungen wie 'kürze es' oder 'extrahiere detaillierte Aufgaben' um.",
+    "ld": {
+      "headline": "AI Edit: Besprechungsprotokolle mit einem einzigen Befehl umgestalten",
+      "description": "Einführung der AI Edit-Funktion von Minutes.AI, mit der Benutzer automatisch erstellte Protokolle durch natürlichsprachliche Anweisungen verfeinern können."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Neue Funktion"
+  },
+  "hero": {
+    "kicker": "Neue Funktion",
+    "h1": "AI Edit: Ihre Protokolle genau so, wie Sie sie brauchen",
+    "tagline": "Automatisch erstellte Besprechungsprotokolle sind ein toller Anfang — aber selten beim ersten Mal perfekt. Mit AI Edit können Sie Ihre Protokolle jetzt mit einfachen natürlichsprachlichen Anweisungen verfeinern, umstrukturieren und anpassen. Sagen Sie der KI einfach, was Sie brauchen, und beobachten Sie die Verwandlung.",
+    "subtag": "Schluss mit mühsamen manuellen Korrekturen. Ein einziger Befehl verwandelt Rohprotokolle in ein ausgefeiltes, zweckgerichtetes Dokument.",
+    "badges": ["Natürlichsprachliche Bearbeitung", "Sofortige Verfeinerung", "Kontextbewusst"]
+  },
+
+  "problem": {
+    "h2": "Das Problem des ‚Fast Perfekten'",
+    "p1": "KI-generierte Besprechungsprotokolle sind unglaublich nützlich — sie erfassen Diskussionen, Entscheidungen und Aufgaben automatisch. Doch zwischen dem, was die KI liefert, und dem, was Sie tatsächlich brauchen, klafft immer eine Lücke.",
+    "p2": "Vielleicht passt das Format nicht zum Stil Ihres Teams. Vielleicht ist es für einen schnellen Führungsbericht zu ausführlich oder für detaillierte Aufgaben zu knapp. Bisher blieb nur das manuelle Umschreiben — was den ganzen Sinn der KI-Nutzung zunichtemacht.",
+    "quote": "\u201EDie KI-Zusammenfassung ist gut, aber ich verbringe immer 15 Minuten mit Nachbearbeitung.\u201C"
+  },
+
+  "solution": {
+    "h2": "Sagen Sie der KI einfach, was Sie wollen",
+    "p1": "**AI Edit** ändert alles. Statt Ihre Protokolle Zeile für Zeile manuell zu bearbeiten, geben Sie der KI einfach eine natürlichsprachliche Anweisung — und sie strukturiert das gesamte Dokument für Sie um.",
+    "p2": "Es ist wie ein persönlicher Lektor, der Kontext, Ton und Zweck versteht. Ob komplette Überarbeitung oder feine Anpassung — AI Edit erledigt es mühelos.",
+    "highlights": [
+      "**\u201EMach es führungstauglich\u201C** — Entfernt Details und hebt zentrale Entscheidungen und Ergebnisse hervor.",
+      "**\u201EFasse es kürzer\u201C** — Streicht Redundanzen und bewahrt alle wesentlichen Punkte.",
+      "**\u201EExtrahiere detaillierte Aufgaben\u201C** — Erstellt eine detaillierte Aufgabenliste mit Verantwortlichen und Fristen.",
+      "**\u201ESchreibe es für das Entwicklungsteam um\u201C** — Passt Ton und Fokus für ein technisches Publikum an.",
+      "**\u201EFüge oben eine Zusammenfassung ein\u201C** — Erstellt einen kurzen Überblick, ohne den Rest zu verändern."
+    ]
+  },
+
+  "usps": {
+    "h2": "Warum AI Edit alles verändert",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Endlich das lästige Problem gelöst",
+        "desc": "Andere KI-Protokollservices erstellen Notizen und belassen es dabei. AI Edit geht weiter — es lässt Sie so lange verfeinern, bis das Ergebnis genau Ihren Vorstellungen entspricht."
+      },
+      {
+        "icon": "message",
+        "title": "Natürliche Sprache, keine Einarbeitung",
+        "desc": "Keine Vorlagen. Keine Dropdown-Menüs. Keine komplizierten Einstellungen. Tippen Sie einfach, was Sie möchten, und AI Edit versteht Ihre Absicht."
+      },
+      {
+        "icon": "refresh",
+        "title": "So oft überarbeiten, wie Sie möchten",
+        "desc": "Mit dem ersten Ergebnis nicht zufrieden? Geben Sie eine weitere Anweisung. Sie können dasselbe Dokument beliebig oft verfeinern — ohne Limit."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Einfache, transparente Preise",
+    "p1": "AI Edit ist in allen Minutes.AI-Tarifen verfügbar. Wählen Sie den Tarif, der zu Ihrem Workflow passt.",
+    "trial": { "name": "Testpaket", "detail": "120 min", "foot": "$1.99 (Kein Ablaufdatum)" },
+    "light": { "name": "Light-Paket", "detail": "1200 min", "foot": "$11.99 (Kein Ablaufdatum)" },
+    "monthly": { "name": "Monatlich", "detail": "Unbegrenzt", "foot": "$16.99 / Monat" },
+    "annual": { "name": "Jährlich", "detail": "Unbegrenzt", "foot": "$149.99 / Jahr" },
+    "free": { "badge": "Kostenloses Tagesticket", "text": "Testen Sie es täglich 3 Minuten kostenlos — keine Kreditkarte erforderlich." },
+    "bullets": [
+      "**Zeitpakete**: Ideal für gelegentliche Nutzung — Minuten verfallen nie.",
+      "**Abonnements**: Unbegrenztes Aufnehmen und Bearbeiten für Vielnutzer.",
+      "**100+ Sprachen**: Protokolle in über 100 Sprachen aufnehmen und bearbeiten."
+    ],
+    "foot": {
+      "pre": "* Preise in {currency} angegeben.",
+      "post": "An der Kasse können Steuern anfallen."
+    }
+  },
+
+  "cta": {
+    "h2": "Jetzt AI Edit ausprobieren",
+    "text": "Zeichnen Sie ein Meeting auf, erstellen Sie Ihr Protokoll und testen Sie AI Edit. Sie werden sich fragen, wie Sie jemals ohne gearbeitet haben.",
+    "openBrowser": "Minutes.AI öffnen (Web)",
+    "downloadIOS": "iOS-App herunterladen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Funktion",
+    "category": "Produktupdate"
+  }
+}

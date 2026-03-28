@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Chỉnh sửa biên bản họp chỉ với một câu lệnh | Minutes.AI",
+    "description": "Tính năng AI Edit mới của Minutes.AI cho phép bạn tinh chỉnh, tái cấu trúc và tùy chỉnh biên bản họp được tạo tự động bằng các hướng dẫn ngôn ngữ tự nhiên. Tạo bản tóm tắt cho lãnh đạo, phiên bản ngắn gọn hoặc tập trung vào hành động ngay lập tức.",
+    "ogTitle": "AI Edit: Biên bản của bạn, theo cách của bạn — Được hỗ trợ bởi AI",
+    "ogDescription": "Đừng chấp nhận ghi chú cuộc họp chung chung. AI Edit giúp bạn chuyển đổi biên bản với các lệnh đơn giản như 'tóm tắt lại' hoặc 'trích xuất hành động chi tiết'.",
+    "ld": {
+      "headline": "AI Edit: Chỉnh sửa biên bản họp chỉ với một câu lệnh",
+      "description": "Giới thiệu tính năng AI Edit của Minutes.AI cho phép người dùng tinh chỉnh biên bản được tạo tự động thông qua hướng dẫn ngôn ngữ tự nhiên."
+    }
+  },
+  "aria": {
+    "home": "Trang chủ Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Tính năng mới"
+  },
+  "hero": {
+    "kicker": "Tính năng mới",
+    "h1": "AI Edit: Biên bản của bạn chính xác như bạn muốn",
+    "tagline": "Biên bản họp được tạo tự động là một khởi đầu tuyệt vời — nhưng hiếm khi hoàn hảo ngay lần đầu. Với AI Edit, bạn có thể tinh chỉnh, tái cấu trúc và tùy chỉnh biên bản bằng các hướng dẫn ngôn ngữ tự nhiên đơn giản. Cho AI biết bạn cần gì và xem biên bản của bạn biến đổi.",
+    "subtag": "Không còn phải chỉnh sửa thủ công nhàm chán. Một câu lệnh duy nhất biến biên bản thô thành tài liệu hoàn chỉnh, đúng mục đích.",
+    "badges": ["Chỉnh sửa bằng ngôn ngữ tự nhiên", "Cải thiện tức thì", "Hiểu ngữ cảnh"]
+  },
+
+  "problem": {
+    "h2": "Vấn đề 'gần hoàn hảo'",
+    "p1": "Biên bản họp do AI tạo ra cực kỳ hữu ích — tự động ghi lại thảo luận, quyết định và hành động cần thực hiện. Nhưng luôn có khoảng cách giữa những gì AI tạo ra và những gì bạn thực sự cần.",
+    "p2": "Có thể định dạng không phù hợp với phong cách của nhóm bạn. Có thể quá chi tiết cho báo cáo nhanh cho lãnh đạo, hoặc quá ngắn gọn khi bạn cần các hành động chi tiết. Cho đến nay, cách duy nhất là viết lại thủ công — điều này phủ nhận mục đích sử dụng AI.",
+    "quote": "\"Bản tóm tắt của AI khá tốt, nhưng tôi luôn phải mất 15 phút để chỉnh sửa.\""
+  },
+
+  "solution": {
+    "h2": "Chỉ cần nói cho AI biết bạn muốn gì",
+    "p1": "**AI Edit** thay đổi tất cả. Thay vì chỉnh sửa biên bản từng dòng, bạn chỉ cần đưa ra hướng dẫn bằng ngôn ngữ tự nhiên — và AI sẽ tái cấu trúc toàn bộ tài liệu cho bạn.",
+    "p2": "Giống như có một biên tập viên cá nhân hiểu ngữ cảnh, giọng điệu và mục đích. Dù cần viết lại hoàn toàn hay điều chỉnh tinh tế, AI Edit xử lý dễ dàng.",
+    "highlights": [
+      "**\"Điều chỉnh cho lãnh đạo\"** — Loại bỏ chi tiết và nêu bật các quyết định và kết quả quan trọng.",
+      "**\"Làm ngắn gọn hơn\"** — Loại bỏ phần thừa nhưng giữ nguyên mọi điểm then chốt.",
+      "**\"Trích xuất hành động chi tiết\"** — Tạo danh sách công việc chi tiết với người phụ trách và thời hạn.",
+      "**\"Viết lại cho đội kỹ thuật\"** — Điều chỉnh giọng điệu và trọng tâm phù hợp đối tượng kỹ thuật.",
+      "**\"Thêm tóm tắt ở đầu\"** — Tạo tổng quan ngắn gọn mà không thay đổi nội dung chính."
+    ]
+  },
+
+  "usps": {
+    "h2": "Tại sao AI Edit là bước đột phá",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Vấn đề muôn thuở cuối cùng đã được giải quyết",
+        "desc": "Các dịch vụ biên bản AI khác tạo ghi chú rồi dừng lại. AI Edit đi xa hơn — cho phép bạn tiếp tục tinh chỉnh cho đến khi kết quả khớp chính xác với những gì bạn hình dung."
+      },
+      {
+        "icon": "message",
+        "title": "Ngôn ngữ tự nhiên, không cần học",
+        "desc": "Không cần mẫu. Không cần menu thả xuống. Không cần cài đặt phức tạp. Chỉ cần gõ những gì bạn muốn bằng ngôn ngữ hàng ngày và AI Edit sẽ hiểu ý bạn."
+      },
+      {
+        "icon": "refresh",
+        "title": "Chỉnh sửa bao nhiêu lần tùy ý",
+        "desc": "Chưa hài lòng với kết quả đầu tiên? Đưa ra hướng dẫn khác. Bạn có thể tinh chỉnh cùng một tài liệu nhiều lần — không giới hạn."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Giá đơn giản và minh bạch",
+    "p1": "AI Edit có sẵn trong tất cả các gói Minutes.AI. Chọn gói phù hợp với cách làm việc của bạn.",
+    "trial": { "name": "Gói dùng thử", "detail": "120 min", "foot": "$1.99 (Không hết hạn)" },
+    "light": { "name": "Gói Light", "detail": "1200 min", "foot": "$11.99 (Không hết hạn)" },
+    "monthly": { "name": "Hàng tháng", "detail": "Không giới hạn", "foot": "$16.99 / tháng" },
+    "annual": { "name": "Hàng năm", "detail": "Không giới hạn", "foot": "$149.99 / năm" },
+    "free": { "badge": "Vé miễn phí hàng ngày", "text": "Dùng thử miễn phí 3 phút mỗi ngày — không cần thẻ tín dụng." },
+    "bullets": [
+      "**Gói thời gian**: Lý tưởng cho sử dụng không thường xuyên — phút không bao giờ hết hạn.",
+      "**Đăng ký**: Ghi âm và chỉnh sửa không giới hạn cho người dùng thường xuyên.",
+      "**100+ ngôn ngữ**: Ghi âm và chỉnh sửa biên bản bằng hơn 100 ngôn ngữ."
+    ],
+    "foot": {
+      "pre": "* Giá hiển thị bằng {currency}.",
+      "post": "Thuế có thể được áp dụng khi thanh toán."
+    }
+  },
+
+  "cta": {
+    "h2": "Thử AI Edit ngay",
+    "text": "Ghi âm cuộc họp, tạo biên bản và thử AI Edit. Bạn sẽ tự hỏi trước đây đã làm việc thế nào mà không có nó.",
+    "openBrowser": "Mở Minutes.AI (Web)",
+    "downloadIOS": "Tải ứng dụng iOS"
+  },
+
+  "meta": {
+    "h2": "Thông tin bài viết",
+    "published": "Đã xuất bản",
+    "type": "Tính năng",
+    "category": "Cập nhật sản phẩm"
+  }
+}

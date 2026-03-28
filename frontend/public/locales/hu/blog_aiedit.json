@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Alakítsd át az értekezleti jegyzőkönyveidet egyetlen utasítással | Minutes.AI",
+    "description": "A Minutes.AI új AI Edit funkciója lehetővé teszi, hogy természetes nyelvi utasításokkal finomítsd, átstrukturáld és testreszabd az automatikusan generált értekezleti jegyzőkönyveket. Azonnal vezetői összefoglalót, tömör vagy feladatközpontú verziót készíthetsz.",
+    "ogTitle": "AI Edit: A jegyzőkönyveid, ahogy Te akarod — AI-val",
+    "ogDescription": "Ne elégedj meg sablonos értekezleti jegyzetekkel. Az AI Edit egyszerű utasításokkal alakítja át a jegyzőkönyveidet, mint pl. 'rövidítsd le' vagy 'részletes feladatlista'.",
+    "ld": {
+      "headline": "AI Edit: Alakítsd át az értekezleti jegyzőkönyveidet egyetlen utasítással",
+      "description": "A Minutes.AI AI Edit funkciójának bemutatása, amely természetes nyelvi utasítások segítségével teszi lehetővé az automatikus jegyzőkönyvek finomítását."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Új funkció"
+  },
+  "hero": {
+    "kicker": "Új funkció",
+    "h1": "AI Edit: A jegyzőkönyveid pontosan úgy, ahogy szükséged van rájuk",
+    "tagline": "Az automatikusan generált értekezleti jegyzőkönyvek kiváló kiindulópont — de ritkán tökéletesek elsőre. Az AI Edit segítségével most már egyszerű természetes nyelvi utasításokkal finomíthatod, átstrukturálhatod és testreszabhatod a jegyzőkönyveidet. Mondd el az AI-nak, mire van szükséged, és figyeld a változást.",
+    "subtag": "Vége a fárasztó kézi szerkesztésnek. Egyetlen utasítás átalakítja a nyers jegyzőkönyvet csiszolt, célzott dokumentummá.",
+    "badges": ["Természetes nyelvi szerkesztés", "Azonnali finomítás", "Kontextus-érzékeny"]
+  },
+
+  "problem": {
+    "h2": "A \u201Emajdnem tökéletes\u201D probléma",
+    "p1": "Az AI által generált értekezleti jegyzőkönyvek hihetetlenül hasznosak — automatikusan rögzítik a megbeszéléseket, döntéseket és feladatokat. De mindig volt egy rés aközött, amit az AI készít, és amire valóban szükséged van.",
+    "p2": "Lehet, hogy a formátum nem illik a csapatod stílusához. Lehet, hogy túl részletes egy gyors vezetői jelentéshez, vagy túl rövid, amikor részletes feladatokra van szükség. Eddig az egyetlen lehetőség a kézi átírás volt — ami épp azt az előnyt szünteti meg, amiért az AI-t használod.",
+    "quote": "\u201EAz AI összefoglaló jó, de mindig 15 percet töltök a finomhangolásával.\u201D"
+  },
+
+  "solution": {
+    "h2": "Egyszerűen mondd el az AI-nak, mit szeretnél",
+    "p1": "Az **AI Edit** mindent megváltoztat. Ahelyett, hogy sorról sorra kézzel szerkesztenéd a jegyzőkönyvet, adj az AI-nak egy természetes nyelvi utasítást — és az átstrukturálja az egész dokumentumot helyetted.",
+    "p2": "Olyan, mintha lenne egy személyes szerkesztőd, aki érti a kontextust, a hangnemet és a célt. Legyen szó teljes átírásról vagy finom módosításról, az AI Edit könnyedén megoldja.",
+    "highlights": [
+      "**\u201EKészíts vezetői verziót\u201C** — Eltávolítja a részleteket, kiemeli a kulcsfontosságú döntéseket és eredményeket.",
+      "**\u201ERövidítsd le\u201C** — Eltávolítja a redundanciát, miközben minden lényeges pontot megőriz.",
+      "**\u201ERészletes feladatlista\u201C** — Részletes tennivaló-listát hoz létre felelősökkel és határidőkkel.",
+      "**\u201EÍrd át a fejlesztőcsapat számára\u201C** — A hangnemet és a fókuszt technikai közönséghez igazítja.",
+      "**\u201EAdj hozzá összefoglalót az elejére\u201C** — Rövid áttekintést generál a tartalom módosítása nélkül."
+    ]
+  },
+
+  "usps": {
+    "h2": "Miért forradalmi az AI Edit",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Végre megoldódott az örök probléma",
+        "desc": "Más AI jegyzőkönyv-szolgáltatások létrehozzák a jegyzeteket és ott megállnak. Az AI Edit tovább megy — lehetővé teszi a folyamatos finomítást, amíg az eredmény pontosan nem felel meg az elképzeléseidnek."
+      },
+      {
+        "icon": "message",
+        "title": "Természetes nyelv, tanulási görbe nélkül",
+        "desc": "Nincsenek sablonok. Nincsenek legördülő menük. Nincsenek bonyolult beállítások. Egyszerűen írd be hétköznapi nyelven, amit szeretnél, és az AI Edit megérti a szándékodat."
+      },
+      {
+        "icon": "refresh",
+        "title": "Szerkeszd annyiszor, ahányszor akarod",
+        "desc": "Nem tetszik az első eredmény? Adj egy újabb utasítást. Ugyanazt a dokumentumot újra és újra finomíthatod — korlátlanul."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Egyszerű, átlátható árazás",
+    "p1": "Az AI Edit minden Minutes.AI csomagban elérhető. Válaszd az igényeidnek megfelelő csomagot.",
+    "trial": { "name": "Próbacsomag", "detail": "120 min", "foot": "$1.99 (Nem jár le)" },
+    "light": { "name": "Light csomag", "detail": "1200 min", "foot": "$11.99 (Nem jár le)" },
+    "monthly": { "name": "Havi", "detail": "Korlátlan", "foot": "$16.99 / hó" },
+    "annual": { "name": "Éves", "detail": "Korlátlan", "foot": "$149.99 / év" },
+    "free": { "badge": "Ingyenes napi jegy", "text": "Próbáld ki ingyen napi 3 percben — bankkártya nélkül." },
+    "bullets": [
+      "**Időcsomagok**: Ideálisak alkalmi használathoz — a percek soha nem járnak le.",
+      "**Előfizetések**: Korlátlan felvétel és szerkesztés aktív felhasználóknak.",
+      "**100+ nyelv**: Rögzíts és szerkessz jegyzőkönyveket több mint 100 nyelven."
+    ],
+    "foot": {
+      "pre": "* Az árak {currency} pénznemben vannak feltüntetve.",
+      "post": "A fizetéskor adók merülhetnek fel."
+    }
+  },
+
+  "cta": {
+    "h2": "Próbáld ki az AI Editet most",
+    "text": "Rögzíts egy értekezletet, generáld a jegyzőkönyvet és próbáld ki az AI Editet. Azon fogsz gondolkodni, hogyan dolgoztál eddig nélküle.",
+    "openBrowser": "Minutes.AI megnyitása (Web)",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Megjelent",
+    "type": "Funkció",
+    "category": "Termékfrissítés"
+  }
+}

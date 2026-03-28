@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Ubah Notulen Rapat Anda dengan Satu Instruksi | Minutes.AI",
+    "description": "Fitur AI Edit baru dari Minutes.AI memungkinkan Anda memperbaiki, merestrukturisasi, dan menyesuaikan notulen rapat yang dibuat otomatis dengan perintah bahasa alami. Buat ringkasan eksekutif, versi ringkas, atau fokus pada tindakan secara instan.",
+    "ogTitle": "AI Edit: Notulen Anda, Sesuai Keinginan — Didukung AI",
+    "ogDescription": "Jangan puas dengan catatan rapat yang generik. AI Edit mengubah notulen Anda dengan instruksi sederhana seperti 'ringkaskan' atau 'ekstrak item tindakan secara detail'.",
+    "ld": {
+      "headline": "AI Edit: Ubah Notulen Rapat Anda dengan Satu Instruksi",
+      "description": "Memperkenalkan fitur AI Edit dari Minutes.AI yang memungkinkan pengguna menyempurnakan notulen otomatis melalui instruksi bahasa alami."
+    }
+  },
+  "aria": {
+    "home": "Beranda Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Fitur Baru"
+  },
+  "hero": {
+    "kicker": "Fitur Baru",
+    "h1": "AI Edit: Notulen Anda Persis Seperti yang Anda Inginkan",
+    "tagline": "Notulen rapat yang dibuat otomatis adalah awal yang bagus — tetapi jarang sempurna di percobaan pertama. Dengan AI Edit, kini Anda bisa memperbaiki, merestrukturisasi, dan menyesuaikan notulen dengan instruksi bahasa alami yang sederhana. Beri tahu AI apa yang Anda butuhkan dan saksikan transformasinya.",
+    "subtag": "Tidak perlu lagi pengeditan manual yang membosankan. Satu instruksi mengubah notulen mentah menjadi dokumen yang rapi dan sesuai kebutuhan.",
+    "badges": ["Pengeditan Bahasa Alami", "Penyempurnaan Instan", "Memahami Konteks"]
+  },
+
+  "problem": {
+    "h2": "Masalah 'Hampir Sempurna'",
+    "p1": "Notulen rapat yang dibuat AI sangat berguna — secara otomatis mencatat diskusi, keputusan, dan item tindakan. Namun selalu ada kesenjangan antara apa yang dihasilkan AI dan apa yang benar-benar Anda butuhkan.",
+    "p2": "Mungkin formatnya tidak sesuai gaya tim Anda. Mungkin terlalu detail untuk laporan eksekutif cepat, atau terlalu ringkas saat Anda butuh item tindakan yang detail. Selama ini, satu-satunya pilihan adalah menulis ulang secara manual — yang justru menghilangkan tujuan menggunakan AI.",
+    "quote": "\"Ringkasan AI bagus, tapi saya selalu menghabiskan 15 menit untuk memperbaikinya.\""
+  },
+
+  "solution": {
+    "h2": "Cukup Beri Tahu AI Apa yang Anda Mau",
+    "p1": "**AI Edit** mengubah segalanya. Alih-alih mengedit notulen baris demi baris, cukup berikan instruksi dalam bahasa alami — dan AI akan merestrukturisasi seluruh dokumen untuk Anda.",
+    "p2": "Seperti memiliki editor pribadi yang memahami konteks, nada, dan tujuan. Baik Anda butuh penulisan ulang total atau penyesuaian halus, AI Edit menanganinya dengan mudah.",
+    "highlights": [
+      "**\"Buat versi eksekutif\"** — Menghapus detail dan menyoroti keputusan serta hasil utama.",
+      "**\"Buat lebih ringkas\"** — Menghilangkan redundansi sambil mempertahankan setiap poin penting.",
+      "**\"Ekstrak item tindakan secara detail\"** — Membuat daftar tugas detail dengan penanggung jawab dan tenggat waktu.",
+      "**\"Tulis ulang untuk tim engineering\"** — Menyesuaikan nada dan fokus untuk audiens teknis.",
+      "**\"Tambahkan ringkasan di atas\"** — Menghasilkan gambaran singkat tanpa mengubah isi dokumen."
+    ]
+  },
+
+  "usps": {
+    "h2": "Mengapa AI Edit Mengubah Segalanya",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Masalah Lama Akhirnya Terpecahkan",
+        "desc": "Layanan notulen AI lain membuat catatan dan berhenti di situ. AI Edit melangkah lebih jauh — memungkinkan Anda terus menyempurnakan hingga hasilnya persis seperti yang Anda bayangkan."
+      },
+      {
+        "icon": "message",
+        "title": "Bahasa Alami, Tanpa Kurva Belajar",
+        "desc": "Tanpa template. Tanpa dropdown. Tanpa pengaturan rumit. Cukup ketik apa yang Anda inginkan dalam bahasa sehari-hari dan AI Edit memahami maksud Anda."
+      },
+      {
+        "icon": "refresh",
+        "title": "Edit Sebanyak yang Anda Mau",
+        "desc": "Tidak puas dengan hasil pertama? Berikan instruksi lain. Anda bisa menyempurnakan dokumen yang sama berulang kali — tanpa batas."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Harga Sederhana dan Transparan",
+    "p1": "AI Edit tersedia di semua paket Minutes.AI. Pilih paket yang sesuai dengan cara kerja Anda.",
+    "trial": { "name": "Paket Coba", "detail": "120 min", "foot": "$1.99 (Tanpa kadaluarsa)" },
+    "light": { "name": "Paket Light", "detail": "1200 min", "foot": "$11.99 (Tanpa kadaluarsa)" },
+    "monthly": { "name": "Bulanan", "detail": "Tidak terbatas", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tidak terbatas", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket harian gratis", "text": "Coba gratis 3 menit setiap hari — tanpa kartu kredit." },
+    "bullets": [
+      "**Paket Waktu**: Cocok untuk penggunaan sesekali — menit tidak pernah kadaluarsa.",
+      "**Langganan**: Rekaman dan pengeditan tanpa batas untuk pengguna aktif.",
+      "**100+ Bahasa**: Rekam dan edit notulen dalam lebih dari 100 bahasa."
+    ],
+    "foot": {
+      "pre": "* Harga ditampilkan dalam {currency}.",
+      "post": "Pajak mungkin berlaku saat checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Coba AI Edit Sekarang",
+    "text": "Rekam rapat, buat notulen, dan coba AI Edit. Anda akan bertanya-tanya bagaimana bisa bekerja tanpanya selama ini.",
+    "openBrowser": "Buka Minutes.AI (Web)",
+    "downloadIOS": "Unduh Aplikasi iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Dipublikasikan",
+    "type": "Fitur",
+    "category": "Pembaruan Produk"
+  }
+}

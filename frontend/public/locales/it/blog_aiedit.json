@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Trasforma i verbali delle tue riunioni con una sola istruzione | Minutes.AI",
+    "description": "La nuova funzione AI Edit di Minutes.AI ti permette di perfezionare, ristrutturare e personalizzare i verbali generati automaticamente con istruzioni in linguaggio naturale. Rendili executive-ready, concisi o focalizzati sulle azioni in un istante.",
+    "ogTitle": "AI Edit: I tuoi verbali, come li vuoi tu — grazie all'IA",
+    "ogDescription": "Basta accontentarsi di note riunione generiche. AI Edit trasforma i tuoi verbali con semplici istruzioni come 'rendilo conciso' o 'estrai le azioni in dettaglio'.",
+    "ld": {
+      "headline": "AI Edit: Trasforma i verbali delle tue riunioni con una sola istruzione",
+      "description": "Presentazione della funzione AI Edit di Minutes.AI che consente agli utenti di perfezionare i verbali generati automaticamente tramite istruzioni in linguaggio naturale."
+    }
+  },
+  "aria": {
+    "home": "Home di Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nuova funzionalità"
+  },
+  "hero": {
+    "kicker": "Nuova funzionalità",
+    "h1": "AI Edit: I tuoi verbali esattamente come li desideri",
+    "tagline": "I verbali delle riunioni generati automaticamente sono un ottimo punto di partenza, ma raramente sono perfetti al primo tentativo. Con AI Edit, ora puoi perfezionare, ristrutturare e personalizzare i tuoi verbali usando semplici istruzioni in linguaggio naturale. Dì all'IA cosa ti serve e guarda i tuoi verbali trasformarsi.",
+    "subtag": "Basta modifiche manuali noiose. Una singola istruzione trasforma verbali grezzi in un documento curato e mirato.",
+    "badges": ["Editing in linguaggio naturale", "Perfezionamento istantaneo", "Comprensione del contesto"]
+  },
+
+  "problem": {
+    "h2": "Il problema del «quasi perfetto»",
+    "p1": "I verbali generati dall'IA sono incredibilmente utili — catturano automaticamente discussioni, decisioni e azioni. Ma c'è sempre stato un divario tra ciò che l'IA produce e ciò di cui hai realmente bisogno.",
+    "p2": "Forse il formato non corrisponde allo stile del tuo team. Forse è troppo dettagliato per un rapporto executive rapido, o troppo sintetico quando servono azioni granulari. Finora, l'unica opzione era riscrivere manualmente — vanificando lo scopo stesso dell'IA.",
+    "quote": "«Il riassunto dell'IA è buono, ma finisco sempre per dedicare 15 minuti a ritoccarlo.»"
+  },
+
+  "solution": {
+    "h2": "Dì semplicemente all'IA cosa vuoi",
+    "p1": "**AI Edit** cambia tutto. Invece di modificare i verbali riga per riga, basta dare un'istruzione in linguaggio naturale — e l'IA ristruttura l'intero documento per te.",
+    "p2": "È come avere un editor personale che comprende contesto, tono e obiettivo. Che tu abbia bisogno di una riscrittura completa o di un aggiustamento sottile, AI Edit lo gestisce senza sforzo.",
+    "highlights": [
+      "**«Rendilo adatto alla dirigenza»** — Rimuove i dettagli ed evidenzia decisioni e risultati chiave.",
+      "**«Rendilo più conciso»** — Elimina le ridondanze preservando ogni punto essenziale.",
+      "**«Estrai le azioni in dettaglio»** — Identifica le attività specifiche con responsabili e scadenze.",
+      "**«Riscrivi per il team tecnico»** — Adatta tono e focus per un pubblico tecnico.",
+      "**«Aggiungi un riassunto in cima»** — Genera una panoramica breve senza modificare il contenuto."
+    ]
+  },
+
+  "usps": {
+    "h2": "Perché AI Edit fa la differenza",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Finalmente risolto l'eterno problema",
+        "desc": "Altri servizi di verbali IA generano le note e si fermano lì. AI Edit va oltre — ti permette di continuare a perfezionare fino a quando il risultato corrisponde esattamente a ciò che avevi in mente."
+      },
+      {
+        "icon": "message",
+        "title": "Linguaggio naturale, nessuna curva di apprendimento",
+        "desc": "Niente template. Niente menu a tendina. Niente impostazioni complicate. Scrivi semplicemente ciò che vuoi e AI Edit capirà la tua intenzione."
+      },
+      {
+        "icon": "refresh",
+        "title": "Modifica quante volte vuoi",
+        "desc": "Il primo risultato non ti convince? Dai un'altra istruzione. Puoi perfezionare lo stesso documento più e più volte — senza limiti."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Prezzi semplici e trasparenti",
+    "p1": "AI Edit è disponibile in tutti i piani Minutes.AI. Scegli quello più adatto al tuo modo di lavorare.",
+    "trial": { "name": "Pacchetto Prova", "detail": "120 min", "foot": "$1.99 (Senza scadenza)" },
+    "light": { "name": "Pacchetto Light", "detail": "1200 min", "foot": "$11.99 (Senza scadenza)" },
+    "monthly": { "name": "Mensile", "detail": "Illimitato", "foot": "$16.99 / mese" },
+    "annual": { "name": "Annuale", "detail": "Illimitato", "foot": "$149.99 / anno" },
+    "free": { "badge": "Ticket giornaliero gratuito", "text": "Provalo gratis per 3 minuti ogni giorno — senza carta di credito." },
+    "bullets": [
+      "**Pacchetti a tempo**: Ideali per uso occasionale — i minuti non scadono mai.",
+      "**Abbonamenti**: Registrazione e modifica illimitate per utenti assidui.",
+      "**100+ lingue**: Registra e modifica verbali in oltre 100 lingue."
+    ],
+    "foot": {
+      "pre": "* Prezzi indicati in {currency}.",
+      "post": "Le tasse potrebbero essere applicate al checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Prova AI Edit ora",
+    "text": "Registra una riunione, genera i tuoi verbali e prova AI Edit. Ti chiederai come hai fatto senza.",
+    "openBrowser": "Apri Minutes.AI (Web)",
+    "downloadIOS": "Scarica l'app iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Funzionalità",
+    "category": "Aggiornamento prodotto"
+  }
+}

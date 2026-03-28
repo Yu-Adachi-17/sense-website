@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Muokkaa kokouspöytäkirjasi yhdellä ohjeella | Minutes.AI",
+    "description": "Minutes.AI:n uusi AI Edit -ominaisuus antaa sinun hioa, jäsentää ja muokata automaattisesti luotuja kokouspöytäkirjoja luonnollisen kielen ohjeilla. Tee niistä johdon tarpeisiin sopivia, tiiviitä tai toimenpidekeskeisiä välittömästi.",
+    "ogTitle": "AI Edit: Pöytäkirjasi juuri sellaisina kuin haluat — tekoälyn avulla",
+    "ogDescription": "Älä tyydy geneerisiin kokousmuistiinpanoihin. AI Edit muokkaa pöytäkirjasi yksinkertaisilla ohjeilla kuten 'tiivistä' tai 'poimi toimenpiteet yksityiskohtaisesti'.",
+    "ld": {
+      "headline": "AI Edit: Muokkaa kokouspöytäkirjasi yhdellä ohjeella",
+      "description": "Minutes.AI:n AI Edit -ominaisuuden esittely, joka mahdollistaa automaattisesti luotujen pöytäkirjojen muokkaamisen luonnollisen kielen ohjeilla."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "feature": "Uusi ominaisuus"
+  },
+  "hero": {
+    "kicker": "Uusi ominaisuus",
+    "h1": "AI Edit: Pöytäkirjasi juuri sellaisina kuin tarvitset",
+    "tagline": "Automaattisesti luodut kokouspöytäkirjat ovat erinomainen lähtökohta — mutta harvoin täydellisiä ensimmäisellä kerralla. AI Edit -ominaisuudella voit nyt hioa, jäsentää ja muokata pöytäkirjojasi yksinkertaisilla luonnollisen kielen ohjeilla. Kerro tekoälylle mitä tarvitset ja katso pöytäkirjojesi muodonmuutos.",
+    "subtag": "Loppu tylsille manuaalisille muokkauksille. Yksi ohje muuttaa raakaa pöytäkirjaa viimeistellyksi, tarkoituksenmukaiseksi asiakirjaksi.",
+    "badges": ["Muokkaus luonnollisella kielellä", "Välitön parannus", "Kontekstitietoinen"]
+  },
+
+  "problem": {
+    "h2": "\"Melkein täydellinen\" -ongelma",
+    "p1": "Tekoälyn luomat kokouspöytäkirjat ovat uskomattoman hyödyllisiä — ne tallentavat keskustelut, päätökset ja tehtävät automaattisesti. Mutta tekoälyn tuotoksen ja todellisten tarpeidesi välillä on aina ollut kuilu.",
+    "p2": "Ehkä muotoilu ei sovi tiimisi tyyliin. Ehkä se on liian yksityiskohtainen nopeaan johtoraporttiin tai liian tiivis, kun tarvitset tarkkoja toimenpiteitä. Tähän asti ainoa vaihtoehto oli kirjoittaa uudelleen käsin — mikä tekee tekoälyn käytöstä turhaa.",
+    "quote": "\"Tekoälyn yhteenveto on hyvä, mutta käytän aina 15 minuuttia sen muokkaamiseen.\""
+  },
+
+  "solution": {
+    "h2": "Kerro tekoälylle mitä haluat",
+    "p1": "**AI Edit** muuttaa kaiken. Sen sijaan, että muokkaisit pöytäkirjojasi rivi riviltä, annat tekoälylle yksinkertaisesti luonnollisen kielen ohjeen — ja se jäsentää koko asiakirjan puolestasi.",
+    "p2": "Se on kuin henkilökohtainen toimittaja, joka ymmärtää kontekstin, sävyn ja tarkoituksen. Tarvitsetpa täydellisen uudelleenkirjoituksen tai hienovaraisen säädön, AI Edit hoitaa sen vaivattomasti.",
+    "highlights": [
+      "**\"Tee johdolle sopivaksi\"** — Poistaa yksityiskohdat ja nostaa esiin keskeiset päätökset ja tulokset.",
+      "**\"Tiivistä\"** — Poistaa toiston säilyttäen kaikki oleelliset kohdat.",
+      "**\"Poimi yksityiskohtaiset toimenpiteet\"** — Luo yksityiskohtaisen tehtävälistan vastuuhenkilöineen ja määräaikoineen.",
+      "**\"Kirjoita uudelleen insinööritiimille\"** — Mukauttaa sävyn ja painopisteen tekniselle yleisölle.",
+      "**\"Lisää yhteenveto alkuun\"** — Luo lyhyen yleiskatsauksen muuttamatta sisältöä."
+    ]
+  },
+
+  "usps": {
+    "h2": "Miksi AI Edit on mullistava",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Ikuinen ongelma viimein ratkaistu",
+        "desc": "Muut tekoäly-pöytäkirjapalvelut luovat muistiinpanot ja pysähtyvät siihen. AI Edit menee pidemmälle — sen avulla voit jatkaa hiomista, kunnes tulos vastaa täsmälleen sitä, mitä halusit."
+      },
+      {
+        "icon": "message",
+        "title": "Luonnollinen kieli, ei opettelua",
+        "desc": "Ei malleja. Ei pudotusvalikkoja. Ei monimutkaisia asetuksia. Kirjoita vain mitä haluat arkikielellä ja AI Edit ymmärtää tarkoituksesi."
+      },
+      {
+        "icon": "refresh",
+        "title": "Muokkaa niin monta kertaa kuin haluat",
+        "desc": "Etkö ole tyytyväinen ensimmäiseen tulokseen? Anna uusi ohje. Voit hioa samaa asiakirjaa uudelleen ja uudelleen — rajattomasti."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Yksinkertainen ja läpinäkyvä hinnoittelu",
+    "p1": "AI Edit on käytettävissä kaikissa Minutes.AI-paketeissa. Valitse työtapaasi sopiva paketti.",
+    "trial": { "name": "Kokeilupaketti", "detail": "120 min", "foot": "$1.99 (Ei vanhene)" },
+    "light": { "name": "Light-paketti", "detail": "1200 min", "foot": "$11.99 (Ei vanhene)" },
+    "monthly": { "name": "Kuukausitilaus", "detail": "Rajaton", "foot": "$16.99 / kk" },
+    "annual": { "name": "Vuositilaus", "detail": "Rajaton", "foot": "$149.99 / vuosi" },
+    "free": { "badge": "Ilmainen päivälippu", "text": "Kokeile ilmaiseksi 3 minuuttia joka päivä — luottokorttia ei tarvita." },
+    "bullets": [
+      "**Aikapaketit**: Ihanteellisia satunnaiseen käyttöön — minuutit eivät vanhene koskaan.",
+      "**Tilaukset**: Rajaton nauhoitus ja muokkaus aktiivisille käyttäjille.",
+      "**100+ kieltä**: Nauhoita ja muokkaa pöytäkirjoja yli 100 kielellä."
+    ],
+    "foot": {
+      "pre": "* Hinnat näytetään valuutassa {currency}.",
+      "post": "Verot saatetaan lisätä kassalla."
+    }
+  },
+
+  "cta": {
+    "h2": "Kokeile AI Editiä nyt",
+    "text": "Nauhoita kokous, luo pöytäkirja ja kokeile AI Editiä. Ihmettelet miten pärjäsit ilman sitä.",
+    "openBrowser": "Avaa Minutes.AI (Web)",
+    "downloadIOS": "Lataa iOS-sovellus"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Ominaisuus",
+    "category": "Tuotepäivitys"
+  }
+}

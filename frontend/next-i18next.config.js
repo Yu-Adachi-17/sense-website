@@ -46,6 +46,7 @@ module.exports = {
     'blog_androidformat' ,
     'blog_bringinaudio' ,
     'blog_makeslidesquickly' ,
+    'blog_aiedit',
     
     // ★追加
     'blog_slideai_pricing', 

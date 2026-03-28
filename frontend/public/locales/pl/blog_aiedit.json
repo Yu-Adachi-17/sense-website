@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Przekształć protokoły ze spotkań jedną instrukcją | Minutes.AI",
+    "description": "Nowa funkcja AI Edit w Minutes.AI pozwala udoskonalać, restrukturyzować i dostosowywać automatycznie generowane protokoły ze spotkań za pomocą poleceń w języku naturalnym. Natychmiast dostosuj je dla kadry zarządzającej, skróć lub ukierunkuj na zadania.",
+    "ogTitle": "AI Edit: Twoje protokoły, po Twojemu — z mocą AI",
+    "ogDescription": "Przestań zadowalać się generycznymi notatkami ze spotkań. AI Edit przekształca protokoły prostymi poleceniami jak 'skróć to' lub 'wyodrębnij szczegółowe zadania'.",
+    "ld": {
+      "headline": "AI Edit: Przekształć protokoły ze spotkań jedną instrukcją",
+      "description": "Prezentacja funkcji AI Edit w Minutes.AI, która pozwala użytkownikom udoskonalać automatycznie generowane protokoły za pomocą poleceń w języku naturalnym."
+    }
+  },
+  "aria": {
+    "home": "Strona główna Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nowa funkcja"
+  },
+  "hero": {
+    "kicker": "Nowa funkcja",
+    "h1": "AI Edit: Twoje protokoły dokładnie takie, jakich potrzebujesz",
+    "tagline": "Automatycznie generowane protokoły ze spotkań to świetny punkt wyjścia — ale rzadko są idealne za pierwszym razem. Z AI Edit możesz teraz udoskonalać, restrukturyzować i dostosowywać swoje protokoły za pomocą prostych poleceń w języku naturalnym. Powiedz AI, czego potrzebujesz, i obserwuj transformację swoich protokołów.",
+    "subtag": "Koniec z żmudnymi ręcznymi poprawkami. Jedno polecenie zamienia surowe protokoły w dopracowany, celowy dokument.",
+    "badges": ["Edycja w języku naturalnym", "Natychmiastowe udoskonalenie", "Rozumienie kontekstu"]
+  },
+
+  "problem": {
+    "h2": "Problem \u201Eprawie idealnego\u201D",
+    "p1": "Protokoły ze spotkań generowane przez AI są niezwykle przydatne — automatycznie rejestrują dyskusje, decyzje i zadania. Ale zawsze istniała przepaść między tym, co AI generuje, a tym, czego naprawdę potrzebujesz.",
+    "p2": "Może format nie pasuje do stylu Twojego zespołu. Może jest zbyt rozbudowany na szybki raport dla zarządu, albo zbyt zwięzły, gdy potrzebujesz szczegółowych zadań. Do tej pory jedyną opcją było ręczne przepisywanie — co zaprzecza celowi używania AI.",
+    "quote": "\u201EPodsumowanie AI jest dobre, ale zawsze spędzam 15 minut na poprawkach.\u201D"
+  },
+
+  "solution": {
+    "h2": "Po prostu powiedz AI, czego chcesz",
+    "p1": "**AI Edit** zmienia wszystko. Zamiast ręcznie edytować protokoły linia po linii, po prostu dajesz AI polecenie w języku naturalnym — a ono restrukturyzuje cały dokument za Ciebie.",
+    "p2": "To jak mieć osobistego redaktora, który rozumie kontekst, ton i cel. Niezależnie od tego, czy potrzebujesz kompletnego przepisania czy subtelnej korekty, AI Edit poradzi sobie bez wysiłku.",
+    "highlights": [
+      "**\u201EDostosuj dla zarządu\u201C** — Usuwa szczegóły i podkreśla kluczowe decyzje i wyniki.",
+      "**\u201ESkróć to\u201C** — Eliminuje powtórzenia, zachowując każdy istotny punkt.",
+      "**\u201EWyodrębnij szczegółowe zadania\u201C** — Tworzy szczegółową listę zadań z odpowiedzialnymi osobami i terminami.",
+      "**\u201EPrzepisz dla zespołu inżynierskiego\u201C** — Dostosowuje ton i zakres do odbiorców technicznych.",
+      "**\u201EDodaj podsumowanie na początku\u201C** — Generuje krótki przegląd bez zmiany treści głównej."
+    ]
+  },
+
+  "usps": {
+    "h2": "Dlaczego AI Edit to przełom",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Wreszcie rozwiązany odwieczny problem",
+        "desc": "Inne usługi AI do protokołów generują notatki i na tym koniec. AI Edit idzie dalej — pozwala Ci ciągle udoskonalać, aż wynik idealnie odpowiada Twoim oczekiwaniom."
+      },
+      {
+        "icon": "message",
+        "title": "Język naturalny, bez nauki obsługi",
+        "desc": "Bez szablonów. Bez rozwijanych menu. Bez skomplikowanych ustawień. Po prostu wpisz, czego chcesz, a AI Edit zrozumie Twój zamiar."
+      },
+      {
+        "icon": "refresh",
+        "title": "Poprawiaj tyle razy, ile chcesz",
+        "desc": "Nie zadowala Cię pierwszy wynik? Daj kolejne polecenie. Możesz udoskonalać ten sam dokument w nieskończoność — bez limitu."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Proste i przejrzyste ceny",
+    "p1": "AI Edit jest dostępny we wszystkich planach Minutes.AI. Wybierz plan dopasowany do Twojego stylu pracy.",
+    "trial": { "name": "Pakiet próbny", "detail": "120 min", "foot": "$1.99 (Bez wygaśnięcia)" },
+    "light": { "name": "Pakiet Light", "detail": "1200 min", "foot": "$11.99 (Bez wygaśnięcia)" },
+    "monthly": { "name": "Miesięczny", "detail": "Bez limitu", "foot": "$16.99 / mies." },
+    "annual": { "name": "Roczny", "detail": "Bez limitu", "foot": "$149.99 / rok" },
+    "free": { "badge": "Darmowy bilet dzienny", "text": "Wypróbuj za darmo na 3 minuty każdego dnia — bez karty kredytowej." },
+    "bullets": [
+      "**Pakiety czasowe**: Idealne do okazjonalnego użytku — minuty nigdy nie wygasają.",
+      "**Subskrypcje**: Nieograniczone nagrywanie i edycja dla aktywnych użytkowników.",
+      "**100+ języków**: Nagrywaj i edytuj protokoły w ponad 100 językach."
+    ],
+    "foot": {
+      "pre": "* Ceny podane w {currency}.",
+      "post": "Przy płatności mogą zostać naliczone podatki."
+    }
+  },
+
+  "cta": {
+    "h2": "Wypróbuj AI Edit teraz",
+    "text": "Nagraj spotkanie, wygeneruj protokół i wypróbuj AI Edit. Będziesz się zastanawiać, jak wcześniej pracowałeś bez tego.",
+    "openBrowser": "Otwórz Minutes.AI (Web)",
+    "downloadIOS": "Pobierz aplikację iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Funkcja",
+    "category": "Aktualizacja produktu"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Ubah Minit Mesyuarat Anda dengan Satu Arahan | Minutes.AI",
+    "description": "Ciri AI Edit baharu Minutes.AI membolehkan anda memperhalusi, menstruktur semula dan menyesuaikan minit mesyuarat yang dijana secara automatik dengan arahan bahasa semula jadi. Jadikan ia mesra eksekutif, ringkas atau berfokus tindakan serta-merta.",
+    "ogTitle": "AI Edit: Minit Anda, Cara Anda — Dikuasakan oleh AI",
+    "ogDescription": "Jangan berpuas hati dengan nota mesyuarat generik. AI Edit mengubah minit anda dengan arahan mudah seperti 'ringkaskan' atau 'keluarkan item tindakan secara terperinci'.",
+    "ld": {
+      "headline": "AI Edit: Ubah Minit Mesyuarat Anda dengan Satu Arahan",
+      "description": "Memperkenalkan ciri AI Edit Minutes.AI yang membolehkan pengguna memperhalusi minit yang dijana automatik melalui arahan bahasa semula jadi."
+    }
+  },
+  "aria": {
+    "home": "Laman Utama Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Ciri Baharu"
+  },
+  "hero": {
+    "kicker": "Ciri Baharu",
+    "h1": "AI Edit: Minit Anda Tepat Seperti yang Anda Mahukan",
+    "tagline": "Minit mesyuarat yang dijana automatik adalah permulaan yang baik — tetapi jarang sempurna pada percubaan pertama. Dengan AI Edit, anda kini boleh memperhalusi, menstruktur semula dan menyesuaikan minit anda menggunakan arahan bahasa semula jadi yang mudah. Beritahu AI apa yang anda perlukan dan saksikan minit anda berubah.",
+    "subtag": "Tiada lagi suntingan manual yang membosankan. Satu arahan mengubah minit mentah menjadi dokumen yang digilap dan bertujuan.",
+    "badges": ["Penyuntingan Bahasa Semula Jadi", "Pembaikan Segera", "Peka Konteks"]
+  },
+
+  "problem": {
+    "h2": "Masalah 'Hampir Sempurna'",
+    "p1": "Minit mesyuarat yang dijana AI sangat berguna — ia merakam perbincangan, keputusan dan item tindakan secara automatik. Tetapi sentiasa ada jurang antara apa yang AI hasilkan dan apa yang anda benar-benar perlukan.",
+    "p2": "Mungkin formatnya tidak sesuai dengan gaya pasukan anda. Mungkin terlalu terperinci untuk laporan eksekutif ringkas, atau terlalu ringkas apabila anda memerlukan item tindakan yang terperinci. Sehingga kini, satu-satunya pilihan adalah menulis semula secara manual — yang menggagalkan tujuan menggunakan AI.",
+    "quote": "\"Ringkasan AI bagus, tetapi saya selalu menghabiskan 15 minit untuk mengubahnya.\""
+  },
+
+  "solution": {
+    "h2": "Beritahu AI Apa yang Anda Mahukan",
+    "p1": "**AI Edit** mengubah segalanya. Daripada menyunting minit baris demi baris, berikan sahaja arahan bahasa semula jadi — dan AI akan menstruktur semula keseluruhan dokumen untuk anda.",
+    "p2": "Ia seperti mempunyai penyunting peribadi yang memahami konteks, nada dan tujuan. Sama ada anda memerlukan penulisan semula sepenuhnya atau pelarasan halus, AI Edit mengendalikannya dengan mudah.",
+    "highlights": [
+      "**\"Buat mesra eksekutif\"** — Mengeluarkan butiran dan menonjolkan keputusan serta hasil utama.",
+      "**\"Jadikan lebih ringkas\"** — Menghapuskan lewahan sambil mengekalkan setiap perkara penting.",
+      "**\"Keluarkan item tindakan secara terperinci\"** — Menyenaraikan tugasan terperinci dengan pemilik dan tarikh akhir.",
+      "**\"Tulis semula untuk pasukan kejuruteraan\"** — Menyesuaikan nada dan fokus untuk audiens teknikal.",
+      "**\"Tambah ringkasan di bahagian atas\"** — Menjana gambaran ringkas tanpa mengubah kandungan utama."
+    ]
+  },
+
+  "usps": {
+    "h2": "Mengapa AI Edit Mengubah Permainan",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Masalah Lama Akhirnya Diselesaikan",
+        "desc": "Perkhidmatan minit AI lain menghasilkan nota dan berhenti di situ. AI Edit melangkah lebih jauh — membolehkan anda terus memperhalusi sehingga hasilnya tepat seperti yang anda bayangkan."
+      },
+      {
+        "icon": "message",
+        "title": "Bahasa Semula Jadi, Tiada Keluk Pembelajaran",
+        "desc": "Tiada templat. Tiada menu juntai. Tiada tetapan rumit. Taipkan sahaja apa yang anda mahukan dalam bahasa harian dan AI Edit memahami niat anda."
+      },
+      {
+        "icon": "refresh",
+        "title": "Sunting Sebanyak Mana yang Anda Mahu",
+        "desc": "Tidak berpuas hati dengan hasil pertama? Berikan arahan lain. Anda boleh memperhalusi dokumen yang sama berulang kali — tanpa had."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Harga Mudah dan Telus",
+    "p1": "AI Edit tersedia dalam semua pelan Minutes.AI. Pilih pelan yang sesuai dengan aliran kerja anda.",
+    "trial": { "name": "Pakej Percubaan", "detail": "120 min", "foot": "$1.99 (Tiada tamat tempoh)" },
+    "light": { "name": "Pakej Light", "detail": "1200 min", "foot": "$11.99 (Tiada tamat tempoh)" },
+    "monthly": { "name": "Bulanan", "detail": "Tanpa had", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tanpa had", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket harian percuma", "text": "Cuba percuma selama 3 minit setiap hari — tanpa kad kredit." },
+    "bullets": [
+      "**Pakej Masa**: Sesuai untuk kegunaan sekali-sekala — minit tidak pernah luput.",
+      "**Langganan**: Rakaman dan penyuntingan tanpa had untuk pengguna aktif.",
+      "**100+ Bahasa**: Rakam dan sunting minit dalam lebih 100 bahasa."
+    ],
+    "foot": {
+      "pre": "* Harga ditunjukkan dalam {currency}.",
+      "post": "Cukai mungkin dikenakan semasa pembayaran."
+    }
+  },
+
+  "cta": {
+    "h2": "Cuba AI Edit Sekarang",
+    "text": "Rakam mesyuarat, jana minit anda dan cuba AI Edit. Anda akan tertanya-tanya bagaimana anda pernah bekerja tanpanya.",
+    "openBrowser": "Buka Minutes.AI (Web)",
+    "downloadIOS": "Muat turun Aplikasi iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Ciri",
+    "category": "Kemaskini Produk"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Reshape Your Meeting Minutes with a Single Instruction | Minutes.AI",
+    "description": "Minutes.AI's new AI Edit feature lets you refine, restructure, and customize auto-generated meeting minutes with natural-language commands. Make them executive-ready, concise, or action-focused instantly.",
+    "ogTitle": "AI Edit: Your Minutes, Your Way — Powered by AI",
+    "ogDescription": "Stop settling for generic meeting notes. AI Edit lets you reshape minutes with simple prompts like 'make it concise' or 'extract action items in detail.'",
+    "ld": {
+      "headline": "AI Edit: Reshape Your Meeting Minutes with a Single Instruction",
+      "description": "An introduction to Minutes.AI's AI Edit feature that lets users refine auto-generated minutes with natural-language instructions."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "New Feature"
+  },
+  "hero": {
+    "kicker": "New Feature",
+    "h1": "AI Edit: Your Minutes, Exactly the Way You Want Them",
+    "tagline": "Auto-generated meeting minutes are a great start — but they're rarely perfect on the first try. With AI Edit, you can now refine, restructure, and customize your minutes using simple natural-language instructions. Just tell the AI what you need, and watch your minutes transform.",
+    "subtag": "No more tedious manual edits. A single prompt can turn raw minutes into a polished, purpose-built document.",
+    "badges": ["Natural-Language Editing", "Instant Refinement", "Context-Aware"]
+  },
+
+  "problem": {
+    "h2": "The 'Almost Perfect' Problem",
+    "p1": "AI-generated meeting minutes are incredibly useful — they capture discussions, decisions, and action items automatically. But there's always been a gap between what the AI produces and what you actually need.",
+    "p2": "Maybe the format doesn't match your team's style. Maybe it's too verbose for a quick executive report, or too brief when you need granular action items. Until now, the only option was to manually rewrite sections — which defeats the purpose of using AI in the first place.",
+    "quote": "\"The AI summary is good, but I always end up spending 15 minutes tweaking it.\""
+  },
+
+  "solution": {
+    "h2": "Just Tell the AI What You Want",
+    "p1": "**AI Edit** changes everything. Instead of manually editing your minutes line by line, you simply give the AI a natural-language instruction — and it restructures the entire document for you.",
+    "p2": "It's like having a personal editor who understands context, tone, and purpose. Whether you need a complete rewrite or a subtle adjustment, AI Edit handles it effortlessly.",
+    "highlights": [
+      "**\"Make it executive-friendly\"** — Strips out details and highlights key decisions and outcomes.",
+      "**\"Make it more concise\"** — Removes redundancy while preserving every critical point.",
+      "**\"Extract detailed action items\"** — Pulls out granular to-dos with owners and deadlines.",
+      "**\"Rewrite for the engineering team\"** — Adjusts tone and focus for a technical audience.",
+      "**\"Add a summary at the top\"** — Generates a brief overview without altering the body."
+    ]
+  },
+
+  "usps": {
+    "h2": "Why AI Edit is a Game-Changer",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "The 'Itchy Spot' is Finally Scratched",
+        "desc": "Other AI minute services generate notes and leave you there. AI Edit goes further — it lets you keep refining until the output matches exactly what you had in mind."
+      },
+      {
+        "icon": "message",
+        "title": "Natural Language, No Learning Curve",
+        "desc": "No templates. No dropdowns. No complicated settings. Just type what you want in plain language and AI Edit understands your intent."
+      },
+      {
+        "icon": "refresh",
+        "title": "Iterate as Many Times as You Like",
+        "desc": "Not happy with the first edit? Give another instruction. You can refine the same document over and over until it's perfect — there's no limit."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Simple, Transparent Pricing",
+    "p1": "AI Edit is available across all Minutes.AI plans. Choose the plan that fits your workflow.",
+    "trial": { "name": "Trial Pack", "detail": "120 min", "foot": "$1.99 (No expiry)" },
+    "light": { "name": "Light Pack", "detail": "1200 min", "foot": "$11.99 (No expiry)" },
+    "monthly": { "name": "Monthly", "detail": "Unlimited", "foot": "$16.99 / mo" },
+    "annual": { "name": "Annual", "detail": "Unlimited", "foot": "$149.99 / yr" },
+    "free": { "badge": "Free Daily Ticket", "text": "Try it free for 3 minutes every day — no credit card required." },
+    "bullets": [
+      "**Time Packs**: Great for occasional use — minutes never expire.",
+      "**Subscriptions**: Unlimited recording and editing for power users.",
+      "**100+ Languages**: Record and edit minutes in over 100 languages."
+    ],
+    "foot": {
+      "pre": "* Prices shown in {currency}.",
+      "post": "Taxes may apply at checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Try AI Edit Now",
+    "text": "Record a meeting, generate your minutes, and give AI Edit a spin. You'll wonder how you ever worked without it.",
+    "openBrowser": "Open Minutes.AI (Web)",
+    "downloadIOS": "Download iOS App"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Feature",
+    "category": "Product Update"
+  }
+}

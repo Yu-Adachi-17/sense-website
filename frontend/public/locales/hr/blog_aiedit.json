@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Preoblikujte zapisnike sastanaka jednom uputom | Minutes.AI",
+    "description": "Nova AI Edit značajka Minutes.AI omogućuje vam da usavršite, restrukturirate i prilagodite automatski generirane zapisnike sastanaka koristeći upute na prirodnom jeziku. Učinite ih prikladnima za upravu, sažetima ili usmjerenima na zadatke u trenu.",
+    "ogTitle": "AI Edit: Vaši zapisnici, na vaš način — pogonjeni AI-jem",
+    "ogDescription": "Prestanite se zadovoljavati općenitim bilješkama sa sastanaka. AI Edit preoblikuje vaše zapisnike jednostavnim uputama poput 'skrati' ili 'izvuci detaljne zadatke'.",
+    "ld": {
+      "headline": "AI Edit: Preoblikujte zapisnike sastanaka jednom uputom",
+      "description": "Predstavljamo AI Edit značajku Minutes.AI koja korisnicima omogućuje usavršavanje automatski generiranih zapisnika putem uputa na prirodnom jeziku."
+    }
+  },
+  "aria": {
+    "home": "Početna stranica Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nova značajka"
+  },
+  "hero": {
+    "kicker": "Nova značajka",
+    "h1": "AI Edit: Vaši zapisnici točno onakvi kakvi vam trebaju",
+    "tagline": "Automatski generirani zapisnici sastanaka odličan su početak — ali rijetko savršeni iz prvog pokušaja. S AI Edit sada možete usavršiti, restrukturirati i prilagoditi svoje zapisnike koristeći jednostavne upute na prirodnom jeziku. Recite AI-ju što vam treba i gledajte kako se vaši zapisnici transformiraju.",
+    "subtag": "Gotovo je s dosadnim ručnim uređivanjem. Jedna uputa pretvara sirove zapisnike u uglađen, ciljani dokument.",
+    "badges": ["Uređivanje na prirodnom jeziku", "Trenutačno usavršavanje", "Razumijevanje konteksta"]
+  },
+
+  "problem": {
+    "h2": "Problem 'gotovo savršenog'",
+    "p1": "Zapisnici sastanaka generirani AI-jem iznimno su korisni — automatski bilježe rasprave, odluke i zadatke. No uvijek je postojao jaz između onoga što AI proizvede i onoga što vam zaista treba.",
+    "p2": "Možda format ne odgovara stilu vašeg tima. Možda je preopširan za brzi izvještaj upravi, ili prekratak kad trebate detaljne zadatke. Do sada je jedina opcija bila ručno prepisivanje — što poništava samu svrhu korištenja AI-ja.",
+    "quote": "\"AI sažetak je dobar, ali uvijek potrošim 15 minuta na doradu.\""
+  },
+
+  "solution": {
+    "h2": "Samo recite AI-ju što želite",
+    "p1": "**AI Edit** mijenja sve. Umjesto da ručno uređujete zapisnike redak po redak, jednostavno dajte AI-ju uputu na prirodnom jeziku — i on će restrukturirati cijeli dokument za vas.",
+    "p2": "Kao da imate osobnog urednika koji razumije kontekst, ton i svrhu. Bilo da trebate potpuno prepisivanje ili suptilnu prilagodbu, AI Edit to rješava bez napora.",
+    "highlights": [
+      "**\"Prilagodi za upravu\"** — Uklanja detalje i ističe ključne odluke i rezultate.",
+      "**\"Skrati\"** — Uklanja ponavljanja čuvajući svaku bitnu točku.",
+      "**\"Izvuci detaljne zadatke\"** — Stvara detaljan popis zadataka s odgovornim osobama i rokovima.",
+      "**\"Prepiši za inženjerski tim\"** — Prilagođava ton i fokus tehničkoj publici.",
+      "**\"Dodaj sažetak na početak\"** — Generira kratak pregled bez mijenjanja sadržaja."
+    ]
+  },
+
+  "usps": {
+    "h2": "Zašto AI Edit mijenja pravila igre",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Kronični problem konačno riješen",
+        "desc": "Drugi AI servisi za zapisnike generiraju bilješke i tu stanu. AI Edit ide dalje — omogućuje vam da nastavljate usavršavati dok rezultat ne odgovara točno onome što ste zamislili."
+      },
+      {
+        "icon": "message",
+        "title": "Prirodni jezik, bez krivulje učenja",
+        "desc": "Bez predložaka. Bez padajućih izbornika. Bez kompliciranih postavki. Jednostavno upišite što želite svakodnevnim jezikom i AI Edit razumije vašu namjeru."
+      },
+      {
+        "icon": "refresh",
+        "title": "Uređujte koliko god puta želite",
+        "desc": "Niste zadovoljni prvim rezultatom? Dajte novu uputu. Isti dokument možete usavršavati iznova i iznova — bez ograničenja."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Jednostavne i transparentne cijene",
+    "p1": "AI Edit dostupan je u svim Minutes.AI planovima. Odaberite plan koji odgovara vašem načinu rada.",
+    "trial": { "name": "Probni paket", "detail": "120 min", "foot": "$1.99 (Bez isteka)" },
+    "light": { "name": "Light paket", "detail": "1200 min", "foot": "$11.99 (Bez isteka)" },
+    "monthly": { "name": "Mjesečni", "detail": "Neograničeno", "foot": "$16.99 / mj." },
+    "annual": { "name": "Godišnji", "detail": "Neograničeno", "foot": "$149.99 / god." },
+    "free": { "badge": "Besplatna dnevna karta", "text": "Isprobajte besplatno 3 minute svaki dan — bez kreditne kartice." },
+    "bullets": [
+      "**Vremenski paketi**: Idealni za povremenu upotrebu — minute nikad ne istječu.",
+      "**Pretplate**: Neograničeno snimanje i uređivanje za česte korisnike.",
+      "**100+ jezika**: Snimajte i uređujte zapisnike na više od 100 jezika."
+    ],
+    "foot": {
+      "pre": "* Cijene prikazane u {currency}.",
+      "post": "Pri plaćanju se mogu primijeniti porezi."
+    }
+  },
+
+  "cta": {
+    "h2": "Isprobajte AI Edit odmah",
+    "text": "Snimite sastanak, generirajte zapisnik i isprobajte AI Edit. Pitat ćete se kako ste ikad radili bez njega.",
+    "openBrowser": "Otvorite Minutes.AI (Web)",
+    "downloadIOS": "Preuzmite iOS aplikaciju"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Značajka",
+    "category": "Ažuriranje proizvoda"
+  }
+}

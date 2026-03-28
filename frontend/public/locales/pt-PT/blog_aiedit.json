@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "AI Edit: Reformule as atas das suas reuniões com uma única instrução | Minutes.AI",
+    "description": "A nova funcionalidade AI Edit do Minutes.AI permite-lhe refinar, reestruturar e personalizar atas de reunião geradas automaticamente com instruções em linguagem natural. Torne-as executivas, concisas ou focadas em ações instantaneamente.",
+    "ogTitle": "AI Edit: As suas atas, à sua maneira — com o poder da IA",
+    "ogDescription": "Deixe de se contentar com notas de reunião genéricas. O AI Edit transforma as suas atas com instruções simples como 'resuma' ou 'extraia as ações em detalhe'.",
+    "ld": {
+      "headline": "AI Edit: Reformule as atas das suas reuniões com uma única instrução",
+      "description": "Apresentação da funcionalidade AI Edit do Minutes.AI que permite aos utilizadores refinar atas geradas automaticamente através de instruções em linguagem natural."
+    }
+  },
+  "aria": {
+    "home": "Página inicial do Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blogue",
+    "feature": "Nova funcionalidade"
+  },
+  "hero": {
+    "kicker": "Nova funcionalidade",
+    "h1": "AI Edit: As suas atas exatamente como as pretende",
+    "tagline": "As atas de reunião geradas automaticamente são um excelente ponto de partida — mas raramente ficam perfeitas à primeira. Com o AI Edit, pode agora refinar, reestruturar e personalizar as suas atas usando instruções simples em linguagem natural. Diga à IA o que precisa e veja as suas atas transformarem-se.",
+    "subtag": "Acabaram-se as edições manuais morosas. Uma única instrução transforma atas brutas num documento polido e adaptado ao seu objetivo.",
+    "badges": ["Edição em linguagem natural", "Refinamento instantâneo", "Compreensão do contexto"]
+  },
+
+  "problem": {
+    "h2": "O problema do «quase perfeito»",
+    "p1": "As atas de reunião geradas por IA são incrivelmente úteis — capturam automaticamente discussões, decisões e ações. Mas sempre houve uma diferença entre o que a IA produz e o que realmente precisa.",
+    "p2": "Talvez o formato não se adeque ao estilo da sua equipa. Talvez seja demasiado extenso para um relatório executivo rápido, ou demasiado breve quando precisa de ações detalhadas. Até agora, a única opção era reescrever manualmente — o que anula o propósito de usar IA.",
+    "quote": "«O resumo da IA é bom, mas acabo sempre por passar 15 minutos a ajustá-lo.»"
+  },
+
+  "solution": {
+    "h2": "Basta dizer à IA o que quer",
+    "p1": "O **AI Edit** muda tudo. Em vez de editar as atas linha a linha, basta dar uma instrução em linguagem natural — e a IA reestrutura todo o documento por si.",
+    "p2": "É como ter um editor pessoal que compreende contexto, tom e objetivo. Quer precise de uma reescrita completa ou de um ajuste subtil, o AI Edit resolve sem esforço.",
+    "highlights": [
+      "**«Adapta para a direção»** — Remove detalhes e destaca decisões e resultados-chave.",
+      "**«Torna mais conciso»** — Elimina redundâncias preservando cada ponto essencial.",
+      "**«Extrai ações em detalhe»** — Gera uma lista detalhada de tarefas com responsáveis e prazos.",
+      "**«Reescreve para a equipa de engenharia»** — Ajusta o tom e o foco para um público técnico.",
+      "**«Adiciona um resumo no início»** — Gera uma síntese breve sem alterar o conteúdo."
+    ]
+  },
+
+  "usps": {
+    "h2": "Porque é que o AI Edit faz toda a diferença",
+    "items": [
+      {
+        "icon": "wand",
+        "title": "Finalmente resolvido o problema de sempre",
+        "desc": "Outros serviços de atas com IA geram notas e ficam por aí. O AI Edit vai mais longe — permite-lhe continuar a refinar até o resultado corresponder exatamente ao que tinha em mente."
+      },
+      {
+        "icon": "message",
+        "title": "Linguagem natural, sem curva de aprendizagem",
+        "desc": "Sem modelos. Sem menus suspensos. Sem configurações complicadas. Escreva simplesmente o que pretende e o AI Edit compreende a sua intenção."
+      },
+      {
+        "icon": "refresh",
+        "title": "Edite quantas vezes quiser",
+        "desc": "Não ficou satisfeito com o primeiro resultado? Dê outra instrução. Pode refinar o mesmo documento vezes sem conta — sem qualquer limite."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Preços simples e transparentes",
+    "p1": "O AI Edit está disponível em todos os planos Minutes.AI. Escolha o plano que melhor se adequa ao seu fluxo de trabalho.",
+    "trial": { "name": "Pacote Experimental", "detail": "120 min", "foot": "$1.99 (Sem expiração)" },
+    "light": { "name": "Pacote Light", "detail": "1200 min", "foot": "$11.99 (Sem expiração)" },
+    "monthly": { "name": "Mensal", "detail": "Ilimitado", "foot": "$16.99 / mês" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / ano" },
+    "free": { "badge": "Bilhete diário gratuito", "text": "Experimente gratuitamente durante 3 minutos todos os dias — sem cartão de crédito." },
+    "bullets": [
+      "**Pacotes de tempo**: Ideais para uso ocasional — os minutos nunca expiram.",
+      "**Subscrições**: Gravação e edição ilimitadas para utilizadores frequentes.",
+      "**100+ idiomas**: Grave e edite atas em mais de 100 idiomas."
+    ],
+    "foot": {
+      "pre": "* Preços apresentados em {currency}.",
+      "post": "Podem aplicar-se impostos no checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Experimente o AI Edit agora",
+    "text": "Grave uma reunião, gere as suas atas e experimente o AI Edit. Vai perguntar-se como conseguiu trabalhar sem ele.",
+    "openBrowser": "Abrir Minutes.AI (Web)",
+    "downloadIOS": "Transferir app iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Funcionalidade",
+    "category": "Atualização de produto"
+  }
+}
