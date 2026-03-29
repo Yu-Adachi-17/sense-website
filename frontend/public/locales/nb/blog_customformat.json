@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Gjenskapa dine eksakte møtereferater med AI | Minutes.AI",
+    "description": "Minutes.AI sin nye Custom Format-funksjon analyserer dine eksisterende møtereferater — tekst, PDF eller bilde — og replikerer den nøyaktige strukturen automatisk. Et tilpasningsnivå som Otter.ai og Notta ikke kan matche.",
+    "ogTitle": "Custom Format: Dine møtereferater, din struktur — drevet av AI",
+    "ogDescription": "Last opp din eksisterende referatmal og la AI replikere den nøyaktige strukturen for hvert fremtidig møte. En banebrytende funksjon som ikke finnes hos Otter.ai eller Notta.",
+    "ld": {
+      "headline": "Custom Format: Gjenskapa dine eksakte møtereferater med AI",
+      "description": "Vi presenterer Minutes.AI sin Custom Format-funksjon som analyserer organisasjonens møtereferater og replikerer strukturen automatisk."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Hjem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Ny funksjon"
+  },
+  "hero": {
+    "kicker": "Stor oppdatering",
+    "h1": "Custom Format: Dine kjente referater, nå drevet av AI",
+    "tagline": "Hver organisasjon har sin egen stil for møtereferater. Til nå tvang AI-notatverktøy deg til å bruke deres maler. Med Custom Format laster du enkelt opp dine eksisterende referater — som tekst, PDF eller til og med et bilde — og Minutes.AI lærer strukturen din og replikerer den perfekt for hvert fremtidig møte.",
+    "subtag": "Ingen flere kompromisser om format. Dine referater, dine regler — med AI-kraften som gjør det tunge arbeidet.",
+    "badges": ["Last opp & repliker", "PDF / Tekst / Bilde", "Klar for organisasjoner"]
+  },
+
+  "problem": {
+    "h2": "AI-referater som ikke ser ut som dine",
+    "p1": "AI-møtenotatverktøy som Otter.ai og Notta genererer greie sammendrag — men i verktøyets format, ikke ditt. Hvis bedriften din har en spesifikk referatmal med bestemte seksjoner, overskrifter og handlingspunktlayouter, må du omformatere hver eneste gang.",
+    "p2": "Noen verktøy tilbyr 'egendefinerte prompts' der du skriver instruksjoner og håper AI-en tolker dem korrekt. Men resultatene er uforutsigbare — ikke bedre enn å be ChatGPT eller Google Gemini om å formatere notatene dine. Det grunnleggende problemet består: AI-en forstår ikke virkelig dokumentets struktur.",
+    "quote": "\"Teamet vårt har et spesifikt referatformat. Hvert AI-verktøy jeg har prøvd ignorerer det fullstendig.\""
+  },
+
+  "solution": {
+    "h2": "Bare vis AI-en hva du ønsker",
+    "p1": "**Custom Format** tar en radikalt annerledes tilnærming. I stedet for å beskrive formatet med ord, **viser** du det enkelt til AI-en.",
+    "p2": "Last opp et eksempel på dine eksisterende møtereferater — enten det er et tekstdokument, en PDF eller til og med et bilde av en utskrevet side — og Minutes.AI sin motor analyserer strukturen, seksjonshierarkiet, tonen og layouten. Fra det tidspunktet formateres hvert møte du tar opp nøyaktig slik organisasjonen din forventer.",
+    "highlights": [
+      "**Tekstopplasting**: Lim inn eller last opp referatene som ren tekst — AI-en trekker ut det strukturelle mønsteret umiddelbart.",
+      "**PDF-analyse**: Last opp en formatert PDF, og AI-en bevarer overskrifter, seksjoner, punktstiler og hierarki.",
+      "**Bildegjenkjenning**: Ta et bilde av en utskrevet eller håndskrevet referatmal — AI-en leser og replikerer strukturen.",
+      "**Engangsoppsett**: Last opp én gang, og formatet lagres. Hvert fremtidig møte følger automatisk malen din.",
+      "**Strukturell forståelse**: I motsetning til enkle prompts forstår Custom Format virkelig dokumentarkitekturen — ikke bare nøkkelord."
+    ]
+  },
+
+  "usps": {
+    "h2": "Hvorfor Custom Format endrer alt",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Utover 'Egendefinerte prompts'",
+        "desc": "Andre tjenester lar deg skrive instruksjoner som 'formater som et formelt møtereferat.' Resultatene er uforutsigbare. Custom Format gjetter ikke — det analyserer et ekte dokument og replikerer den nøyaktige strukturen."
+      },
+      {
+        "icon": "building",
+        "title": "Bygget for organisasjoner",
+        "desc": "Enten det er en styremøtemal, et engineering standup-format eller en salgssamtalerapport — Custom Format tilpasser seg organisasjonens spesifikke behov."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Endelig løst — det vedvarende irritasjonsmomentet",
+        "desc": "Dette er funksjonen som ingen konkurrent — verken Otter.ai, Notta eller noen AI-transkriberingstjeneste — tilbyr. Ekte strukturell replikering fra dine egne dokumenter."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Enkel, gjennomsiktig prising",
+    "p1": "Custom Format er tilgjengelig i alle Minutes.AI-planer. Velg planen som passer arbeidsflyten din.",
+    "trial": { "name": "Prøvepakke", "detail": "120 min", "foot": "$1.99 (Ingen utløpsdato)" },
+    "light": { "name": "Light-pakke", "detail": "1200 min", "foot": "$11.99 (Ingen utløpsdato)" },
+    "monthly": { "name": "Månedlig", "detail": "Ubegrenset", "foot": "$16.99 / md." },
+    "annual": { "name": "Årlig", "detail": "Ubegrenset", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis daglig billett", "text": "Prøv gratis i 3 minutter hver dag — ingen kredittkort nødvendig." },
+    "bullets": [
+      "**Tidspakker**: Perfekte for sporadisk bruk — minutter utløper aldri.",
+      "**Abonnementer**: Ubegrenset opptak og formatering for avanserte brukere.",
+      "**100+ språk**: Ta opp og formater referater på over 100 språk."
+    ],
+    "foot": {
+      "pre": "* Priser vist i {currency}.",
+      "post": "Avgifter kan tilkomme ved betaling."
+    }
+  },
+
+  "cta": {
+    "h2": "Prøv Custom Format nå",
+    "text": "Last opp din eksisterende referatmal, ta opp ditt neste møte og se magien. Dine AI-genererte referater vil endelig se ut som dine.",
+    "openBrowser": "Åpne Minutes.AI (Web)",
+    "downloadIOS": "Last ned iOS-appen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publisert",
+    "type": "Funksjon",
+    "category": "Produktoppdatering"
+  }
+}

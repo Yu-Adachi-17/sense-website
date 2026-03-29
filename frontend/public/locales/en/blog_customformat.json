@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduce Your Exact Meeting Minutes with AI | Minutes.AI",
+    "description": "Minutes.AI's new Custom Format feature analyzes your existing meeting minutes — text, PDF, or photo — and replicates the exact structure automatically. A level of customization Otter.ai and Notta can't match.",
+    "ogTitle": "Custom Format: Your Meeting Minutes, Your Structure — Powered by AI",
+    "ogDescription": "Upload your existing minutes template and let AI replicate the exact structure for every future meeting. A game-changing feature unavailable on Otter.ai or Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduce Your Exact Meeting Minutes with AI",
+      "description": "Introducing Minutes.AI's Custom Format feature that analyzes your organization's meeting minutes and replicates the structure automatically."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "New Feature"
+  },
+  "hero": {
+    "kicker": "Major Update",
+    "h1": "Custom Format: Your Familiar Minutes, Now Powered by AI",
+    "tagline": "Every organization has its own meeting minutes style. Until now, AI note-takers forced you into their templates. With Custom Format, you simply upload your existing minutes — as text, PDF, or even a photo — and Minutes.AI learns your structure, replicating it perfectly for every future meeting.",
+    "subtag": "No more compromising on format. Your minutes, your rules — with the power of AI doing the heavy lifting.",
+    "badges": ["Upload & Replicate", "PDF / Text / Photo", "Organization-Ready"]
+  },
+
+  "problem": {
+    "h2": "AI Minutes That Don't Look Like Yours",
+    "p1": "AI meeting note tools like Otter.ai and Notta generate decent summaries — but they come in the tool's format, not yours. If your company has a specific minutes template with designated sections, headers, and action-item layouts, you're stuck reformatting every single time.",
+    "p2": "Some tools offer 'custom prompts' where you type instructions and hope the AI interprets them correctly. But the results are hit-or-miss — no better than asking ChatGPT or Google Gemini to format your notes. The fundamental problem remains: the AI doesn't actually understand your document's structure.",
+    "quote": "\"Our team has a specific minutes format. Every AI tool I've tried ignores it completely.\""
+  },
+
+  "solution": {
+    "h2": "Just Show the AI What You Want",
+    "p1": "**Custom Format** takes a radically different approach. Instead of describing your format in words, you simply **show** it to the AI.",
+    "p2": "Upload a sample of your existing meeting minutes — whether it's a text document, a PDF, or even a photo of a printed page — and Minutes.AI's engine will analyze the structure, section hierarchy, tone, and layout. From that point on, every meeting you record will be formatted exactly the way your organization expects.",
+    "highlights": [
+      "**Text Upload**: Paste or upload your minutes as plain text — the AI extracts the structural pattern instantly.",
+      "**PDF Analysis**: Upload a formatted PDF and the AI preserves headers, sections, bullet styles, and hierarchy.",
+      "**Photo Recognition**: Snap a photo of a printed or handwritten minutes template — the AI reads and replicates the structure.",
+      "**One-Time Setup**: Upload once, and the format is saved. Every future meeting follows your template automatically.",
+      "**Structural Understanding**: Unlike simple prompts, Custom Format truly understands document architecture — not just keywords."
+    ]
+  },
+
+  "usps": {
+    "h2": "Why Custom Format Changes Everything",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Beyond 'Custom Prompts'",
+        "desc": "Other services let you type instructions like 'format as a formal meeting note.' The results are unpredictable. Custom Format doesn't guess — it analyzes a real document and replicates the exact structure."
+      },
+      {
+        "icon": "building",
+        "title": "Built for Organizations",
+        "desc": "Whether it's a corporate board meeting template, an engineering standup format, or a sales call report — Custom Format adapts to your organization's specific needs."
+      },
+      {
+        "icon": "sparkle",
+        "title": "The 'Itchy Spot' Finally Scratched",
+        "desc": "This is the feature that no competitor — not Otter.ai, not Notta, not any AI transcription service — offers. True structural replication from your own documents."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Simple, Transparent Pricing",
+    "p1": "Custom Format is available across all Minutes.AI plans. Choose the plan that fits your workflow.",
+    "trial": { "name": "Trial Pack", "detail": "120 min", "foot": "$1.99 (No expiry)" },
+    "light": { "name": "Light Pack", "detail": "1200 min", "foot": "$11.99 (No expiry)" },
+    "monthly": { "name": "Monthly", "detail": "Unlimited", "foot": "$16.99 / mo" },
+    "annual": { "name": "Annual", "detail": "Unlimited", "foot": "$149.99 / yr" },
+    "free": { "badge": "Free Daily Ticket", "text": "Try it free for 3 minutes every day — no credit card required." },
+    "bullets": [
+      "**Time Packs**: Great for occasional use — minutes never expire.",
+      "**Subscriptions**: Unlimited recording and formatting for power users.",
+      "**100+ Languages**: Record and format minutes in over 100 languages."
+    ],
+    "foot": {
+      "pre": "* Prices shown in {currency}.",
+      "post": "Taxes may apply at checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Try Custom Format Now",
+    "text": "Upload your existing minutes template, record your next meeting, and see the magic happen. Your AI-generated minutes will finally look like yours.",
+    "openBrowser": "Open Minutes.AI (Web)",
+    "downloadIOS": "Download iOS App"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Published",
+    "type": "Feature",
+    "category": "Product Update"
+  }
+}

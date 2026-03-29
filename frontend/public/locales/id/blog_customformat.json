@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduksi Notulen Rapat Anda dengan AI | Minutes.AI",
+    "description": "Fitur Custom Format baru dari Minutes.AI menganalisis notulen rapat Anda — teks, PDF, atau foto — dan mereplikasi struktur persis secara otomatis. Tingkat kustomisasi yang tidak bisa ditandingi Otter.ai dan Notta.",
+    "ogTitle": "Custom Format: Notulen Anda, Struktur Anda — Didukung AI",
+    "ogDescription": "Unggah template notulen Anda dan biarkan AI mereplikasi struktur persis untuk setiap rapat di masa depan. Fitur revolusioner yang tidak tersedia di Otter.ai atau Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduksi Notulen Rapat Anda dengan AI",
+      "description": "Memperkenalkan fitur Custom Format Minutes.AI yang menganalisis notulen organisasi Anda dan mereplikasi struktur secara otomatis."
+    }
+  },
+  "aria": {
+    "home": "Beranda Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Fitur Baru"
+  },
+  "hero": {
+    "kicker": "Pembaruan Besar",
+    "h1": "Custom Format: Notulen Familiar Anda, Kini Didukung AI",
+    "tagline": "Setiap organisasi memiliki gaya notulen rapatnya sendiri. Selama ini, alat pencatat AI memaksa Anda menggunakan template mereka. Dengan Custom Format, Anda cukup mengunggah notulen yang ada — sebagai teks, PDF, atau bahkan foto — dan Minutes.AI mempelajari struktur Anda, mereplikasinya dengan sempurna untuk setiap rapat berikutnya.",
+    "subtag": "Tidak ada lagi kompromi format. Notulen Anda, aturan Anda — dengan kekuatan AI yang mengerjakan bagian beratnya.",
+    "badges": ["Unggah & Replikasi", "PDF / Teks / Foto", "Siap untuk Organisasi"]
+  },
+
+  "problem": {
+    "h2": "Notulen AI yang Tidak Mirip Milik Anda",
+    "p1": "Alat pencatat rapat AI seperti Otter.ai dan Notta menghasilkan ringkasan yang lumayan — tapi dalam format alat, bukan milik Anda. Jika perusahaan Anda memiliki template notulen spesifik dengan bagian, header, dan tata letak item tindakan tertentu, Anda terpaksa memformat ulang setiap kali.",
+    "p2": "Beberapa alat menawarkan 'prompt kustom' di mana Anda mengetik instruksi dan berharap AI menginterpretasikannya dengan benar. Tapi hasilnya tidak konsisten — tidak lebih baik dari meminta ChatGPT atau Google Gemini memformat catatan Anda. Masalah mendasar tetap ada: AI tidak benar-benar memahami struktur dokumen Anda.",
+    "quote": "\"Tim kami memiliki format notulen spesifik. Setiap alat AI yang saya coba mengabaikannya sepenuhnya.\""
+  },
+
+  "solution": {
+    "h2": "Cukup Tunjukkan pada AI Apa yang Anda Inginkan",
+    "p1": "**Custom Format** mengambil pendekatan yang berbeda secara radikal. Alih-alih mendeskripsikan format dengan kata-kata, Anda cukup **menunjukkannya** kepada AI.",
+    "p2": "Unggah sampel notulen rapat Anda — baik itu dokumen teks, PDF, atau bahkan foto halaman cetak — dan mesin Minutes.AI akan menganalisis struktur, hierarki bagian, nada, dan tata letak. Sejak saat itu, setiap rapat yang Anda rekam akan diformat persis seperti yang diharapkan organisasi Anda.",
+    "highlights": [
+      "**Unggah Teks**: Tempel atau unggah notulen sebagai teks biasa — AI mengekstrak pola struktural secara instan.",
+      "**Analisis PDF**: Unggah PDF yang diformat dan AI mempertahankan header, bagian, gaya poin, dan hierarki.",
+      "**Pengenalan Foto**: Ambil foto template notulen cetak atau tulisan tangan — AI membaca dan mereplikasi struktur.",
+      "**Pengaturan Sekali**: Unggah sekali, dan format tersimpan. Setiap rapat berikutnya mengikuti template Anda secara otomatis.",
+      "**Pemahaman Struktural**: Berbeda dari prompt sederhana, Custom Format benar-benar memahami arsitektur dokumen — bukan hanya kata kunci."
+    ]
+  },
+
+  "usps": {
+    "h2": "Mengapa Custom Format Mengubah Segalanya",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Melampaui 'Prompt Kustom'",
+        "desc": "Layanan lain memungkinkan Anda mengetik instruksi seperti 'format sebagai catatan rapat formal.' Hasilnya tidak terprediksi. Custom Format tidak menebak — menganalisis dokumen nyata dan mereplikasi struktur persis."
+      },
+      {
+        "icon": "building",
+        "title": "Dibangun untuk Organisasi",
+        "desc": "Baik itu template rapat dewan direksi, format standup engineering, atau laporan panggilan penjualan — Custom Format menyesuaikan dengan kebutuhan spesifik organisasi Anda."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Akhirnya Terpecahkan",
+        "desc": "Ini adalah fitur yang tidak ditawarkan oleh kompetitor mana pun — tidak Otter.ai, tidak Notta, tidak ada layanan transkripsi AI mana pun. Replikasi struktural nyata dari dokumen Anda sendiri."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Harga Sederhana dan Transparan",
+    "p1": "Custom Format tersedia di semua paket Minutes.AI. Pilih paket yang sesuai dengan alur kerja Anda.",
+    "trial": { "name": "Paket Coba", "detail": "120 min", "foot": "$1.99 (Tanpa kedaluwarsa)" },
+    "light": { "name": "Paket Light", "detail": "1200 min", "foot": "$11.99 (Tanpa kedaluwarsa)" },
+    "monthly": { "name": "Bulanan", "detail": "Tidak terbatas", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tidak terbatas", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Gratis", "text": "Coba gratis 3 menit setiap hari — tanpa kartu kredit." },
+    "bullets": [
+      "**Paket Waktu**: Cocok untuk penggunaan sesekali — menit tidak pernah kedaluwarsa.",
+      "**Langganan**: Perekaman dan pemformatan tak terbatas untuk pengguna aktif.",
+      "**100+ Bahasa**: Rekam dan format notulen dalam lebih dari 100 bahasa."
+    ],
+    "foot": {
+      "pre": "* Harga ditampilkan dalam {currency}.",
+      "post": "Pajak mungkin berlaku saat checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Coba Custom Format Sekarang",
+    "text": "Unggah template notulen Anda, rekam rapat berikutnya, dan saksikan keajaibannya. Notulen AI Anda akhirnya akan terlihat seperti milik Anda.",
+    "openBrowser": "Buka Minutes.AI (Web)",
+    "downloadIOS": "Unduh Aplikasi iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Fitur",
+    "category": "Pembaruan Produk"
+  }
+}

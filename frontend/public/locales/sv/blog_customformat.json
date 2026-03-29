@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Återskapa dina exakta mötesprotokoll med AI | Minutes.AI",
+    "description": "Minutes.AI:s nya Custom Format-funktion analyserar dina befintliga mötesprotokoll — text, PDF eller foto — och replikerar den exakta strukturen automatiskt. En anpassningsnivå som Otter.ai och Notta inte kan matcha.",
+    "ogTitle": "Custom Format: Dina mötesprotokoll, din struktur — drivet av AI",
+    "ogDescription": "Ladda upp din befintliga protokollmall och låt AI replikera den exakta strukturen för varje framtida möte. En banbrytande funktion som inte finns hos Otter.ai eller Notta.",
+    "ld": {
+      "headline": "Custom Format: Återskapa dina exakta mötesprotokoll med AI",
+      "description": "Vi presenterar Minutes.AI:s Custom Format-funktion som analyserar din organisations mötesprotokoll och replikerar strukturen automatiskt."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Hem"
+  },
+  "nav": {
+    "blog": "Blogg",
+    "feature": "Ny funktion"
+  },
+  "hero": {
+    "kicker": "Stor uppdatering",
+    "h1": "Custom Format: Dina välbekanta protokoll, nu drivna av AI",
+    "tagline": "Varje organisation har sin egen stil för mötesprotokoll. Hittills har AI-anteckningsverktyg tvingat dig att använda deras mallar. Med Custom Format laddar du helt enkelt upp dina befintliga protokoll — som text, PDF eller till och med ett foto — och Minutes.AI lär sig din struktur och replikerar den perfekt för varje framtida möte.",
+    "subtag": "Inga fler kompromisser om format. Dina protokoll, dina regler — med kraften av AI som gör det tunga arbetet.",
+    "badges": ["Ladda upp & replikera", "PDF / Text / Foto", "Redo för organisationer"]
+  },
+
+  "problem": {
+    "h2": "AI-protokoll som inte ser ut som dina",
+    "p1": "AI-verktyg för mötesanteckningar som Otter.ai och Notta genererar hyffsade sammanfattningar — men i verktygets format, inte ditt. Om ditt företag har en specifik protokollmall med bestämda avsnitt, rubriker och uppgiftslayouter, tvingas du omformatera varje gång.",
+    "p2": "Vissa verktyg erbjuder 'anpassade promptar' där du skriver instruktioner och hoppas att AI tolkar dem korrekt. Men resultaten är oförutsägbara — inte bättre än att be ChatGPT eller Google Gemini formatera dina anteckningar. Det grundläggande problemet kvarstår: AI:n förstår inte verkligen ditt dokuments struktur.",
+    "quote": "\"Vårt team har ett specifikt protokollformat. Varje AI-verktyg jag har testat ignorerar det fullständigt.\""
+  },
+
+  "solution": {
+    "h2": "Visa bara AI:n vad du vill ha",
+    "p1": "**Custom Format** tar en radikalt annorlunda ansats. Istället för att beskriva ditt format med ord, **visar** du det helt enkelt för AI:n.",
+    "p2": "Ladda upp ett exempel på dina befintliga mötesprotokoll — oavsett om det är ett textdokument, en PDF eller till och med ett foto av en utskriven sida — och Minutes.AI:s motor analyserar strukturen, avsnittshierarkin, tonen och layouten. Från den tidpunkten formateras varje inspelat möte exakt som din organisation förväntar sig.",
+    "highlights": [
+      "**Textuppladdning**: Klistra in eller ladda upp dina protokoll som ren text — AI:n extraherar det strukturella mönstret direkt.",
+      "**PDF-analys**: Ladda upp en formaterad PDF och AI:n bevarar rubriker, avsnitt, punktliststilar och hierarki.",
+      "**Fotoigenkänning**: Ta ett foto av en utskriven eller handskriven protokollmall — AI:n läser och replikerar strukturen.",
+      "**Engångsinstallation**: Ladda upp en gång och formatet sparas. Varje framtida möte följer automatiskt din mall.",
+      "**Strukturell förståelse**: Till skillnad från enkla promptar förstår Custom Format verkligen dokumentarkitekturen — inte bara nyckelord."
+    ]
+  },
+
+  "usps": {
+    "h2": "Varför Custom Format förändrar allt",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Bortom 'Anpassade promptar'",
+        "desc": "Andra tjänster låter dig skriva instruktioner som 'formatera som ett formellt mötesprotokoll.' Resultaten är oförutsägbara. Custom Format gissar inte — det analyserar ett riktigt dokument och replikerar den exakta strukturen."
+      },
+      {
+        "icon": "building",
+        "title": "Byggt för organisationer",
+        "desc": "Oavsett om det gäller en mall för styrelsemöten, ett format för tekniska standups eller en rapport för säljsamtal — Custom Format anpassar sig till din organisations specifika behov."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Äntligen löst — det ständiga irritationsmomentet",
+        "desc": "Det här är funktionen som ingen konkurrent — varken Otter.ai, Notta eller någon annan AI-transkriptionstjänst — erbjuder. Äkta strukturell replikering från dina egna dokument."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Enkel, transparent prissättning",
+    "p1": "Custom Format finns i alla Minutes.AI-planer. Välj den plan som passar ditt arbetsflöde.",
+    "trial": { "name": "Testpaket", "detail": "120 min", "foot": "$1.99 (Ingen utgångstid)" },
+    "light": { "name": "Light-paket", "detail": "1200 min", "foot": "$11.99 (Ingen utgångstid)" },
+    "monthly": { "name": "Månadsvis", "detail": "Obegränsat", "foot": "$16.99 / mån" },
+    "annual": { "name": "Årsvis", "detail": "Obegränsat", "foot": "$149.99 / år" },
+    "free": { "badge": "Gratis daglig biljett", "text": "Testa gratis i 3 minuter varje dag — inget kreditkort krävs." },
+    "bullets": [
+      "**Tidspaket**: Perfekta för tillfällig användning — minuter löper aldrig ut.",
+      "**Prenumerationer**: Obegränsad inspelning och formatering för avancerade användare.",
+      "**100+ språk**: Spela in och formatera protokoll på över 100 språk."
+    ],
+    "foot": {
+      "pre": "* Priser visas i {currency}.",
+      "post": "Skatter kan tillkomma vid betalning."
+    }
+  },
+
+  "cta": {
+    "h2": "Prova Custom Format nu",
+    "text": "Ladda upp din befintliga protokollmall, spela in ditt nästa möte och se magin. Dina AI-genererade protokoll kommer äntligen se ut som dina.",
+    "openBrowser": "Öppna Minutes.AI (Webb)",
+    "downloadIOS": "Ladda ner iOS-appen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicerad",
+    "type": "Funktion",
+    "category": "Produktuppdatering"
+  }
+}

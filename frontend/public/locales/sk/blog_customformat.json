@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reprodukujte presný formát vašich zápisníc pomocou AI | Minutes.AI",
+    "description": "Nová funkcia Custom Format v Minutes.AI analyzuje vaše existujúce zápisnice — text, PDF alebo fotografiu — a automaticky replikuje presnú štruktúru. Úroveň prispôsobenia, ktorú Otter.ai a Notta nedokážu ponúknuť.",
+    "ogTitle": "Custom Format: Vaše zápisnice, vaša štruktúra — poháňané AI",
+    "ogDescription": "Nahrajte svoju existujúcu šablónu zápisníc a nechajte AI replikovať presnú štruktúru pre každé budúce stretnutie. Prelomová funkcia nedostupná na Otter.ai ani Notta.",
+    "ld": {
+      "headline": "Custom Format: Reprodukujte presný formát vašich zápisníc pomocou AI",
+      "description": "Predstavujeme funkciu Custom Format v Minutes.AI, ktorá analyzuje zápisnice vašej organizácie a automaticky replikuje štruktúru."
+    }
+  },
+  "aria": {
+    "home": "Domovská stránka Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nová funkcia"
+  },
+  "hero": {
+    "kicker": "Veľká aktualizácia",
+    "h1": "Custom Format: Vaše známe zápisnice, teraz poháňané AI",
+    "tagline": "Každá organizácia má svoj vlastný štýl zápisníc. Doteraz vás AI nástroje na poznámky nútili používať svoje šablóny. S Custom Format jednoducho nahráte svoje existujúce zápisnice — ako text, PDF alebo aj fotografiu — a Minutes.AI sa naučí vašu štruktúru a dokonale ju replikuje pre každé budúce stretnutie.",
+    "subtag": "Žiadne ďalšie kompromisy vo formáte. Vaše zápisnice, vaše pravidlá — s mocou AI, ktorá robí ťažkú prácu.",
+    "badges": ["Nahrať a replikovať", "PDF / Text / Foto", "Pripravené pre organizácie"]
+  },
+
+  "problem": {
+    "h2": "AI zápisnice, ktoré nevyzerajú ako vaše",
+    "p1": "AI nástroje na poznámky zo stretnutí ako Otter.ai a Notta generujú slušné súhrny — ale vo formáte nástroja, nie vašom. Ak má vaša firma konkrétnu šablónu zápisníc s určenými sekciami, nadpismi a rozložením úloh, musíte každý raz preformátovať.",
+    "p2": "Niektoré nástroje ponúkajú 'vlastné prompty', kde napíšete inštrukcie a dúfate, že ich AI správne interpretuje. Ale výsledky sú nepredvídateľné — nie lepšie ako požiadať ChatGPT alebo Google Gemini o formátovanie vašich poznámok. Základný problém pretrváva: AI skutočne nerozumie štruktúre vášho dokumentu.",
+    "quote": "\"Náš tím má špecifický formát zápisníc. Každý AI nástroj, ktorý som vyskúšal, ho úplne ignoruje.\""
+  },
+
+  "solution": {
+    "h2": "Jednoducho ukážte AI, čo chcete",
+    "p1": "**Custom Format** používa radikálne odlišný prístup. Namiesto opisovania formátu slovami ho jednoducho **ukážete** AI.",
+    "p2": "Nahrajte ukážku svojich existujúcich zápisníc — či už ide o textový dokument, PDF alebo aj fotografiu vytlačenej stránky — a motor Minutes.AI analyzuje štruktúru, hierarchiu sekcií, tón a rozloženie. Od toho momentu bude každé nahrané stretnutie formátované presne tak, ako vaša organizácia očakáva.",
+    "highlights": [
+      "**Nahranie textu**: Vložte alebo nahrajte zápisnice ako obyčajný text — AI okamžite extrahuje štrukturálny vzor.",
+      "**Analýza PDF**: Nahrajte formátované PDF a AI zachová nadpisy, sekcie, štýly odrážok a hierarchiu.",
+      "**Rozpoznávanie fotografií**: Odfotografujte vytlačenú alebo ručne písanú šablónu — AI prečíta a replikuje štruktúru.",
+      "**Jednorazové nastavenie**: Nahrajte raz a formát sa uloží. Každé budúce stretnutie automaticky sleduje vašu šablónu.",
+      "**Štrukturálne porozumenie**: Na rozdiel od jednoduchých promptov Custom Format skutočne rozumie architektúre dokumentu — nielen kľúčovým slovám."
+    ]
+  },
+
+  "usps": {
+    "h2": "Prečo Custom Format mení všetko",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Za hranice 'Vlastných promptov'",
+        "desc": "Iné služby vám umožňujú písať inštrukcie ako 'formátuj ako formálnu zápisnicu zo stretnutia.' Výsledky sú nepredvídateľné. Custom Format neháda — analyzuje skutočný dokument a replikuje presnú štruktúru."
+      },
+      {
+        "icon": "building",
+        "title": "Navrhnuté pre organizácie",
+        "desc": "Či už ide o šablónu zasadnutia predstavenstva, formát inžinierskeho standupu alebo správu z obchodného hovoru — Custom Format sa prispôsobí špecifickým potrebám vašej organizácie."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Konečne vyriešený dlhodobý problém",
+        "desc": "Toto je funkcia, ktorú žiadny konkurent — ani Otter.ai, ani Notta, ani žiadna služba AI prepisu — neponúka. Skutočná štrukturálna replikácia z vašich vlastných dokumentov."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Jednoduché, transparentné ceny",
+    "p1": "Custom Format je k dispozícii vo všetkých plánoch Minutes.AI. Vyberte si plán, ktorý vyhovuje vášmu pracovnému postupu.",
+    "trial": { "name": "Skúšobný balík", "detail": "120 min", "foot": "$1.99 (Bez expirácie)" },
+    "light": { "name": "Light balík", "detail": "1200 min", "foot": "$11.99 (Bez expirácie)" },
+    "monthly": { "name": "Mesačný", "detail": "Neobmedzene", "foot": "$16.99 / mes." },
+    "annual": { "name": "Ročný", "detail": "Neobmedzene", "foot": "$149.99 / rok" },
+    "free": { "badge": "Bezplatný denný lístok", "text": "Vyskúšajte zadarmo 3 minúty každý deň — bez kreditnej karty." },
+    "bullets": [
+      "**Časové balíky**: Ideálne pre príležitostné použitie — minúty nikdy nevypršia.",
+      "**Predplatné**: Neobmedzené nahrávanie a formátovanie pre aktívnych používateľov.",
+      "**100+ jazykov**: Nahrávajte a formátujte zápisnice vo viac ako 100 jazykoch."
+    ],
+    "foot": {
+      "pre": "* Ceny zobrazené v {currency}.",
+      "post": "Pri platbe sa môžu účtovať dane."
+    }
+  },
+
+  "cta": {
+    "h2": "Vyskúšajte Custom Format teraz",
+    "text": "Nahrajte svoju existujúcu šablónu zápisníc, zaznamenajte ďalšie stretnutie a sledujte kúzlo. Vaše AI zápisnice budú konečne vyzerať ako vaše.",
+    "openBrowser": "Otvoriť Minutes.AI (Web)",
+    "downloadIOS": "Stiahnuť iOS aplikáciu"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikované",
+    "type": "Funkcia",
+    "category": "Aktualizácia produktu"
+  }
+}

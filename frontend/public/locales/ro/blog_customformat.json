@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduceți exact minutele ședințelor cu AI | Minutes.AI",
+    "description": "Noua funcție Custom Format de la Minutes.AI analizează minutele existente ale ședințelor — text, PDF sau fotografie — și replică automat structura exactă. Un nivel de personalizare pe care Otter.ai și Notta nu îl pot egala.",
+    "ogTitle": "Custom Format: Minutele dumneavoastră, structura dumneavoastră — alimentat de AI",
+    "ogDescription": "Încărcați șablonul de minute existent și lăsați AI să replice structura exactă pentru fiecare ședință viitoare. O funcție revoluționară indisponibilă pe Otter.ai sau Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduceți exact minutele ședințelor cu AI",
+      "description": "Vă prezentăm funcția Custom Format de la Minutes.AI care analizează minutele organizației dumneavoastră și replică automat structura."
+    }
+  },
+  "aria": {
+    "home": "Pagina principală Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Funcție nouă"
+  },
+  "hero": {
+    "kicker": "Actualizare importantă",
+    "h1": "Custom Format: Minutele familiare, acum alimentate de AI",
+    "tagline": "Fiecare organizație are propriul stil de minute ale ședințelor. Până acum, instrumentele AI de notare vă forțau să folosiți șabloanele lor. Cu Custom Format, pur și simplu încărcați minutele existente — ca text, PDF sau chiar o fotografie — iar Minutes.AI învață structura și o replică perfect pentru fiecare ședință viitoare.",
+    "subtag": "Fără compromisuri pe format. Minutele dumneavoastră, regulile dumneavoastră — cu puterea AI care face munca grea.",
+    "badges": ["Încărcare și replicare", "PDF / Text / Foto", "Pregătit pentru organizații"]
+  },
+
+  "problem": {
+    "h2": "Minute AI care nu arată ca ale dumneavoastră",
+    "p1": "Instrumentele AI de notare precum Otter.ai și Notta generează rezumate decente — dar în formatul instrumentului, nu al dumneavoastră. Dacă firma are un șablon de minute specific cu secțiuni desemnate, anteturi și machete de acțiuni, sunteți forțat să reformatați de fiecare dată.",
+    "p2": "Unele instrumente oferă 'prompturi personalizate' unde scrieți instrucțiuni și sperați că AI le interpretează corect. Dar rezultatele sunt imprevizibile — nu mai bune decât a cere ChatGPT sau Google Gemini să formateze notițele. Problema fundamentală rămâne: AI nu înțelege cu adevărat structura documentului.",
+    "quote": "\"Echipa noastră are un format specific de minute. Fiecare instrument AI pe care l-am încercat îl ignoră complet.\""
+  },
+
+  "solution": {
+    "h2": "Arătați-i pur și simplu AI-ului ce doriți",
+    "p1": "**Custom Format** adoptă o abordare radical diferită. În loc să descrieți formatul în cuvinte, pur și simplu îl **arătați** AI-ului.",
+    "p2": "Încărcați un exemplu din minutele existente — fie document text, PDF sau chiar o fotografie a unei pagini tipărite — iar motorul Minutes.AI va analiza structura, ierarhia secțiunilor, tonul și aspectul. Din acel moment, fiecare ședință înregistrată va fi formatată exact așa cum organizația așteaptă.",
+    "highlights": [
+      "**Încărcare text**: Lipiți sau încărcați minutele ca text simplu — AI extrage instantaneu modelul structural.",
+      "**Analiză PDF**: Încărcați un PDF formatat iar AI păstrează anteturile, secțiunile, stilurile de marcaje și ierarhia.",
+      "**Recunoaștere foto**: Fotografiați un șablon de minute tipărit sau scris de mână — AI citește și replică structura.",
+      "**Configurare unică**: Încărcați o dată și formatul se salvează. Fiecare ședință viitoare urmează automat șablonul.",
+      "**Înțelegere structurală**: Spre deosebire de prompturile simple, Custom Format înțelege cu adevărat arhitectura documentului — nu doar cuvintele cheie."
+    ]
+  },
+
+  "usps": {
+    "h2": "De ce Custom Format schimbă totul",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Dincolo de 'Prompturi personalizate'",
+        "desc": "Alte servicii vă permit să scrieți instrucțiuni precum 'formatează ca notă oficială de ședință.' Rezultatele sunt imprevizibile. Custom Format nu ghicește — analizează un document real și replică structura exactă."
+      },
+      {
+        "icon": "building",
+        "title": "Creat pentru organizații",
+        "desc": "Fie că este un șablon de ședință a consiliului de administrație, un format de standup de inginerie sau un raport de apel de vânzări — Custom Format se adaptează nevoilor specifice ale organizației."
+      },
+      {
+        "icon": "sparkle",
+        "title": "În sfârșit rezolvată problema persistentă",
+        "desc": "Aceasta este funcția pe care niciun competitor — nici Otter.ai, nici Notta, niciun serviciu de transcriere AI — nu o oferă. Replicare structurală reală din propriile documente."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Prețuri simple și transparente",
+    "p1": "Custom Format este disponibil în toate planurile Minutes.AI. Alegeți planul potrivit fluxului de lucru.",
+    "trial": { "name": "Pachet de probă", "detail": "120 min", "foot": "$1.99 (Fără expirare)" },
+    "light": { "name": "Pachet Light", "detail": "1200 min", "foot": "$11.99 (Fără expirare)" },
+    "monthly": { "name": "Lunar", "detail": "Nelimitat", "foot": "$16.99 / lună" },
+    "annual": { "name": "Anual", "detail": "Nelimitat", "foot": "$149.99 / an" },
+    "free": { "badge": "Bilet zilnic gratuit", "text": "Încercați gratuit 3 minute în fiecare zi — fără card de credit." },
+    "bullets": [
+      "**Pachete de timp**: Ideale pentru utilizare ocazională — minutele nu expiră niciodată.",
+      "**Abonamente**: Înregistrare și formatare nelimitată pentru utilizatori activi.",
+      "**100+ limbi**: Înregistrați și formatați minute în peste 100 de limbi."
+    ],
+    "foot": {
+      "pre": "* Prețuri afișate în {currency}.",
+      "post": "Taxele pot fi aplicate la finalizarea comenzii."
+    }
+  },
+
+  "cta": {
+    "h2": "Încercați Custom Format acum",
+    "text": "Încărcați șablonul de minute existent, înregistrați următoarea ședință și vedeți magia. Minutele generate de AI vor arăta în sfârșit ca ale dumneavoastră.",
+    "openBrowser": "Deschide Minutes.AI (Web)",
+    "downloadIOS": "Descarcă aplicația iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicat",
+    "type": "Funcție",
+    "category": "Actualizare produs"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproducirajte točan format zapisnika sa sastanaka pomoću AI | Minutes.AI",
+    "description": "Nova Custom Format značajka Minutes.AI analizira vaše postojeće zapisnike — tekst, PDF ili fotografiju — i automatski replicira točnu strukturu. Razina prilagodbe koju Otter.ai i Notta ne mogu ponuditi.",
+    "ogTitle": "Custom Format: Vaši zapisnici, vaša struktura — pokretano AI-jem",
+    "ogDescription": "Prenesite svoj postojeći predložak zapisnika i pustite AI da replicira točnu strukturu za svaki budući sastanak. Revolucionarna značajka nedostupna na Otter.ai ili Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproducirajte točan format zapisnika sa sastanaka pomoću AI",
+      "description": "Predstavljamo Custom Format značajku Minutes.AI koja analizira zapisnike vaše organizacije i automatski replicira strukturu."
+    }
+  },
+  "aria": {
+    "home": "Početna stranica Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nova značajka"
+  },
+  "hero": {
+    "kicker": "Veliko ažuriranje",
+    "h1": "Custom Format: Vaši poznati zapisnici, sada pokretani AI-jem",
+    "tagline": "Svaka organizacija ima svoj stil zapisnika sa sastanaka. Do sada su vas AI alati za bilješke prisiljavali na korištenje svojih predložaka. S Custom Formatom jednostavno prenesete svoje postojeće zapisnike — kao tekst, PDF ili čak fotografiju — a Minutes.AI uči vašu strukturu i savršeno je replicira za svaki budući sastanak.",
+    "subtag": "Nema više kompromisa oko formata. Vaši zapisnici, vaša pravila — uz snagu AI-ja koji obavlja teški posao.",
+    "badges": ["Prenesi i repliciraj", "PDF / Tekst / Foto", "Spremno za organizacije"]
+  },
+
+  "problem": {
+    "h2": "AI zapisnici koji ne izgledaju kao vaši",
+    "p1": "AI alati za bilješke sa sastanaka poput Otter.ai i Notta generiraju pristojne sažetke — ali u formatu alata, ne vašem. Ako vaša tvrtka ima specifičan predložak zapisnika s određenim odjeljcima, naslovima i rasporedom akcijskih stavki, prisiljeni ste preformatirati svaki put.",
+    "p2": "Neki alati nude 'prilagođene promptove' gdje upisujete upute i nadate se da će ih AI ispravno protumačiti. Ali rezultati su nepredvidivi — ne bolji od traženja ChatGPT-a ili Google Geminija da formatiraju vaše bilješke. Temeljni problem ostaje: AI zapravo ne razumije strukturu vašeg dokumenta.",
+    "quote": "\"Naš tim ima specifičan format zapisnika. Svaki AI alat koji sam isprobao potpuno ga ignorira.\""
+  },
+
+  "solution": {
+    "h2": "Jednostavno pokažite AI-ju što želite",
+    "p1": "**Custom Format** koristi radikalno drugačiji pristup. Umjesto opisivanja formata riječima, jednostavno ga **pokažete** AI-ju.",
+    "p2": "Prenesite uzorak svojih postojećih zapisnika — bilo da je to tekstualni dokument, PDF ili čak fotografija ispisane stranice — i motor Minutes.AI analizirat će strukturu, hijerarhiju odjeljaka, ton i raspored. Od tog trenutka svaki snimljeni sastanak bit će formatiran točno onako kako vaša organizacija očekuje.",
+    "highlights": [
+      "**Prijenos teksta**: Zalijepite ili prenesite zapisnike kao obični tekst — AI odmah izvlači strukturalni uzorak.",
+      "**PDF analiza**: Prenesite formatirani PDF i AI čuva naslove, odjeljke, stilove nabrajanja i hijerarhiju.",
+      "**Prepoznavanje fotografija**: Fotografirajte ispisani ili rukom pisani predložak zapisnika — AI čita i replicira strukturu.",
+      "**Jednokratno postavljanje**: Prenesite jednom i format se sprema. Svaki budući sastanak automatski slijedi vaš predložak.",
+      "**Strukturalno razumijevanje**: Za razliku od jednostavnih promptova, Custom Format stvarno razumije arhitekturu dokumenta — ne samo ključne riječi."
+    ]
+  },
+
+  "usps": {
+    "h2": "Zašto Custom Format mijenja sve",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Iznad 'Prilagođenih promptova'",
+        "desc": "Druge usluge omogućuju vam pisanje uputa poput 'formatiraj kao formalni zapisnik sa sastanka.' Rezultati su nepredvidivi. Custom Format ne pogađa — analizira stvarni dokument i replicira točnu strukturu."
+      },
+      {
+        "icon": "building",
+        "title": "Izrađeno za organizacije",
+        "desc": "Bilo da se radi o predlošku sjednice uprave, formatu inženjerskog standupa ili izvještaju prodajnog poziva — Custom Format se prilagođava specifičnim potrebama vaše organizacije."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Konačno riješen dugotrajni problem",
+        "desc": "Ovo je značajka koju nijedan konkurent — ni Otter.ai, ni Notta, ni bilo koja AI transkripcijska usluga — ne nudi. Stvarna strukturalna replikacija iz vaših vlastitih dokumenata."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Jednostavne, transparentne cijene",
+    "p1": "Custom Format dostupan je u svim Minutes.AI planovima. Odaberite plan koji odgovara vašem radnom procesu.",
+    "trial": { "name": "Probni paket", "detail": "120 min", "foot": "$1.99 (Bez isteka)" },
+    "light": { "name": "Light paket", "detail": "1200 min", "foot": "$11.99 (Bez isteka)" },
+    "monthly": { "name": "Mjesečni", "detail": "Neograničeno", "foot": "$16.99 / mj." },
+    "annual": { "name": "Godišnji", "detail": "Neograničeno", "foot": "$149.99 / god." },
+    "free": { "badge": "Besplatna dnevna karta", "text": "Isprobajte besplatno 3 minute svaki dan — bez kreditne kartice." },
+    "bullets": [
+      "**Vremenski paketi**: Idealni za povremeno korištenje — minute nikad ne istječu.",
+      "**Pretplate**: Neograničeno snimanje i formatiranje za aktivne korisnike.",
+      "**100+ jezika**: Snimajte i formatirajte zapisnike na više od 100 jezika."
+    ],
+    "foot": {
+      "pre": "* Cijene prikazane u {currency}.",
+      "post": "Porezi se mogu primijeniti pri plaćanju."
+    }
+  },
+
+  "cta": {
+    "h2": "Isprobajte Custom Format sada",
+    "text": "Prenesite svoj postojeći predložak zapisnika, snimite sljedeći sastanak i pogledajte čaroliju. Vaši AI zapisnici konačno će izgledati kao vaši.",
+    "openBrowser": "Otvori Minutes.AI (Web)",
+    "downloadIOS": "Preuzmi iOS aplikaciju"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Objavljeno",
+    "type": "Značajka",
+    "category": "Ažuriranje proizvoda"
+  }
+}

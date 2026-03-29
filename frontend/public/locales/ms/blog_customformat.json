@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Hasilkan Semula Minit Mesyuarat Anda dengan AI | Minutes.AI",
+    "description": "Ciri Custom Format baharu Minutes.AI menganalisis minit mesyuarat sedia ada anda — teks, PDF atau foto — dan mereplikasi struktur tepat secara automatik. Tahap penyesuaian yang tidak dapat ditandingi Otter.ai dan Notta.",
+    "ogTitle": "Custom Format: Minit Mesyuarat Anda, Struktur Anda — Dikuasakan oleh AI",
+    "ogDescription": "Muat naik templat minit sedia ada anda dan biarkan AI mereplikasi struktur tepat untuk setiap mesyuarat akan datang. Ciri revolusioner yang tidak tersedia di Otter.ai atau Notta.",
+    "ld": {
+      "headline": "Custom Format: Hasilkan Semula Minit Mesyuarat Anda dengan AI",
+      "description": "Memperkenalkan ciri Custom Format Minutes.AI yang menganalisis minit mesyuarat organisasi anda dan mereplikasi struktur secara automatik."
+    }
+  },
+  "aria": {
+    "home": "Laman Utama Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Ciri Baharu"
+  },
+  "hero": {
+    "kicker": "Kemas Kini Utama",
+    "h1": "Custom Format: Minit Mesyuarat Biasa Anda, Kini Dikuasakan AI",
+    "tagline": "Setiap organisasi mempunyai gaya minit mesyuarat tersendiri. Sehingga kini, alat pencatat AI memaksa anda menggunakan templat mereka. Dengan Custom Format, anda hanya perlu memuat naik minit sedia ada — sebagai teks, PDF atau foto — dan Minutes.AI mempelajari struktur anda, mereplikasinya dengan sempurna untuk setiap mesyuarat akan datang.",
+    "subtag": "Tiada lagi kompromi format. Minit anda, peraturan anda — dengan kuasa AI melakukan kerja berat.",
+    "badges": ["Muat Naik & Replikasi", "PDF / Teks / Foto", "Sedia untuk Organisasi"]
+  },
+
+  "problem": {
+    "h2": "Minit AI yang Tidak Serupa Milik Anda",
+    "p1": "Alat nota mesyuarat AI seperti Otter.ai dan Notta menghasilkan ringkasan yang baik — tetapi dalam format alat, bukan milik anda. Jika syarikat anda mempunyai templat minit khusus dengan bahagian, tajuk dan susun atur item tindakan tertentu, anda terpaksa memformat semula setiap kali.",
+    "p2": "Sesetengah alat menawarkan 'prompt tersuai' di mana anda menaip arahan dan berharap AI mentafsirkannya dengan betul. Tetapi hasilnya tidak konsisten — tidak lebih baik daripada meminta ChatGPT atau Google Gemini memformat nota anda. Masalah asas kekal: AI tidak benar-benar memahami struktur dokumen anda.",
+    "quote": "\"Pasukan kami mempunyai format minit khusus. Setiap alat AI yang saya cuba mengabaikannya sepenuhnya.\""
+  },
+
+  "solution": {
+    "h2": "Tunjukkan Sahaja kepada AI Apa yang Anda Mahu",
+    "p1": "**Custom Format** mengambil pendekatan yang berbeza secara radikal. Daripada menghuraikan format dengan kata-kata, anda hanya **menunjukkannya** kepada AI.",
+    "p2": "Muat naik sampel minit mesyuarat sedia ada anda — sama ada dokumen teks, PDF atau foto halaman cetak — dan enjin Minutes.AI akan menganalisis struktur, hierarki bahagian, nada dan susun atur. Dari saat itu, setiap mesyuarat yang anda rakam akan diformat tepat seperti yang diharapkan organisasi anda.",
+    "highlights": [
+      "**Muat Naik Teks**: Tampal atau muat naik minit sebagai teks biasa — AI mengekstrak corak struktur dengan serta-merta.",
+      "**Analisis PDF**: Muat naik PDF berformat dan AI mengekalkan tajuk, bahagian, gaya titik tumpu dan hierarki.",
+      "**Pengecaman Foto**: Ambil foto templat minit cetak atau tulisan tangan — AI membaca dan mereplikasi struktur.",
+      "**Persediaan Sekali**: Muat naik sekali dan format disimpan. Setiap mesyuarat akan datang mengikut templat anda secara automatik.",
+      "**Pemahaman Struktural**: Berbeza daripada prompt mudah, Custom Format benar-benar memahami seni bina dokumen — bukan sekadar kata kunci."
+    ]
+  },
+
+  "usps": {
+    "h2": "Mengapa Custom Format Mengubah Segalanya",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Melangkaui 'Prompt Tersuai'",
+        "desc": "Perkhidmatan lain membenarkan anda menaip arahan seperti 'format sebagai nota mesyuarat rasmi.' Hasilnya tidak dapat diramal. Custom Format tidak meneka — ia menganalisis dokumen sebenar dan mereplikasi struktur tepat."
+      },
+      {
+        "icon": "building",
+        "title": "Dibina untuk Organisasi",
+        "desc": "Sama ada templat mesyuarat lembaga pengarah, format standup kejuruteraan atau laporan panggilan jualan — Custom Format menyesuaikan dengan keperluan khusus organisasi anda."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Akhirnya Diselesaikan",
+        "desc": "Ini adalah ciri yang tiada pesaing — tidak Otter.ai, tidak Notta, tidak mana-mana perkhidmatan transkripsi AI — tawarkan. Replikasi struktural sebenar daripada dokumen anda sendiri."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Harga Mudah dan Telus",
+    "p1": "Custom Format tersedia dalam semua pelan Minutes.AI. Pilih pelan yang sesuai dengan aliran kerja anda.",
+    "trial": { "name": "Pek Percubaan", "detail": "120 min", "foot": "$1.99 (Tiada tamat tempoh)" },
+    "light": { "name": "Pek Light", "detail": "1200 min", "foot": "$11.99 (Tiada tamat tempoh)" },
+    "monthly": { "name": "Bulanan", "detail": "Tanpa had", "foot": "$16.99 / bln" },
+    "annual": { "name": "Tahunan", "detail": "Tanpa had", "foot": "$149.99 / thn" },
+    "free": { "badge": "Tiket Harian Percuma", "text": "Cuba percuma 3 minit setiap hari — tanpa kad kredit." },
+    "bullets": [
+      "**Pek Masa**: Sesuai untuk penggunaan sekali-sekala — minit tidak pernah tamat tempoh.",
+      "**Langganan**: Rakaman dan pemformatan tanpa had untuk pengguna aktif.",
+      "**100+ Bahasa**: Rakam dan format minit dalam lebih 100 bahasa."
+    ],
+    "foot": {
+      "pre": "* Harga ditunjukkan dalam {currency}.",
+      "post": "Cukai mungkin dikenakan semasa pembayaran."
+    }
+  },
+
+  "cta": {
+    "h2": "Cuba Custom Format Sekarang",
+    "text": "Muat naik templat minit sedia ada anda, rakam mesyuarat seterusnya dan saksikan keajaibannya. Minit AI anda akhirnya akan kelihatan seperti milik anda.",
+    "openBrowser": "Buka Minutes.AI (Web)",
+    "downloadIOS": "Muat Turun Aplikasi iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Diterbitkan",
+    "type": "Ciri",
+    "category": "Kemas Kini Produk"
+  }
+}

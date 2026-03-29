@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Tái tạo chính xác biên bản họp của bạn bằng AI | Minutes.AI",
+    "description": "Tính năng Custom Format mới của Minutes.AI phân tích biên bản họp hiện có — văn bản, PDF hoặc ảnh — và tự động sao chép cấu trúc chính xác. Mức độ tùy chỉnh mà Otter.ai và Notta không thể sánh được.",
+    "ogTitle": "Custom Format: Biên bản của bạn, cấu trúc của bạn — Được hỗ trợ bởi AI",
+    "ogDescription": "Tải lên mẫu biên bản hiện có và để AI sao chép cấu trúc chính xác cho mọi cuộc họp trong tương lai. Tính năng đột phá không có trên Otter.ai hay Notta.",
+    "ld": {
+      "headline": "Custom Format: Tái tạo chính xác biên bản họp của bạn bằng AI",
+      "description": "Giới thiệu tính năng Custom Format của Minutes.AI phân tích biên bản họp của tổ chức bạn và tự động sao chép cấu trúc."
+    }
+  },
+  "aria": {
+    "home": "Trang chủ Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Tính năng mới"
+  },
+  "hero": {
+    "kicker": "Cập nhật lớn",
+    "h1": "Custom Format: Biên bản quen thuộc của bạn, giờ được AI hỗ trợ",
+    "tagline": "Mỗi tổ chức có phong cách biên bản họp riêng. Trước đây, các công cụ ghi chú AI buộc bạn sử dụng mẫu của họ. Với Custom Format, bạn chỉ cần tải lên biên bản hiện có — dưới dạng văn bản, PDF hoặc thậm chí ảnh chụp — và Minutes.AI sẽ học cấu trúc của bạn, tái tạo hoàn hảo cho mọi cuộc họp trong tương lai.",
+    "subtag": "Không cần thỏa hiệp về định dạng nữa. Biên bản của bạn, quy tắc của bạn — với sức mạnh AI làm việc nặng.",
+    "badges": ["Tải lên & Sao chép", "PDF / Văn bản / Ảnh", "Sẵn sàng cho tổ chức"]
+  },
+
+  "problem": {
+    "h2": "Biên bản AI không giống của bạn",
+    "p1": "Các công cụ ghi chú họp AI như Otter.ai và Notta tạo ra các bản tóm tắt khá tốt — nhưng theo định dạng của công cụ, không phải của bạn. Nếu công ty bạn có mẫu biên bản cụ thể với các phần, tiêu đề và bố cục hạng mục hành động được chỉ định, bạn phải định dạng lại mỗi lần.",
+    "p2": "Một số công cụ cung cấp 'prompt tùy chỉnh' nơi bạn gõ hướng dẫn và hy vọng AI hiểu đúng. Nhưng kết quả không ổn định — không tốt hơn việc yêu cầu ChatGPT hay Google Gemini định dạng ghi chú của bạn. Vấn đề cốt lõi vẫn còn: AI không thực sự hiểu cấu trúc tài liệu của bạn.",
+    "quote": "\"Đội của chúng tôi có định dạng biên bản cụ thể. Mọi công cụ AI tôi thử đều bỏ qua hoàn toàn.\""
+  },
+
+  "solution": {
+    "h2": "Chỉ cần cho AI thấy bạn muốn gì",
+    "p1": "**Custom Format** áp dụng cách tiếp cận hoàn toàn khác. Thay vì mô tả định dạng bằng lời, bạn chỉ cần **cho AI xem**.",
+    "p2": "Tải lên mẫu biên bản họp hiện có — dù là tài liệu văn bản, PDF hay ảnh chụp trang in — engine của Minutes.AI sẽ phân tích cấu trúc, phân cấp các phần, giọng văn và bố cục. Từ đó, mọi cuộc họp bạn ghi âm sẽ được định dạng chính xác theo cách tổ chức bạn mong đợi.",
+    "highlights": [
+      "**Tải lên văn bản**: Dán hoặc tải lên biên bản dạng văn bản thuần — AI trích xuất mẫu cấu trúc ngay lập tức.",
+      "**Phân tích PDF**: Tải lên PDF đã định dạng và AI giữ nguyên tiêu đề, phần, kiểu gạch đầu dòng và phân cấp.",
+      "**Nhận dạng ảnh**: Chụp ảnh mẫu biên bản in hoặc viết tay — AI đọc và sao chép cấu trúc.",
+      "**Thiết lập một lần**: Tải lên một lần, định dạng được lưu. Mọi cuộc họp tương lai tự động theo mẫu của bạn.",
+      "**Hiểu cấu trúc**: Khác với prompt đơn giản, Custom Format thực sự hiểu kiến trúc tài liệu — không chỉ từ khóa."
+    ]
+  },
+
+  "usps": {
+    "h2": "Tại sao Custom Format thay đổi mọi thứ",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Vượt xa 'Prompt tùy chỉnh'",
+        "desc": "Các dịch vụ khác cho bạn gõ hướng dẫn như 'định dạng dạng biên bản họp chính thức.' Kết quả không thể đoán trước. Custom Format không đoán — nó phân tích tài liệu thật và sao chép cấu trúc chính xác."
+      },
+      {
+        "icon": "building",
+        "title": "Xây dựng cho tổ chức",
+        "desc": "Dù là mẫu họp ban giám đốc, định dạng standup kỹ thuật hay báo cáo cuộc gọi bán hàng — Custom Format thích ứng với nhu cầu cụ thể của tổ chức bạn."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Cuối cùng đã giải quyết được vấn đề dai dẳng",
+        "desc": "Đây là tính năng mà không đối thủ nào — không Otter.ai, không Notta, không dịch vụ chuyển đổi giọng nói AI nào — cung cấp. Sao chép cấu trúc thực sự từ tài liệu của chính bạn."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Giá đơn giản, minh bạch",
+    "p1": "Custom Format có sẵn trong tất cả các gói Minutes.AI. Chọn gói phù hợp với quy trình làm việc của bạn.",
+    "trial": { "name": "Gói dùng thử", "detail": "120 min", "foot": "$1.99 (Không hết hạn)" },
+    "light": { "name": "Gói Light", "detail": "1200 min", "foot": "$11.99 (Không hết hạn)" },
+    "monthly": { "name": "Hàng tháng", "detail": "Không giới hạn", "foot": "$16.99 / tháng" },
+    "annual": { "name": "Hàng năm", "detail": "Không giới hạn", "foot": "$149.99 / năm" },
+    "free": { "badge": "Vé miễn phí hàng ngày", "text": "Dùng thử miễn phí 3 phút mỗi ngày — không cần thẻ tín dụng." },
+    "bullets": [
+      "**Gói thời gian**: Phù hợp cho sử dụng thỉnh thoảng — phút không bao giờ hết hạn.",
+      "**Đăng ký**: Ghi âm và định dạng không giới hạn cho người dùng chuyên sâu.",
+      "**100+ ngôn ngữ**: Ghi âm và định dạng biên bản bằng hơn 100 ngôn ngữ."
+    ],
+    "foot": {
+      "pre": "* Giá hiển thị bằng {currency}.",
+      "post": "Thuế có thể áp dụng khi thanh toán."
+    }
+  },
+
+  "cta": {
+    "h2": "Thử Custom Format ngay",
+    "text": "Tải lên mẫu biên bản hiện có, ghi âm cuộc họp tiếp theo và chứng kiến điều kỳ diệu. Biên bản AI của bạn cuối cùng sẽ trông giống như của bạn.",
+    "openBrowser": "Mở Minutes.AI (Web)",
+    "downloadIOS": "Tải ứng dụng iOS"
+  },
+
+  "meta": {
+    "h2": "Thông tin",
+    "published": "Ngày đăng",
+    "type": "Tính năng",
+    "category": "Cập nhật sản phẩm"
+  }
+}

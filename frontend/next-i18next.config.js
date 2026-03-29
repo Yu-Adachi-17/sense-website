@@ -47,7 +47,8 @@ module.exports = {
     'blog_bringinaudio' ,
     'blog_makeslidesquickly' ,
     'blog_aiedit',
-    
+    'blog_customformat',
+
     // ★追加
     'blog_slideai_pricing', 
     'blog_slideai_consultant-efficiency-tool',

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduza suas atas de reunião exatas com IA | Minutes.AI",
+    "description": "O novo recurso Custom Format do Minutes.AI analisa suas atas de reunião existentes — texto, PDF ou foto — e replica a estrutura exata automaticamente. Um nível de personalização que o Otter.ai e o Notta não conseguem igualar.",
+    "ogTitle": "Custom Format: Suas atas de reunião, sua estrutura — com o poder da IA",
+    "ogDescription": "Faça upload do seu modelo de atas existente e deixe a IA replicar a estrutura exata para cada reunião futura. Um recurso revolucionário indisponível no Otter.ai ou Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduza suas atas de reunião exatas com IA",
+      "description": "Apresentamos o recurso Custom Format do Minutes.AI que analisa as atas da sua organização e replica a estrutura automaticamente."
+    }
+  },
+  "aria": {
+    "home": "Página inicial do Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Novo recurso"
+  },
+  "hero": {
+    "kicker": "Atualização importante",
+    "h1": "Custom Format: Suas atas habituais, agora com o poder da IA",
+    "tagline": "Cada organização tem seu próprio estilo de atas de reunião. Até agora, as ferramentas de notas com IA forçavam você a usar os modelos delas. Com o Custom Format, basta fazer upload das suas atas existentes — como texto, PDF ou até uma foto — e o Minutes.AI aprende sua estrutura, replicando-a perfeitamente para cada reunião futura.",
+    "subtag": "Sem mais compromissos no formato. Suas atas, suas regras — com o poder da IA fazendo o trabalho pesado.",
+    "badges": ["Upload e replicação", "PDF / Texto / Foto", "Pronto para empresas"]
+  },
+
+  "problem": {
+    "h2": "Atas de IA que não se parecem com as suas",
+    "p1": "Ferramentas de notas de reunião com IA como o Otter.ai e o Notta geram resumos razoáveis — mas no formato da ferramenta, não no seu. Se sua empresa tem um modelo de atas específico com seções designadas, cabeçalhos e layouts de ações, você é obrigado a reformatar toda vez.",
+    "p2": "Algumas ferramentas oferecem 'prompts personalizados' onde você digita instruções e espera que a IA as interprete corretamente. Mas os resultados são imprevisíveis — não melhores do que pedir ao ChatGPT ou ao Google Gemini para formatar suas notas. O problema fundamental permanece: a IA não compreende realmente a estrutura do seu documento.",
+    "quote": "\"Nossa equipe tem um formato de atas específico. Todas as ferramentas de IA que experimentei ignoram ele completamente.\""
+  },
+
+  "solution": {
+    "h2": "Basta mostrar para a IA o que você quer",
+    "p1": "O **Custom Format** adota uma abordagem radicalmente diferente. Em vez de descrever seu formato em palavras, basta **mostrar** para a IA.",
+    "p2": "Faça upload de uma amostra das suas atas de reunião existentes — seja um documento de texto, um PDF ou até uma foto de uma página impressa — e o motor do Minutes.AI analisará a estrutura, a hierarquia de seções, o tom e o layout. A partir desse momento, cada reunião gravada será formatada exatamente como sua organização espera.",
+    "highlights": [
+      "**Upload de texto**: Cole ou faça upload das suas atas como texto simples — a IA extrai o padrão estrutural instantaneamente.",
+      "**Análise de PDF**: Faça upload de um PDF formatado e a IA preserva cabeçalhos, seções, estilos de marcadores e hierarquia.",
+      "**Reconhecimento de fotos**: Tire uma foto de um modelo de atas impresso ou manuscrito — a IA lê e replica a estrutura.",
+      "**Configuração única**: Faça upload uma vez e o formato fica salvo. Cada reunião futura segue seu modelo automaticamente.",
+      "**Compreensão estrutural**: Ao contrário de prompts simples, o Custom Format compreende verdadeiramente a arquitetura do documento — não apenas palavras-chave."
+    ]
+  },
+
+  "usps": {
+    "h2": "Por que o Custom Format muda tudo",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Além dos 'Prompts personalizados'",
+        "desc": "Outros serviços permitem que você digite instruções como 'formatar como uma ata de reunião formal.' Os resultados são imprevisíveis. O Custom Format não adivinha — analisa um documento real e replica a estrutura exata."
+      },
+      {
+        "icon": "building",
+        "title": "Feito para organizações",
+        "desc": "Seja um modelo de reunião do conselho, um formato de standup de engenharia ou um relatório de call comercial — o Custom Format se adapta às necessidades específicas da sua organização."
+      },
+      {
+        "icon": "sparkle",
+        "title": "A necessidade finalmente atendida",
+        "desc": "Este é o recurso que nenhum concorrente — nem o Otter.ai, nem o Notta, nem qualquer serviço de transcrição com IA — oferece. Replicação estrutural real a partir dos seus próprios documentos."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Preços simples e transparentes",
+    "p1": "O Custom Format está disponível em todos os planos do Minutes.AI. Escolha o plano que se adapta ao seu fluxo de trabalho.",
+    "trial": { "name": "Pacote de teste", "detail": "120 min", "foot": "$1.99 (Sem expiração)" },
+    "light": { "name": "Pacote Light", "detail": "1200 min", "foot": "$11.99 (Sem expiração)" },
+    "monthly": { "name": "Mensal", "detail": "Ilimitado", "foot": "$16.99 / mês" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / ano" },
+    "free": { "badge": "Ticket diário gratuito", "text": "Experimente grátis por 3 minutos todo dia — sem cartão de crédito." },
+    "bullets": [
+      "**Pacotes de tempo**: Ideais para uso ocasional — os minutos nunca expiram.",
+      "**Assinaturas**: Gravação e formatação ilimitadas para usuários frequentes.",
+      "**100+ idiomas**: Grave e formate atas em mais de 100 idiomas."
+    ],
+    "foot": {
+      "pre": "* Preços exibidos em {currency}.",
+      "post": "Impostos podem ser aplicados no checkout."
+    }
+  },
+
+  "cta": {
+    "h2": "Experimente o Custom Format agora",
+    "text": "Faça upload do seu modelo de atas existente, grave sua próxima reunião e veja a mágica acontecer. Suas atas geradas por IA finalmente vão parecer com as suas.",
+    "openBrowser": "Abrir Minutes.AI (Web)",
+    "downloadIOS": "Baixar app iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Recurso",
+    "category": "Atualização de produto"
+  }
+}
