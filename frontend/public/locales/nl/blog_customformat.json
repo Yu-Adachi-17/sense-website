@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduceer uw exacte notulen met AI | Minutes.AI",
+    "description": "De nieuwe Custom Format-functie van Minutes.AI analyseert uw bestaande notulen — tekst, PDF of foto — en repliceert de exacte structuur automatisch. Een niveau van personalisatie dat Otter.ai en Notta niet kunnen evenaren.",
+    "ogTitle": "Custom Format: Uw notulen, uw structuur — aangedreven door AI",
+    "ogDescription": "Upload uw bestaande notulensjabloon en laat AI de exacte structuur repliceren voor elke toekomstige vergadering. Een baanbrekende functie die niet beschikbaar is bij Otter.ai of Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduceer uw exacte notulen met AI",
+      "description": "Maak kennis met de Custom Format-functie van Minutes.AI die de notulen van uw organisatie analyseert en de structuur automatisch repliceert."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Home"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nieuwe functie"
+  },
+  "hero": {
+    "kicker": "Grote update",
+    "h1": "Custom Format: Uw vertrouwde notulen, nu aangedreven door AI",
+    "tagline": "Elke organisatie heeft haar eigen stijl voor notulen. Tot nu toe dwongen AI-notitietools u in hun sjablonen. Met Custom Format uploadt u simpelweg uw bestaande notulen — als tekst, PDF of zelfs een foto — en Minutes.AI leert uw structuur en repliceert deze perfect voor elke toekomstige vergadering.",
+    "subtag": "Geen compromissen meer op format. Uw notulen, uw regels — met de kracht van AI die het zware werk doet.",
+    "badges": ["Uploaden & Repliceren", "PDF / Tekst / Foto", "Klaar voor organisaties"]
+  },
+
+  "problem": {
+    "h2": "AI-notulen die niet op de uwe lijken",
+    "p1": "AI-vergadernotitietools zoals Otter.ai en Notta genereren redelijke samenvattingen — maar in het format van de tool, niet het uwe. Als uw bedrijf een specifiek notulensjabloon heeft met aangewezen secties, koppen en actie-itemlayouts, moet u elke keer opnieuw formatteren.",
+    "p2": "Sommige tools bieden 'aangepaste prompts' waar u instructies typt en hoopt dat de AI ze correct interpreteert. Maar de resultaten zijn wisselend — niet beter dan ChatGPT of Google Gemini vragen om uw notities te formatteren. Het fundamentele probleem blijft: de AI begrijpt de structuur van uw document niet echt.",
+    "quote": "\"Ons team heeft een specifiek notulenformat. Elke AI-tool die ik heb geprobeerd negeert het volledig.\""
+  },
+
+  "solution": {
+    "h2": "Laat de AI gewoon zien wat u wilt",
+    "p1": "**Custom Format** hanteert een radicaal andere aanpak. In plaats van uw format in woorden te beschrijven, **toont** u het simpelweg aan de AI.",
+    "p2": "Upload een voorbeeld van uw bestaande notulen — of het nu een tekstdocument, PDF of zelfs een foto van een gedrukte pagina is — en de engine van Minutes.AI analyseert de structuur, sectiehiërarchie, toon en layout. Vanaf dat moment wordt elke opgenomen vergadering precies geformateerd zoals uw organisatie verwacht.",
+    "highlights": [
+      "**Tekst uploaden**: Plak of upload uw notulen als platte tekst — de AI extraheert het structurele patroon direct.",
+      "**PDF-analyse**: Upload een geformateerde PDF en de AI behoudt koppen, secties, opsommingsstijlen en hiërarchie.",
+      "**Fotoherkenning**: Maak een foto van een gedrukt of handgeschreven notulensjabloon — de AI leest en repliceert de structuur.",
+      "**Eenmalige instelling**: Upload eenmaal en het format wordt opgeslagen. Elke toekomstige vergadering volgt automatisch uw sjabloon.",
+      "**Structureel begrip**: In tegenstelling tot eenvoudige prompts begrijpt Custom Format werkelijk de documentarchitectuur — niet alleen trefwoorden."
+    ]
+  },
+
+  "usps": {
+    "h2": "Waarom Custom Format alles verandert",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Verder dan 'Aangepaste prompts'",
+        "desc": "Andere diensten laten u instructies typen zoals 'formatteren als formele vergadernotitie.' De resultaten zijn onvoorspelbaar. Custom Format gokt niet — het analyseert een echt document en repliceert de exacte structuur."
+      },
+      {
+        "icon": "building",
+        "title": "Gebouwd voor organisaties",
+        "desc": "Of het nu gaat om een sjabloon voor een bestuursvergadering, een engineering standup-format of een verkoopgesprekrapport — Custom Format past zich aan de specifieke behoeften van uw organisatie aan."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Eindelijk de oplossing voor een hardnekkig probleem",
+        "desc": "Dit is de functie die geen concurrent — niet Otter.ai, niet Notta, geen enkele AI-transcriptiedienst — biedt. Echte structurele replicatie vanuit uw eigen documenten."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Eenvoudige, transparante prijzen",
+    "p1": "Custom Format is beschikbaar in alle Minutes.AI-abonnementen. Kies het abonnement dat bij uw workflow past.",
+    "trial": { "name": "Proefpakket", "detail": "120 min", "foot": "$1.99 (Geen vervaldatum)" },
+    "light": { "name": "Light-pakket", "detail": "1200 min", "foot": "$11.99 (Geen vervaldatum)" },
+    "monthly": { "name": "Maandelijks", "detail": "Onbeperkt", "foot": "$16.99 / maand" },
+    "annual": { "name": "Jaarlijks", "detail": "Onbeperkt", "foot": "$149.99 / jaar" },
+    "free": { "badge": "Gratis dagelijks ticket", "text": "Probeer het elke dag 3 minuten gratis — geen creditcard vereist." },
+    "bullets": [
+      "**Tijdpakketten**: Ideaal voor incidenteel gebruik — minuten verlopen nooit.",
+      "**Abonnementen**: Onbeperkt opnemen en formatteren voor intensieve gebruikers.",
+      "**100+ talen**: Neem notulen op en formatteer ze in meer dan 100 talen."
+    ],
+    "foot": {
+      "pre": "* Prijzen weergegeven in {currency}.",
+      "post": "Bij het afrekenen kunnen belastingen van toepassing zijn."
+    }
+  },
+
+  "cta": {
+    "h2": "Probeer Custom Format nu",
+    "text": "Upload uw bestaande notulensjabloon, neem uw volgende vergadering op en zie de magie. Uw AI-gegenereerde notulen zullen er eindelijk uitzien als de uwe.",
+    "openBrowser": "Open Minutes.AI (Web)",
+    "downloadIOS": "Download iOS-app"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Gepubliceerd",
+    "type": "Functie",
+    "category": "Productupdate"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reprodukálja pontos jegyzőkönyveit AI-val | Minutes.AI",
+    "description": "A Minutes.AI új Custom Format funkciója elemzi meglévő jegyzőkönyveit — szöveg, PDF vagy fotó — és automatikusan replikálja a pontos struktúrát. A testreszabás olyan szintje, amelyet az Otter.ai és a Notta nem tud nyújtani.",
+    "ogTitle": "Custom Format: Az Ön jegyzőkönyvei, az Ön struktúrája — AI által hajtva",
+    "ogDescription": "Töltse fel meglévő jegyzőkönyv-sablonját, és hagyja, hogy az AI replikálja a pontos struktúrát minden jövőbeli értekezlethez. Úttörő funkció, amely nem érhető el az Otter.ai-nál vagy a Nottánál.",
+    "ld": {
+      "headline": "Custom Format: Reprodukálja pontos jegyzőkönyveit AI-val",
+      "description": "Bemutatjuk a Minutes.AI Custom Format funkcióját, amely elemzi szervezete jegyzőkönyveit és automatikusan replikálja a struktúrát."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Kezdőlap"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Új funkció"
+  },
+  "hero": {
+    "kicker": "Jelentős frissítés",
+    "h1": "Custom Format: Megszokott jegyzőkönyvei, most AI által hajtva",
+    "tagline": "Minden szervezetnek megvan a saját jegyzőkönyv-stílusa. Eddig az AI jegyzetelő eszközök a saját sablonjaikba kényszerítették. A Custom Format segítségével egyszerűen feltölti meglévő jegyzőkönyveit — szövegként, PDF-ként vagy akár fotóként — és a Minutes.AI megtanulja a struktúrát, tökéletesen replikálva azt minden jövőbeli értekezlethez.",
+    "subtag": "Többé nincs kompromisszum a formátumban. Az Ön jegyzőkönyvei, az Ön szabályai — az AI erejével, amely elvégzi a nehéz munkát.",
+    "badges": ["Feltöltés és replikálás", "PDF / Szöveg / Fotó", "Szervezetekre kész"]
+  },
+
+  "problem": {
+    "h2": "AI jegyzőkönyvek, amelyek nem hasonlítanak az Önéhez",
+    "p1": "Az AI értekezlet-jegyzetelő eszközök, mint az Otter.ai és a Notta, megfelelő összefoglalókat készítenek — de az eszköz formátumában, nem az Önében. Ha cégének van egy konkrét jegyzőkönyv-sablonja kijelölt szakaszokkal, címsorokkal és feladatlista-elrendezésekkel, minden egyes alkalommal újra kell formáznia.",
+    "p2": "Néhány eszköz 'egyéni promptokat' kínál, ahol utasításokat ír, és reméli, hogy az AI helyesen értelmezi azokat. De az eredmények kiszámíthatatlanok — nem jobbak, mintha a ChatGPT-t vagy a Google Geminit kérné meg a jegyzetei formázására. Az alapvető probléma megmarad: az AI valójában nem érti a dokumentum struktúráját.",
+    "quote": "\"Csapatunknak van egy meghatározott jegyzőkönyv-formátuma. Minden AI eszköz, amit kipróbáltam, teljesen figyelmen kívül hagyja.\""
+  },
+
+  "solution": {
+    "h2": "Egyszerűen mutassa meg az AI-nak, mit szeretne",
+    "p1": "A **Custom Format** gyökeresen más megközelítést alkalmaz. Ahelyett, hogy szavakkal írná le a formátumot, egyszerűen **megmutatja** az AI-nak.",
+    "p2": "Töltsön fel egy mintát meglévő jegyzőkönyveiből — legyen az szöveges dokumentum, PDF vagy akár egy nyomtatott oldal fotója — és a Minutes.AI motorja elemzi a struktúrát, a szakaszhierarchiát, a hangnemet és az elrendezést. Ettől kezdve minden rögzített értekezlet pontosan úgy lesz formázva, ahogyan szervezete elvárja.",
+    "highlights": [
+      "**Szöveg feltöltése**: Illessze be vagy töltse fel jegyzőkönyveit egyszerű szövegként — az AI azonnal kinyeri a strukturális mintát.",
+      "**PDF elemzés**: Töltsön fel egy formázott PDF-et, és az AI megőrzi a címsorokat, szakaszokat, felsorolási stílusokat és hierarchiát.",
+      "**Fotófelismerés**: Készítsen fotót nyomtatott vagy kézzel írt jegyzőkönyv-sablonról — az AI olvassa és replikálja a struktúrát.",
+      "**Egyszeri beállítás**: Töltse fel egyszer, és a formátum mentésre kerül. Minden jövőbeli értekezlet automatikusan követi a sablonját.",
+      "**Strukturális megértés**: Az egyszerű promptokkal ellentétben a Custom Format valóban érti a dokumentum-architektúrát — nem csak a kulcsszavakat."
+    ]
+  },
+
+  "usps": {
+    "h2": "Miért változtat meg mindent a Custom Format",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Az 'Egyéni promptokon' túl",
+        "desc": "Más szolgáltatások lehetővé teszik, hogy utasításokat írjon, mint 'formázd hivatalos értekezlet-jegyzetként.' Az eredmények kiszámíthatatlanok. A Custom Format nem találgat — valódi dokumentumot elemez és replikálja a pontos struktúrát."
+      },
+      {
+        "icon": "building",
+        "title": "Szervezeteknek tervezve",
+        "desc": "Legyen szó igazgatósági ülés sablonjáról, mérnöki standup formátumról vagy értékesítési hívás jelentésről — a Custom Format alkalmazkodik szervezete egyedi igényeihez."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Végre megoldódott a régi probléma",
+        "desc": "Ez az a funkció, amelyet egyetlen versenytárs sem — sem az Otter.ai, sem a Notta, sem más AI átírási szolgáltatás — kínál. Valódi strukturális replikáció a saját dokumentumaiból."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Egyszerű, átlátható árak",
+    "p1": "A Custom Format minden Minutes.AI csomagban elérhető. Válassza a munkafolyamatához illő csomagot.",
+    "trial": { "name": "Próbacsomag", "detail": "120 min", "foot": "$1.99 (Nincs lejárat)" },
+    "light": { "name": "Light csomag", "detail": "1200 min", "foot": "$11.99 (Nincs lejárat)" },
+    "monthly": { "name": "Havi", "detail": "Korlátlan", "foot": "$16.99 / hó" },
+    "annual": { "name": "Éves", "detail": "Korlátlan", "foot": "$149.99 / év" },
+    "free": { "badge": "Ingyenes napi jegy", "text": "Próbálja ki ingyen napi 3 percig — bankkártya nélkül." },
+    "bullets": [
+      "**Időcsomagok**: Kiválóak alkalmi használathoz — a percek soha nem járnak le.",
+      "**Előfizetések**: Korlátlan rögzítés és formázás aktív felhasználóknak.",
+      "**100+ nyelv**: Rögzítsen és formázzon jegyzőkönyveket több mint 100 nyelven."
+    ],
+    "foot": {
+      "pre": "* Az árak {currency} valutában vannak feltüntetve.",
+      "post": "A fizetésnél adók merülhetnek fel."
+    }
+  },
+
+  "cta": {
+    "h2": "Próbálja ki a Custom Formatot most",
+    "text": "Töltse fel meglévő jegyzőkönyv-sablonját, rögzítse a következő értekezletét, és nézze meg a varázslatot. AI által generált jegyzőkönyvei végre úgy fognak kinézni, mint az Önéi.",
+    "openBrowser": "Minutes.AI megnyitása (Web)",
+    "downloadIOS": "iOS alkalmazás letöltése"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Közzétéve",
+    "type": "Funkció",
+    "category": "Termékfrissítés"
+  }
+}

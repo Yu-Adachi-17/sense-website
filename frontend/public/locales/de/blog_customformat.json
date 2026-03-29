@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Ihre exakten Besprechungsprotokolle mit KI reproduzieren | Minutes.AI",
+    "description": "Die neue Custom Format-Funktion von Minutes.AI analysiert Ihre bestehenden Besprechungsprotokolle — Text, PDF oder Foto — und repliziert die exakte Struktur automatisch. Ein Maß an Individualisierung, das Otter.ai und Notta nicht bieten können.",
+    "ogTitle": "Custom Format: Ihre Besprechungsprotokolle, Ihre Struktur — KI-gestützt",
+    "ogDescription": "Laden Sie Ihre bestehende Protokollvorlage hoch und lassen Sie die KI die exakte Struktur für jede zukünftige Besprechung replizieren. Eine bahnbrechende Funktion, die bei Otter.ai oder Notta nicht verfügbar ist.",
+    "ld": {
+      "headline": "Custom Format: Ihre exakten Besprechungsprotokolle mit KI reproduzieren",
+      "description": "Wir stellen die Custom Format-Funktion von Minutes.AI vor, die die Besprechungsprotokolle Ihrer Organisation analysiert und die Struktur automatisch repliziert."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Startseite"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Neue Funktion"
+  },
+  "hero": {
+    "kicker": "Großes Update",
+    "h1": "Custom Format: Ihre vertrauten Protokolle, jetzt KI-gestützt",
+    "tagline": "Jede Organisation hat ihren eigenen Stil für Besprechungsprotokolle. Bisher zwangen KI-Notiztools Sie in deren Vorlagen. Mit Custom Format laden Sie einfach Ihre bestehenden Protokolle hoch — als Text, PDF oder sogar Foto — und Minutes.AI lernt Ihre Struktur und repliziert sie perfekt für jede zukünftige Besprechung.",
+    "subtag": "Keine Kompromisse mehr beim Format. Ihre Protokolle, Ihre Regeln — mit der Kraft der KI, die die schwere Arbeit übernimmt.",
+    "badges": ["Hochladen & Replizieren", "PDF / Text / Foto", "Unternehmensbereit"]
+  },
+
+  "problem": {
+    "h2": "KI-Protokolle, die nicht wie Ihre aussehen",
+    "p1": "KI-Besprechungsnotiz-Tools wie Otter.ai und Notta erstellen brauchbare Zusammenfassungen — aber im Format des Tools, nicht in Ihrem. Wenn Ihr Unternehmen eine spezifische Protokollvorlage mit bestimmten Abschnitten, Überschriften und Aufgabenlayouts hat, müssen Sie jedes Mal neu formatieren.",
+    "p2": "Einige Tools bieten 'benutzerdefinierte Prompts', bei denen Sie Anweisungen eingeben und hoffen, dass die KI sie korrekt interpretiert. Aber die Ergebnisse sind unberechenbar — nicht besser als ChatGPT oder Google Gemini zu bitten, Ihre Notizen zu formatieren. Das grundlegende Problem bleibt: Die KI versteht die Struktur Ihres Dokuments nicht wirklich.",
+    "quote": "\"Unser Team hat ein bestimmtes Protokollformat. Jedes KI-Tool, das ich ausprobiert habe, ignoriert es komplett.\""
+  },
+
+  "solution": {
+    "h2": "Zeigen Sie der KI einfach, was Sie möchten",
+    "p1": "**Custom Format** verfolgt einen radikal anderen Ansatz. Statt Ihr Format in Worten zu beschreiben, **zeigen** Sie es der KI einfach.",
+    "p2": "Laden Sie ein Beispiel Ihrer bestehenden Besprechungsprotokolle hoch — ob Textdokument, PDF oder sogar ein Foto einer gedruckten Seite — und die Engine von Minutes.AI analysiert Struktur, Abschnittshierarchie, Tonalität und Layout. Ab diesem Zeitpunkt wird jede aufgezeichnete Besprechung exakt so formatiert, wie Ihre Organisation es erwartet.",
+    "highlights": [
+      "**Text-Upload**: Fügen Sie Ihre Protokolle als Klartext ein oder laden Sie sie hoch — die KI extrahiert das Strukturmuster sofort.",
+      "**PDF-Analyse**: Laden Sie ein formatiertes PDF hoch und die KI bewahrt Überschriften, Abschnitte, Aufzählungszeichen und Hierarchie.",
+      "**Fotoerkennung**: Fotografieren Sie ein gedrucktes oder handgeschriebenes Protokoll — die KI liest und repliziert die Struktur.",
+      "**Einmalige Einrichtung**: Einmal hochladen, und das Format wird gespeichert. Jede zukünftige Besprechung folgt automatisch Ihrer Vorlage.",
+      "**Strukturverständnis**: Anders als einfache Prompts versteht Custom Format die Dokumentarchitektur wirklich — nicht nur Schlüsselwörter."
+    ]
+  },
+
+  "usps": {
+    "h2": "Warum Custom Format alles verändert",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Mehr als 'Benutzerdefinierte Prompts'",
+        "desc": "Andere Dienste lassen Sie Anweisungen wie 'als formelles Besprechungsprotokoll formatieren' eingeben. Die Ergebnisse sind unvorhersehbar. Custom Format rät nicht — es analysiert ein echtes Dokument und repliziert die exakte Struktur."
+      },
+      {
+        "icon": "building",
+        "title": "Für Organisationen entwickelt",
+        "desc": "Ob Vorstandssitzungsvorlage, Engineering-Standup-Format oder Vertriebsgesprächsbericht — Custom Format passt sich den spezifischen Bedürfnissen Ihrer Organisation an."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Endlich den wunden Punkt getroffen",
+        "desc": "Dies ist die Funktion, die kein Wettbewerber — weder Otter.ai, noch Notta, noch ein anderer KI-Transkriptionsdienst — bietet. Echte strukturelle Replikation aus Ihren eigenen Dokumenten."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Einfache, transparente Preise",
+    "p1": "Custom Format ist in allen Minutes.AI-Tarifen verfügbar. Wählen Sie den Tarif, der zu Ihrem Workflow passt.",
+    "trial": { "name": "Testpaket", "detail": "120 min", "foot": "$1.99 (Kein Ablaufdatum)" },
+    "light": { "name": "Light-Paket", "detail": "1200 min", "foot": "$11.99 (Kein Ablaufdatum)" },
+    "monthly": { "name": "Monatlich", "detail": "Unbegrenzt", "foot": "$16.99 / Mo." },
+    "annual": { "name": "Jährlich", "detail": "Unbegrenzt", "foot": "$149.99 / Jahr" },
+    "free": { "badge": "Kostenloses Tagesticket", "text": "Testen Sie es täglich 3 Minuten kostenlos — keine Kreditkarte erforderlich." },
+    "bullets": [
+      "**Zeitpakete**: Ideal für gelegentliche Nutzung — Minuten verfallen nie.",
+      "**Abonnements**: Unbegrenzte Aufnahme und Formatierung für Vielnutzer.",
+      "**100+ Sprachen**: Protokolle in über 100 Sprachen aufnehmen und formatieren."
+    ],
+    "foot": {
+      "pre": "* Preise in {currency} angezeigt.",
+      "post": "An der Kasse können Steuern anfallen."
+    }
+  },
+
+  "cta": {
+    "h2": "Custom Format jetzt ausprobieren",
+    "text": "Laden Sie Ihre bestehende Protokollvorlage hoch, zeichnen Sie Ihre nächste Besprechung auf und erleben Sie die Magie. Ihre KI-generierten Protokolle sehen endlich aus wie Ihre eigenen.",
+    "openBrowser": "Minutes.AI öffnen (Web)",
+    "downloadIOS": "iOS-App herunterladen"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Veröffentlicht",
+    "type": "Funktion",
+    "category": "Produktupdate"
+  }
+}

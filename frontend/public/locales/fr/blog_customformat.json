@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format : Reproduisez vos comptes rendus de réunion exacts avec l'IA | Minutes.AI",
+    "description": "La nouvelle fonctionnalité Custom Format de Minutes.AI analyse vos comptes rendus existants — texte, PDF ou photo — et reproduit la structure exacte automatiquement. Un niveau de personnalisation que Otter.ai et Notta ne peuvent égaler.",
+    "ogTitle": "Custom Format : Vos comptes rendus, votre structure — propulsés par l'IA",
+    "ogDescription": "Téléchargez votre modèle de comptes rendus existant et laissez l'IA reproduire la structure exacte pour chaque réunion future. Une fonctionnalité révolutionnaire indisponible sur Otter.ai ou Notta.",
+    "ld": {
+      "headline": "Custom Format : Reproduisez vos comptes rendus de réunion exacts avec l'IA",
+      "description": "Découvrez la fonctionnalité Custom Format de Minutes.AI qui analyse les comptes rendus de votre organisation et reproduit la structure automatiquement."
+    }
+  },
+  "aria": {
+    "home": "Accueil Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nouvelle fonctionnalité"
+  },
+  "hero": {
+    "kicker": "Mise à jour majeure",
+    "h1": "Custom Format : Vos comptes rendus habituels, désormais propulsés par l'IA",
+    "tagline": "Chaque organisation a son propre style de comptes rendus. Jusqu'à présent, les outils de prise de notes IA vous imposaient leurs modèles. Avec Custom Format, vous téléchargez simplement vos comptes rendus existants — en texte, PDF ou même en photo — et Minutes.AI apprend votre structure, la reproduisant parfaitement pour chaque réunion future.",
+    "subtag": "Plus de compromis sur le format. Vos comptes rendus, vos règles — avec la puissance de l'IA qui fait le gros du travail.",
+    "badges": ["Télécharger & Reproduire", "PDF / Texte / Photo", "Prêt pour l'entreprise"]
+  },
+
+  "problem": {
+    "h2": "Des comptes rendus IA qui ne ressemblent pas aux vôtres",
+    "p1": "Les outils de prise de notes IA comme Otter.ai et Notta génèrent des résumés corrects — mais dans le format de l'outil, pas le vôtre. Si votre entreprise a un modèle de comptes rendus spécifique avec des sections désignées, des en-têtes et des mises en page d'actions à suivre, vous êtes contraint de tout reformater à chaque fois.",
+    "p2": "Certains outils proposent des 'prompts personnalisés' où vous tapez des instructions en espérant que l'IA les interprète correctement. Mais les résultats sont aléatoires — pas mieux que de demander à ChatGPT ou Google Gemini de formater vos notes. Le problème fondamental demeure : l'IA ne comprend pas réellement la structure de votre document.",
+    "quote": "\"Notre équipe a un format de comptes rendus spécifique. Chaque outil IA que j'ai essayé l'ignore complètement.\""
+  },
+
+  "solution": {
+    "h2": "Montrez simplement à l'IA ce que vous voulez",
+    "p1": "**Custom Format** adopte une approche radicalement différente. Au lieu de décrire votre format avec des mots, vous le **montrez** simplement à l'IA.",
+    "p2": "Téléchargez un exemple de vos comptes rendus existants — qu'il s'agisse d'un document texte, d'un PDF ou même d'une photo d'une page imprimée — et le moteur de Minutes.AI analysera la structure, la hiérarchie des sections, le ton et la mise en page. À partir de ce moment, chaque réunion enregistrée sera formatée exactement comme votre organisation l'attend.",
+    "highlights": [
+      "**Téléchargement de texte** : Collez ou téléchargez vos comptes rendus en texte brut — l'IA extrait le modèle structurel instantanément.",
+      "**Analyse PDF** : Téléchargez un PDF formaté et l'IA préserve les en-têtes, les sections, les styles de puces et la hiérarchie.",
+      "**Reconnaissance photo** : Prenez une photo d'un modèle de comptes rendus imprimé ou manuscrit — l'IA lit et reproduit la structure.",
+      "**Configuration unique** : Téléchargez une seule fois, et le format est enregistré. Chaque réunion future suit automatiquement votre modèle.",
+      "**Compréhension structurelle** : Contrairement aux simples prompts, Custom Format comprend véritablement l'architecture du document — pas seulement les mots-clés."
+    ]
+  },
+
+  "usps": {
+    "h2": "Pourquoi Custom Format change tout",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Au-delà des 'Prompts personnalisés'",
+        "desc": "D'autres services vous permettent de taper des instructions comme 'formater comme un compte rendu formel.' Les résultats sont imprévisibles. Custom Format ne devine pas — il analyse un vrai document et reproduit la structure exacte."
+      },
+      {
+        "icon": "building",
+        "title": "Conçu pour les organisations",
+        "desc": "Qu'il s'agisse d'un modèle de réunion du conseil d'administration, d'un format de standup d'ingénierie ou d'un rapport d'appel commercial — Custom Format s'adapte aux besoins spécifiques de votre organisation."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Le besoin enfin comblé",
+        "desc": "C'est la fonctionnalité qu'aucun concurrent — ni Otter.ai, ni Notta, ni aucun service de transcription IA — ne propose. Une véritable reproduction structurelle à partir de vos propres documents."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Tarification simple et transparente",
+    "p1": "Custom Format est disponible dans tous les forfaits Minutes.AI. Choisissez le forfait qui correspond à votre flux de travail.",
+    "trial": { "name": "Pack Essai", "detail": "120 min", "foot": "$1.99 (Sans expiration)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (Sans expiration)" },
+    "monthly": { "name": "Mensuel", "detail": "Illimité", "foot": "$16.99 / mois" },
+    "annual": { "name": "Annuel", "detail": "Illimité", "foot": "$149.99 / an" },
+    "free": { "badge": "Ticket quotidien gratuit", "text": "Essayez gratuitement pendant 3 minutes chaque jour — aucune carte de crédit requise." },
+    "bullets": [
+      "**Packs de temps** : Idéals pour une utilisation occasionnelle — les minutes n'expirent jamais.",
+      "**Abonnements** : Enregistrement et formatage illimités pour les utilisateurs intensifs.",
+      "**100+ langues** : Enregistrez et formatez vos comptes rendus dans plus de 100 langues."
+    ],
+    "foot": {
+      "pre": "* Prix affichés en {currency}.",
+      "post": "Des taxes peuvent s'appliquer lors du paiement."
+    }
+  },
+
+  "cta": {
+    "h2": "Essayez Custom Format maintenant",
+    "text": "Téléchargez votre modèle de comptes rendus existant, enregistrez votre prochaine réunion et voyez la magie opérer. Vos comptes rendus générés par l'IA ressembleront enfin aux vôtres.",
+    "openBrowser": "Ouvrir Minutes.AI (Web)",
+    "downloadIOS": "Télécharger l'app iOS"
+  },
+
+  "meta": {
+    "h2": "Méta",
+    "published": "Publié",
+    "type": "Fonctionnalité",
+    "category": "Mise à jour produit"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Toplantı Tutanaklarınızı AI ile Birebir Yeniden Oluşturun | Minutes.AI",
+    "description": "Minutes.AI'ın yeni Custom Format özelliği, mevcut toplantı tutanaklarınızı — metin, PDF veya fotoğraf — analiz eder ve tam yapıyı otomatik olarak yeniden oluşturur. Otter.ai ve Notta'nın ulaşamayacağı bir kişiselleştirme seviyesi.",
+    "ogTitle": "Custom Format: Toplantı Tutanaklarınız, Yapınız — AI Destekli",
+    "ogDescription": "Mevcut tutanak şablonunuzu yükleyin ve AI'ın gelecekteki her toplantı için tam yapıyı yeniden oluşturmasını sağlayın. Otter.ai veya Notta'da bulunmayan devrim niteliğinde bir özellik.",
+    "ld": {
+      "headline": "Custom Format: Toplantı Tutanaklarınızı AI ile Birebir Yeniden Oluşturun",
+      "description": "Kuruluşunuzun toplantı tutanaklarını analiz eden ve yapıyı otomatik olarak yeniden oluşturan Minutes.AI'ın Custom Format özelliğini tanıtıyoruz."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Ana Sayfa"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Yeni Özellik"
+  },
+  "hero": {
+    "kicker": "Büyük Güncelleme",
+    "h1": "Custom Format: Alışık Olduğunuz Tutanaklar, Artık AI Destekli",
+    "tagline": "Her kuruluşun kendine özgü bir toplantı tutanağı tarzı vardır. Şimdiye kadar AI not alma araçları sizi kendi şablonlarına zorladı. Custom Format ile mevcut tutanaklarınızı — metin, PDF veya fotoğraf olarak — yüklersiniz ve Minutes.AI yapınızı öğrenip gelecekteki her toplantı için mükemmel şekilde yeniden oluşturur.",
+    "subtag": "Artık formatta taviz yok. Tutanaklarınız, kurallarınız — AI'ın ağır işi üstlenmesiyle.",
+    "badges": ["Yükle ve Yeniden Oluştur", "PDF / Metin / Fotoğraf", "Kurumsal Kullanıma Hazır"]
+  },
+
+  "problem": {
+    "h2": "Sizinkine Benzemeyen AI Tutanakları",
+    "p1": "Otter.ai ve Notta gibi AI toplantı notu araçları makul özetler üretir — ancak aracın formatında, sizinki değil. Şirketinizin belirlenmiş bölümleri, başlıkları ve eylem maddesi düzenleri olan belirli bir tutanak şablonu varsa, her seferinde yeniden biçimlendirmek zorunda kalırsınız.",
+    "p2": "Bazı araçlar, talimat yazıp AI'ın doğru yorumlamasını umduğunuz 'özel istemler' sunar. Ancak sonuçlar tutarsızdır — ChatGPT veya Google Gemini'den notlarınızı biçimlendirmesini istemekten daha iyi değil. Temel sorun devam ediyor: AI belgenizin yapısını gerçekten anlamıyor.",
+    "quote": "\"Ekibimizin belirli bir tutanak formatı var. Denediğim her AI aracı bunu tamamen görmezden geliyor.\""
+  },
+
+  "solution": {
+    "h2": "AI'a Ne İstediğinizi Gösterin",
+    "p1": "**Custom Format** köklü olarak farklı bir yaklaşım benimser. Formatınızı kelimelerle tanımlamak yerine, AI'a basitçe **gösterirsiniz**.",
+    "p2": "Mevcut toplantı tutanaklarınızın bir örneğini yükleyin — ister metin belgesi, PDF veya basılı bir sayfanın fotoğrafı olsun — Minutes.AI'ın motoru yapıyı, bölüm hiyerarşisini, tonu ve düzeni analiz eder. O andan itibaren, kaydettiğiniz her toplantı tam olarak kuruluşunuzun beklediği şekilde biçimlendirilir.",
+    "highlights": [
+      "**Metin Yükleme**: Tutanaklarınızı düz metin olarak yapıştırın veya yükleyin — AI yapısal kalıbı anında çıkarır.",
+      "**PDF Analizi**: Biçimlendirilmiş bir PDF yükleyin, AI başlıkları, bölümleri, madde işareti stillerini ve hiyerarşiyi korur.",
+      "**Fotoğraf Tanıma**: Basılı veya el yazısı tutanak şablonunun fotoğrafını çekin — AI yapıyı okur ve yeniden oluşturur.",
+      "**Tek Seferlik Kurulum**: Bir kez yükleyin, format kaydedilsin. Gelecekteki her toplantı şablonunuzu otomatik olarak takip eder.",
+      "**Yapısal Anlama**: Basit istemlerden farklı olarak, Custom Format belge mimarisini gerçekten anlar — sadece anahtar kelimeleri değil."
+    ]
+  },
+
+  "usps": {
+    "h2": "Custom Format Neden Her Şeyi Değiştiriyor",
+    "items": [
+      {
+        "icon": "template",
+        "title": "'Özel İstemlerin' Ötesinde",
+        "desc": "Diğer hizmetler 'resmi toplantı notu olarak biçimlendir' gibi talimatlar yazmanıza izin verir. Sonuçlar öngörülemez. Custom Format tahmin etmez — gerçek bir belgeyi analiz eder ve tam yapıyı yeniden oluşturur."
+      },
+      {
+        "icon": "building",
+        "title": "Kuruluşlar İçin Tasarlandı",
+        "desc": "İster yönetim kurulu toplantı şablonu, ister mühendislik standup formatı veya satış görüşme raporu olsun — Custom Format kuruluşunuzun özel ihtiyaçlarına uyum sağlar."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Sonunda Çözülen İhtiyaç",
+        "desc": "Hiçbir rakibin — ne Otter.ai, ne Notta, ne de herhangi bir AI transkripsiyon hizmetinin — sunmadığı özellik. Kendi belgelerinizden gerçek yapısal çoğaltma."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Basit, Şeffaf Fiyatlandırma",
+    "p1": "Custom Format tüm Minutes.AI planlarında kullanılabilir. İş akışınıza uygun planı seçin.",
+    "trial": { "name": "Deneme Paketi", "detail": "120 min", "foot": "$1.99 (Süresiz)" },
+    "light": { "name": "Light Paketi", "detail": "1200 min", "foot": "$11.99 (Süresiz)" },
+    "monthly": { "name": "Aylık", "detail": "Sınırsız", "foot": "$16.99 / ay" },
+    "annual": { "name": "Yıllık", "detail": "Sınırsız", "foot": "$149.99 / yıl" },
+    "free": { "badge": "Ücretsiz Günlük Bilet", "text": "Her gün 3 dakika ücretsiz deneyin — kredi kartı gerekmez." },
+    "bullets": [
+      "**Zaman Paketleri**: Ara sıra kullanım için ideal — dakikalar asla sona ermez.",
+      "**Abonelikler**: Yoğun kullanıcılar için sınırsız kayıt ve biçimlendirme.",
+      "**100+ Dil**: 100'den fazla dilde tutanak kaydedin ve biçimlendirin."
+    ],
+    "foot": {
+      "pre": "* Fiyatlar {currency} olarak gösterilmektedir.",
+      "post": "Ödeme sırasında vergiler uygulanabilir."
+    }
+  },
+
+  "cta": {
+    "h2": "Custom Format'ı Şimdi Deneyin",
+    "text": "Mevcut tutanak şablonunuzu yükleyin, bir sonraki toplantınızı kaydedin ve sihri görün. AI tarafından oluşturulan tutanaklarınız sonunda sizinki gibi görünecek.",
+    "openBrowser": "Minutes.AI'ı Aç (Web)",
+    "downloadIOS": "iOS Uygulamasını İndir"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Yayınlanma Tarihi",
+    "type": "Özellik",
+    "category": "Ürün Güncellemesi"
+  }
+}

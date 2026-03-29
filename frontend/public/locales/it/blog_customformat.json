@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Riproduci i tuoi verbali di riunione esatti con l'IA | Minutes.AI",
+    "description": "La nuova funzione Custom Format di Minutes.AI analizza i tuoi verbali esistenti — testo, PDF o foto — e replica la struttura esatta automaticamente. Un livello di personalizzazione che Otter.ai e Notta non possono eguagliare.",
+    "ogTitle": "Custom Format: I tuoi verbali, la tua struttura — con la potenza dell'IA",
+    "ogDescription": "Carica il tuo modello di verbali esistente e lascia che l'IA replichi la struttura esatta per ogni riunione futura. Una funzione rivoluzionaria non disponibile su Otter.ai o Notta.",
+    "ld": {
+      "headline": "Custom Format: Riproduci i tuoi verbali di riunione esatti con l'IA",
+      "description": "Presentiamo la funzione Custom Format di Minutes.AI che analizza i verbali della tua organizzazione e replica la struttura automaticamente."
+    }
+  },
+  "aria": {
+    "home": "Home di Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nuova funzione"
+  },
+  "hero": {
+    "kicker": "Aggiornamento importante",
+    "h1": "Custom Format: I tuoi verbali abituali, ora con la potenza dell'IA",
+    "tagline": "Ogni organizzazione ha il proprio stile per i verbali di riunione. Fino ad ora, gli strumenti di appunti IA ti costringevano nei loro modelli. Con Custom Format, carichi semplicemente i tuoi verbali esistenti — come testo, PDF o anche una foto — e Minutes.AI impara la tua struttura, replicandola perfettamente per ogni riunione futura.",
+    "subtag": "Niente più compromessi sul formato. I tuoi verbali, le tue regole — con la potenza dell'IA che fa il lavoro pesante.",
+    "badges": ["Carica e replica", "PDF / Testo / Foto", "Pronto per le aziende"]
+  },
+
+  "problem": {
+    "h2": "Verbali IA che non assomigliano ai tuoi",
+    "p1": "Gli strumenti di appunti IA come Otter.ai e Notta generano riassunti decenti — ma nel formato dello strumento, non nel tuo. Se la tua azienda ha un modello di verbali specifico con sezioni designate, intestazioni e layout dei punti d'azione, sei costretto a riformattare ogni singola volta.",
+    "p2": "Alcuni strumenti offrono 'prompt personalizzati' dove scrivi istruzioni sperando che l'IA le interpreti correttamente. Ma i risultati sono imprevedibili — non meglio che chiedere a ChatGPT o Google Gemini di formattare le tue note. Il problema fondamentale rimane: l'IA non comprende realmente la struttura del tuo documento.",
+    "quote": "\"Il nostro team ha un formato di verbali specifico. Ogni strumento IA che ho provato lo ignora completamente.\""
+  },
+
+  "solution": {
+    "h2": "Mostra semplicemente all'IA quello che vuoi",
+    "p1": "**Custom Format** adotta un approccio radicalmente diverso. Invece di descrivere il tuo formato a parole, lo **mostri** semplicemente all'IA.",
+    "p2": "Carica un esempio dei tuoi verbali di riunione esistenti — che sia un documento di testo, un PDF o anche una foto di una pagina stampata — e il motore di Minutes.AI analizzerà la struttura, la gerarchia delle sezioni, il tono e il layout. Da quel momento, ogni riunione registrata sarà formattata esattamente come la tua organizzazione si aspetta.",
+    "highlights": [
+      "**Caricamento testo**: Incolla o carica i tuoi verbali come testo semplice — l'IA estrae il modello strutturale istantaneamente.",
+      "**Analisi PDF**: Carica un PDF formattato e l'IA preserva intestazioni, sezioni, stili degli elenchi e gerarchia.",
+      "**Riconoscimento foto**: Scatta una foto di un modello di verbali stampato o scritto a mano — l'IA legge e replica la struttura.",
+      "**Configurazione unica**: Carica una volta e il formato viene salvato. Ogni riunione futura segue automaticamente il tuo modello.",
+      "**Comprensione strutturale**: A differenza dei semplici prompt, Custom Format comprende veramente l'architettura del documento — non solo le parole chiave."
+    ]
+  },
+
+  "usps": {
+    "h2": "Perché Custom Format cambia tutto",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Oltre i 'Prompt personalizzati'",
+        "desc": "Altri servizi ti permettono di scrivere istruzioni come 'formatta come un verbale di riunione formale.' I risultati sono imprevedibili. Custom Format non indovina — analizza un documento reale e replica la struttura esatta."
+      },
+      {
+        "icon": "building",
+        "title": "Progettato per le organizzazioni",
+        "desc": "Che si tratti di un modello di riunione del consiglio, di un formato di standup di ingegneria o di un report di chiamata commerciale — Custom Format si adatta alle esigenze specifiche della tua organizzazione."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Finalmente risolto il problema irrisolto",
+        "desc": "Questa è la funzione che nessun concorrente — né Otter.ai, né Notta, né alcun servizio di trascrizione IA — offre. Vera replicazione strutturale dai tuoi stessi documenti."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Prezzi semplici e trasparenti",
+    "p1": "Custom Format è disponibile in tutti i piani Minutes.AI. Scegli il piano che si adatta al tuo flusso di lavoro.",
+    "trial": { "name": "Pack di prova", "detail": "120 min", "foot": "$1.99 (Senza scadenza)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (Senza scadenza)" },
+    "monthly": { "name": "Mensile", "detail": "Illimitato", "foot": "$16.99 / mese" },
+    "annual": { "name": "Annuale", "detail": "Illimitato", "foot": "$149.99 / anno" },
+    "free": { "badge": "Ticket giornaliero gratuito", "text": "Provalo gratis per 3 minuti ogni giorno — nessuna carta di credito richiesta." },
+    "bullets": [
+      "**Pack di tempo**: Ideali per l'uso occasionale — i minuti non scadono mai.",
+      "**Abbonamenti**: Registrazione e formattazione illimitate per gli utenti assidui.",
+      "**100+ lingue**: Registra e formatta verbali in oltre 100 lingue."
+    ],
+    "foot": {
+      "pre": "* Prezzi mostrati in {currency}.",
+      "post": "Le tasse potrebbero essere applicate al momento del pagamento."
+    }
+  },
+
+  "cta": {
+    "h2": "Prova Custom Format ora",
+    "text": "Carica il tuo modello di verbali esistente, registra la tua prossima riunione e guarda la magia. I tuoi verbali generati dall'IA finalmente sembreranno i tuoi.",
+    "openBrowser": "Apri Minutes.AI (Web)",
+    "downloadIOS": "Scarica l'app iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Pubblicato",
+    "type": "Funzione",
+    "category": "Aggiornamento prodotto"
+  }
+}

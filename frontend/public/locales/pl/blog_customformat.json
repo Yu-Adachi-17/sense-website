@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Odtwórz dokładny format protokołów ze spotkań za pomocą AI | Minutes.AI",
+    "description": "Nowa funkcja Custom Format w Minutes.AI analizuje istniejące protokoły ze spotkań — tekst, PDF lub zdjęcie — i automatycznie odtwarza dokładną strukturę. Poziom personalizacji, którego Otter.ai i Notta nie mogą dorównać.",
+    "ogTitle": "Custom Format: Twoje protokoły, Twoja struktura — napędzane przez AI",
+    "ogDescription": "Prześlij istniejący szablon protokołu, a AI odtworzy dokładną strukturę dla każdego przyszłego spotkania. Przełomowa funkcja niedostępna w Otter.ai ani Notta.",
+    "ld": {
+      "headline": "Custom Format: Odtwórz dokładny format protokołów ze spotkań za pomocą AI",
+      "description": "Przedstawiamy funkcję Custom Format w Minutes.AI, która analizuje protokoły Twojej organizacji i automatycznie odtwarza strukturę."
+    }
+  },
+  "aria": {
+    "home": "Strona główna Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nowa funkcja"
+  },
+  "hero": {
+    "kicker": "Duża aktualizacja",
+    "h1": "Custom Format: Twoje znane protokoły, teraz napędzane przez AI",
+    "tagline": "Każda organizacja ma swój własny styl protokołów ze spotkań. Do tej pory narzędzia AI do notatek wymuszały swoje szablony. Dzięki Custom Format po prostu przesyłasz istniejące protokoły — jako tekst, PDF lub nawet zdjęcie — a Minutes.AI uczy się Twojej struktury, odtwarzając ją perfekcyjnie na każde przyszłe spotkanie.",
+    "subtag": "Koniec z kompromisami w formacie. Twoje protokoły, Twoje zasady — z mocą AI wykonującego ciężką pracę.",
+    "badges": ["Prześlij i odtwórz", "PDF / Tekst / Zdjęcie", "Gotowe dla organizacji"]
+  },
+
+  "problem": {
+    "h2": "Protokoły AI, które nie wyglądają jak Twoje",
+    "p1": "Narzędzia AI do notatek ze spotkań, takie jak Otter.ai i Notta, generują przyzwoite podsumowania — ale w formacie narzędzia, nie Twoim. Jeśli Twoja firma ma konkretny szablon protokołu z wyznaczonymi sekcjami, nagłówkami i układami zadań, musisz przeformatowywać za każdym razem.",
+    "p2": "Niektóre narzędzia oferują 'niestandardowe prompty', w których wpisujesz instrukcje i masz nadzieję, że AI je prawidłowo zinterpretuje. Ale wyniki są nieprzewidywalne — nie lepsze niż proszenie ChatGPT lub Google Gemini o sformatowanie notatek. Podstawowy problem pozostaje: AI tak naprawdę nie rozumie struktury Twojego dokumentu.",
+    "quote": "'Nasz zespół ma określony format protokołu. Każde narzędzie AI, które wypróbowałem, całkowicie go ignoruje.'"
+  },
+
+  "solution": {
+    "h2": "Po prostu pokaż AI, czego chcesz",
+    "p1": "**Custom Format** stosuje radykalnie inne podejście. Zamiast opisywać format słowami, po prostu **pokazujesz** go AI.",
+    "p2": "Prześlij próbkę istniejących protokołów — dokument tekstowy, PDF lub nawet zdjęcie wydrukowanej strony — a silnik Minutes.AI przeanalizuje strukturę, hierarchię sekcji, ton i układ. Od tego momentu każde nagrane spotkanie będzie sformatowane dokładnie tak, jak oczekuje Twoja organizacja.",
+    "highlights": [
+      "**Przesyłanie tekstu**: Wklej lub prześlij protokoły jako zwykły tekst — AI natychmiast wyodrębnia wzorzec struktury.",
+      "**Analiza PDF**: Prześlij sformatowany PDF, a AI zachowa nagłówki, sekcje, style wypunktowania i hierarchię.",
+      "**Rozpoznawanie zdjęć**: Zrób zdjęcie wydrukowanego lub ręcznie napisanego szablonu protokołu — AI odczyta i odtworzy strukturę.",
+      "**Jednorazowa konfiguracja**: Prześlij raz, a format zostanie zapisany. Każde przyszłe spotkanie automatycznie podąża za Twoim szablonem.",
+      "**Zrozumienie struktury**: W przeciwieństwie do prostych promptów, Custom Format naprawdę rozumie architekturę dokumentu — nie tylko słowa kluczowe."
+    ]
+  },
+
+  "usps": {
+    "h2": "Dlaczego Custom Format zmienia wszystko",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Więcej niż 'Niestandardowe prompty'",
+        "desc": "Inne usługi pozwalają wpisywać instrukcje jak 'sformatuj jako formalny protokół ze spotkania'. Wyniki są nieprzewidywalne. Custom Format nie zgaduje — analizuje prawdziwy dokument i odtwarza dokładną strukturę."
+      },
+      {
+        "icon": "building",
+        "title": "Stworzony dla organizacji",
+        "desc": "Czy to szablon spotkania zarządu, format standupa inżynieryjnego czy raport z rozmowy handlowej — Custom Format dostosowuje się do specyficznych potrzeb Twojej organizacji."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Wreszcie rozwiązano ten problem",
+        "desc": "To funkcja, której żaden konkurent — ani Otter.ai, ani Notta, ani żadna usługa transkrypcji AI — nie oferuje. Prawdziwe odtwarzanie struktury z Twoich własnych dokumentów."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Proste, przejrzyste ceny",
+    "p1": "Custom Format jest dostępny we wszystkich planach Minutes.AI. Wybierz plan dopasowany do Twojego sposobu pracy.",
+    "trial": { "name": "Pakiet próbny", "detail": "120 min", "foot": "$1.99 (Bez wygaśnięcia)" },
+    "light": { "name": "Pakiet Light", "detail": "1200 min", "foot": "$11.99 (Bez wygaśnięcia)" },
+    "monthly": { "name": "Miesięczny", "detail": "Bez limitu", "foot": "$16.99 / mies." },
+    "annual": { "name": "Roczny", "detail": "Bez limitu", "foot": "$149.99 / rok" },
+    "free": { "badge": "Darmowy bilet dzienny", "text": "Wypróbuj za darmo przez 3 minuty dziennie — bez karty kredytowej." },
+    "bullets": [
+      "**Pakiety czasowe**: Idealne do okazjonalnego użytku — minuty nigdy nie wygasają.",
+      "**Subskrypcje**: Nieograniczone nagrywanie i formatowanie dla aktywnych użytkowników.",
+      "**100+ języków**: Nagrywaj i formatuj protokoły w ponad 100 językach."
+    ],
+    "foot": {
+      "pre": "* Ceny podane w {currency}.",
+      "post": "Przy płatności mogą obowiązywać podatki."
+    }
+  },
+
+  "cta": {
+    "h2": "Wypróbuj Custom Format teraz",
+    "text": "Prześlij istniejący szablon protokołu, nagraj następne spotkanie i zobacz magię. Twoje protokoły generowane przez AI wreszcie będą wyglądać jak Twoje.",
+    "openBrowser": "Otwórz Minutes.AI (Web)",
+    "downloadIOS": "Pobierz aplikację na iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Opublikowano",
+    "type": "Funkcja",
+    "category": "Aktualizacja produktu"
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Toista tarkat kokouspöytäkirjasi tekoälyllä | Minutes.AI",
+    "description": "Minutes.AI:n uusi Custom Format -ominaisuus analysoi olemassa olevat kokouspöytäkirjasi — teksti, PDF tai valokuva — ja toistaa tarkan rakenteen automaattisesti. Räätälöintitaso, johon Otter.ai ja Notta eivät yllä.",
+    "ogTitle": "Custom Format: Pöytäkirjasi, rakenteesi — tekoälyn voimalla",
+    "ogDescription": "Lataa olemassa oleva pöytäkirjamallisi ja anna tekoälyn toistaa tarkka rakenne jokaiseen tulevaan kokoukseen. Mullistava ominaisuus, jota Otter.ai tai Notta ei tarjoa.",
+    "ld": {
+      "headline": "Custom Format: Toista tarkat kokouspöytäkirjasi tekoälyllä",
+      "description": "Esittelemme Minutes.AI:n Custom Format -ominaisuuden, joka analysoi organisaatiosi kokouspöytäkirjat ja toistaa rakenteen automaattisesti."
+    }
+  },
+  "aria": {
+    "home": "Minutes.AI Etusivu"
+  },
+  "nav": {
+    "blog": "Blogi",
+    "feature": "Uusi ominaisuus"
+  },
+  "hero": {
+    "kicker": "Suuri päivitys",
+    "h1": "Custom Format: Tutut pöytäkirjasi, nyt tekoälyn voimalla",
+    "tagline": "Jokaisella organisaatiolla on oma kokouspöytäkirjatyylinsä. Tähän asti tekoälymuistiinpanotyökalut pakottivat sinut käyttämään niiden malleja. Custom Formatin avulla lataat yksinkertaisesti olemassa olevat pöytäkirjasi — tekstinä, PDF:nä tai jopa valokuvana — ja Minutes.AI oppii rakenteesi ja toistaa sen täydellisesti jokaiseen tulevaan kokoukseen.",
+    "subtag": "Ei enää kompromisseja muodosta. Sinun pöytäkirjasi, sinun sääntösi — tekoälyn voima hoitaa raskaan työn.",
+    "badges": ["Lataa ja toista", "PDF / Teksti / Valokuva", "Organisaatiovalmis"]
+  },
+
+  "problem": {
+    "h2": "Tekoälypöytäkirjat, jotka eivät näytä sinun omiltasi",
+    "p1": "Tekoälykokousmuistiinpanotyökalut kuten Otter.ai ja Notta tuottavat kelvollisia yhteenvetoja — mutta työkalun muodossa, ei sinun. Jos yrityksessäsi on tietty pöytäkirjamalli, jossa on määrätyt osiot, otsikot ja toimenpideluettelot, joudut muotoilemaan uudelleen joka kerta.",
+    "p2": "Jotkut työkalut tarjoavat 'mukautettuja kehotteita', joissa kirjoitat ohjeita ja toivot tekoälyn tulkitsevan ne oikein. Mutta tulokset ovat arvaamattomia — eivät parempia kuin pyytää ChatGPT:tä tai Google Geminiä muotoilemaan muistiinpanosi. Perusongelma pysyy: tekoäly ei todella ymmärrä asiakirjasi rakennetta.",
+    "quote": "\"Tiimillämme on tietty pöytäkirjamuoto. Jokainen kokeilemani tekoälytyökalu sivuuttaa sen täysin.\""
+  },
+
+  "solution": {
+    "h2": "Näytä tekoälylle mitä haluat",
+    "p1": "**Custom Format** ottaa radikaalisti erilaisen lähestymistavan. Sen sijaan, että kuvailisit muotoa sanoin, **näytät** sen yksinkertaisesti tekoälylle.",
+    "p2": "Lataa näyte olemassa olevista kokouspöytäkirjoistasi — olipa se tekstidokumentti, PDF tai jopa valokuva tulostetusta sivusta — ja Minutes.AI:n moottori analysoi rakenteen, osioiden hierarkian, sävyn ja asettelun. Siitä eteenpäin jokainen tallentamasi kokous muotoillaan juuri niin kuin organisaatiosi odottaa.",
+    "highlights": [
+      "**Tekstin lataus**: Liitä tai lataa pöytäkirjasi pelkkänä tekstinä — tekoäly poimii rakenteellisen mallin välittömästi.",
+      "**PDF-analyysi**: Lataa muotoiltu PDF ja tekoäly säilyttää otsikot, osiot, luettelomerkkityylit ja hierarkian.",
+      "**Valokuvatunnistus**: Ota kuva tulostetusta tai käsinkirjoitetusta pöytäkirjamallista — tekoäly lukee ja toistaa rakenteen.",
+      "**Kertaluonteinen asennus**: Lataa kerran ja muoto tallentuu. Jokainen tuleva kokous noudattaa malliasi automaattisesti.",
+      "**Rakenteellinen ymmärrys**: Toisin kuin yksinkertaiset kehotteet, Custom Format todella ymmärtää asiakirja-arkkitehtuurin — ei vain avainsanoja."
+    ]
+  },
+
+  "usps": {
+    "h2": "Miksi Custom Format muuttaa kaiken",
+    "items": [
+      {
+        "icon": "template",
+        "title": "'Mukautettujen kehotteiden' tuolle puolen",
+        "desc": "Muut palvelut antavat sinun kirjoittaa ohjeita kuten 'muotoile viralliseksi kokouspöytäkirjaksi.' Tulokset ovat arvaamattomia. Custom Format ei arvaa — se analysoi aidon asiakirjan ja toistaa tarkan rakenteen."
+      },
+      {
+        "icon": "building",
+        "title": "Rakennettu organisaatioille",
+        "desc": "Olipa kyseessä hallituksen kokouksen malli, insinööritiimin standup-muoto tai myyntipuhelun raportti — Custom Format mukautuu organisaatiosi erityistarpeisiin."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Vihdoin ratkaistu — pitkäaikainen ongelma",
+        "desc": "Tämä on ominaisuus, jota yksikään kilpailija — ei Otter.ai, ei Notta, ei mikään tekoälylitterointipalvelu — tarjoa. Aito rakenteellinen toisto omista asiakirjoistasi."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Yksinkertainen, läpinäkyvä hinnoittelu",
+    "p1": "Custom Format on saatavilla kaikissa Minutes.AI-paketeissa. Valitse työnkulkuusi sopiva paketti.",
+    "trial": { "name": "Kokeilupaketti", "detail": "120 min", "foot": "$1.99 (Ei vanhene)" },
+    "light": { "name": "Light-paketti", "detail": "1200 min", "foot": "$11.99 (Ei vanhene)" },
+    "monthly": { "name": "Kuukausittainen", "detail": "Rajaton", "foot": "$16.99 / kk" },
+    "annual": { "name": "Vuosittainen", "detail": "Rajaton", "foot": "$149.99 / vuosi" },
+    "free": { "badge": "Ilmainen päivälippu", "text": "Kokeile ilmaiseksi 3 minuuttia joka päivä — luottokorttia ei tarvita." },
+    "bullets": [
+      "**Aikapaketit**: Erinomaisia satunnaiseen käyttöön — minuutit eivät koskaan vanhene.",
+      "**Tilaukset**: Rajaton tallennus ja muotoilu tehokäyttäjille.",
+      "**100+ kieltä**: Tallenna ja muotoile pöytäkirjoja yli 100 kielellä."
+    ],
+    "foot": {
+      "pre": "* Hinnat näytetään valuutassa {currency}.",
+      "post": "Verot voivat tulla lisäksi maksun yhteydessä."
+    }
+  },
+
+  "cta": {
+    "h2": "Kokeile Custom Formatia nyt",
+    "text": "Lataa olemassa oleva pöytäkirjamallisi, tallenna seuraava kokouksesi ja näe taika. Tekoälyn tuottamat pöytäkirjasi näyttävät vihdoin omiltasi.",
+    "openBrowser": "Avaa Minutes.AI (Web)",
+    "downloadIOS": "Lataa iOS-sovellus"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Julkaistu",
+    "type": "Ominaisuus",
+    "category": "Tuotepäivitys"
+  }
+}

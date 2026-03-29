@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reprodukujte přesný formát vašich zápisů ze schůzí pomocí AI | Minutes.AI",
+    "description": "Nová funkce Custom Format v Minutes.AI analyzuje vaše stávající zápisy ze schůzí — text, PDF nebo fotografie — a automaticky replikuje přesnou strukturu. Úroveň přizpůsobení, kterou Otter.ai a Notta nemohou nabídnout.",
+    "ogTitle": "Custom Format: Vaše zápisy, vaše struktura — poháněno AI",
+    "ogDescription": "Nahrajte svou stávající šablonu zápisů a nechte AI replikovat přesnou strukturu pro každou budoucí schůzi. Převratná funkce nedostupná u Otter.ai ani Notta.",
+    "ld": {
+      "headline": "Custom Format: Reprodukujte přesný formát vašich zápisů ze schůzí pomocí AI",
+      "description": "Představujeme funkci Custom Format v Minutes.AI, která analyzuje zápisy vaší organizace a automaticky replikuje strukturu."
+    }
+  },
+  "aria": {
+    "home": "Domovská stránka Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nová funkce"
+  },
+  "hero": {
+    "kicker": "Velká aktualizace",
+    "h1": "Custom Format: Vaše známé zápisy, nyní poháněny AI",
+    "tagline": "Každá organizace má svůj vlastní styl zápisů ze schůzí. Dosud vás AI nástroje na poznámky nutily používat své šablony. S Custom Format jednoduše nahrajete své stávající zápisy — jako text, PDF nebo i fotografii — a Minutes.AI se naučí vaši strukturu a perfektně ji replikuje pro každou budoucí schůzi.",
+    "subtag": "Žádné další kompromisy ve formátu. Vaše zápisy, vaše pravidla — s mocí AI, která dělá těžkou práci.",
+    "badges": ["Nahrát a replikovat", "PDF / Text / Foto", "Připraveno pro organizace"]
+  },
+
+  "problem": {
+    "h2": "AI zápisy, které nevypadají jako vaše",
+    "p1": "AI nástroje pro poznámky ze schůzí jako Otter.ai a Notta generují slušné souhrny — ale ve formátu nástroje, ne vašem. Pokud má vaše firma konkrétní šablonu zápisů s určenými sekcemi, nadpisy a rozložením úkolů, musíte pokaždé přeformátovat.",
+    "p2": "Některé nástroje nabízejí 'vlastní prompty', kde napíšete instrukce a doufáte, že je AI správně interpretuje. Ale výsledky jsou nepředvídatelné — ne lepší než požádat ChatGPT nebo Google Gemini o formátování vašich poznámek. Základní problém přetrvává: AI skutečně nerozumí struktuře vašeho dokumentu.",
+    "quote": "\"Náš tým má specifický formát zápisů. Každý AI nástroj, který jsem vyzkoušel, ho úplně ignoruje.\""
+  },
+
+  "solution": {
+    "h2": "Prostě ukažte AI, co chcete",
+    "p1": "**Custom Format** používá radikálně odlišný přístup. Místo popisování formátu slovy ho jednoduše **ukážete** AI.",
+    "p2": "Nahrajte ukázku svých stávajících zápisů ze schůzí — ať už jde o textový dokument, PDF nebo i fotografii vytištěné stránky — a motor Minutes.AI analyzuje strukturu, hierarchii sekcí, tón a rozložení. Od toho okamžiku bude každá nahraná schůze formátována přesně tak, jak vaše organizace očekává.",
+    "highlights": [
+      "**Nahrání textu**: Vložte nebo nahrajte zápisy jako prostý text — AI okamžitě extrahuje strukturální vzor.",
+      "**Analýza PDF**: Nahrajte formátované PDF a AI zachová nadpisy, sekce, styly odrážek a hierarchii.",
+      "**Rozpoznávání fotografií**: Vyfoťte vytištěnou nebo ručně psanou šablonu zápisů — AI přečte a replikuje strukturu.",
+      "**Jednorázové nastavení**: Nahrajte jednou a formát se uloží. Každá budoucí schůze automaticky následuje vaši šablonu.",
+      "**Strukturální porozumění**: Na rozdíl od jednoduchých promptů Custom Format skutečně rozumí architektuře dokumentu — nejen klíčovým slovům."
+    ]
+  },
+
+  "usps": {
+    "h2": "Proč Custom Format mění všechno",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Za hranice 'Vlastních promptů'",
+        "desc": "Jiné služby vám umožní psát instrukce jako 'formátuj jako formální zápis ze schůze.' Výsledky jsou nepředvídatelné. Custom Format nehádá — analyzuje skutečný dokument a replikuje přesnou strukturu."
+      },
+      {
+        "icon": "building",
+        "title": "Navrženo pro organizace",
+        "desc": "Ať už jde o šablonu zasedání představenstva, formát inženýrského standupu nebo zprávu z obchodního hovoru — Custom Format se přizpůsobí specifickým potřebám vaší organizace."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Konečně vyřešený dlouhodobý problém",
+        "desc": "Toto je funkce, kterou žádný konkurent — ani Otter.ai, ani Notta, ani žádná služba AI přepisu — nenabízí. Skutečná strukturální replikace z vašich vlastních dokumentů."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Jednoduché, transparentní ceny",
+    "p1": "Custom Format je k dispozici ve všech tarifech Minutes.AI. Vyberte si tarif, který vyhovuje vašemu pracovnímu postupu.",
+    "trial": { "name": "Zkušební balíček", "detail": "120 min", "foot": "$1.99 (Bez expirace)" },
+    "light": { "name": "Light balíček", "detail": "1200 min", "foot": "$11.99 (Bez expirace)" },
+    "monthly": { "name": "Měsíční", "detail": "Neomezeně", "foot": "$16.99 / měs." },
+    "annual": { "name": "Roční", "detail": "Neomezeně", "foot": "$149.99 / rok" },
+    "free": { "badge": "Bezplatný denní lístek", "text": "Vyzkoušejte zdarma na 3 minuty každý den — bez kreditní karty." },
+    "bullets": [
+      "**Časové balíčky**: Ideální pro příležitostné použití — minuty nikdy nevyprší.",
+      "**Předplatné**: Neomezené nahrávání a formátování pro aktivní uživatele.",
+      "**100+ jazyků**: Nahrávejte a formátujte zápisy ve více než 100 jazycích."
+    ],
+    "foot": {
+      "pre": "* Ceny zobrazeny v {currency}.",
+      "post": "Při platbě mohou být účtovány daně."
+    }
+  },
+
+  "cta": {
+    "h2": "Vyzkoušejte Custom Format nyní",
+    "text": "Nahrajte svou stávající šablonu zápisů, zaznamenejte svou příští schůzi a sledujte kouzlo. Vaše AI generované zápisy budou konečně vypadat jako vaše.",
+    "openBrowser": "Otevřít Minutes.AI (Web)",
+    "downloadIOS": "Stáhnout iOS aplikaci"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publikováno",
+    "type": "Funkce",
+    "category": "Aktualizace produktu"
+  }
+}

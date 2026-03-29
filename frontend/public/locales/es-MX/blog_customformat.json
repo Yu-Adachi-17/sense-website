@@ -1,0 +1,100 @@
+{
+  "seo": {
+    "title": "Custom Format: Reproduce tus minutas de reunión exactas con IA | Minutes.AI",
+    "description": "La nueva función Custom Format de Minutes.AI analiza tus minutas de reunión existentes — texto, PDF o foto — y replica la estructura exacta automáticamente. Un nivel de personalización que Otter.ai y Notta no pueden igualar.",
+    "ogTitle": "Custom Format: Tus minutas de reunión, tu estructura — impulsado por IA",
+    "ogDescription": "Sube tu plantilla de minutas existente y deja que la IA replique la estructura exacta para cada reunión futura. Una función revolucionaria no disponible en Otter.ai ni Notta.",
+    "ld": {
+      "headline": "Custom Format: Reproduce tus minutas de reunión exactas con IA",
+      "description": "Presentamos la función Custom Format de Minutes.AI que analiza las minutas de reunión de tu organización y replica la estructura automáticamente."
+    }
+  },
+  "aria": {
+    "home": "Inicio de Minutes.AI"
+  },
+  "nav": {
+    "blog": "Blog",
+    "feature": "Nueva función"
+  },
+  "hero": {
+    "kicker": "Actualización importante",
+    "h1": "Custom Format: Tus minutas habituales, ahora impulsadas por IA",
+    "tagline": "Cada organización tiene su propio estilo de minutas de reunión. Hasta ahora, las herramientas de notas con IA te obligaban a usar sus plantillas. Con Custom Format, simplemente subes tus minutas existentes — como texto, PDF o incluso una foto — y Minutes.AI aprende tu estructura, replicándola perfectamente para cada reunión futura.",
+    "subtag": "Sin más compromisos en el formato. Tus minutas, tus reglas — con el poder de la IA haciendo el trabajo pesado.",
+    "badges": ["Subir y replicar", "PDF / Texto / Foto", "Listo para empresas"]
+  },
+
+  "problem": {
+    "h2": "Minutas de IA que no se parecen a las tuyas",
+    "p1": "Las herramientas de notas de reunión con IA como Otter.ai y Notta generan resúmenes decentes — pero en el formato de la herramienta, no en el tuyo. Si tu empresa tiene una plantilla de minutas específica con secciones designadas, encabezados y diseños de puntos de acción, te ves obligado a reformatear cada vez.",
+    "p2": "Algunas herramientas ofrecen 'prompts personalizados' donde escribes instrucciones y esperas que la IA las interprete correctamente. Pero los resultados son impredecibles — no mejores que pedirle a ChatGPT o Google Gemini que formatee tus notas. El problema fundamental persiste: la IA realmente no entiende la estructura de tu documento.",
+    "quote": "\"Nuestro equipo tiene un formato de minutas específico. Cada herramienta de IA que he probado lo ignora por completo.\""
+  },
+
+  "solution": {
+    "h2": "Simplemente muéstrale a la IA lo que quieres",
+    "p1": "**Custom Format** adopta un enfoque radicalmente diferente. En lugar de describir tu formato con palabras, simplemente se lo **muestras** a la IA.",
+    "p2": "Sube una muestra de tus minutas de reunión existentes — ya sea un documento de texto, un PDF o incluso una foto de una página impresa — y el motor de Minutes.AI analizará la estructura, la jerarquía de secciones, el tono y el diseño. A partir de ese momento, cada reunión que grabes se formateará exactamente como tu organización espera.",
+    "highlights": [
+      "**Subida de texto**: Pega o sube tus minutas como texto plano — la IA extrae el patrón estructural al instante.",
+      "**Análisis de PDF**: Sube un PDF formateado y la IA conserva encabezados, secciones, estilos de viñetas y jerarquía.",
+      "**Reconocimiento de fotos**: Toma una foto de una plantilla de minutas impresa o manuscrita — la IA lee y replica la estructura.",
+      "**Configuración única**: Sube una vez y el formato se guarda. Cada reunión futura sigue tu plantilla automáticamente.",
+      "**Comprensión estructural**: A diferencia de los prompts simples, Custom Format realmente comprende la arquitectura del documento — no solo palabras clave."
+    ]
+  },
+
+  "usps": {
+    "h2": "Por qué Custom Format lo cambia todo",
+    "items": [
+      {
+        "icon": "template",
+        "title": "Más allá de los 'Prompts personalizados'",
+        "desc": "Otros servicios te permiten escribir instrucciones como 'formatear como una nota de reunión formal.' Los resultados son impredecibles. Custom Format no adivina — analiza un documento real y replica la estructura exacta."
+      },
+      {
+        "icon": "building",
+        "title": "Diseñado para organizaciones",
+        "desc": "Ya sea una plantilla de junta directiva, un formato de standup de ingeniería o un reporte de llamada de ventas — Custom Format se adapta a las necesidades específicas de tu organización."
+      },
+      {
+        "icon": "sparkle",
+        "title": "Por fin se resuelve la necesidad pendiente",
+        "desc": "Esta es la función que ningún competidor — ni Otter.ai, ni Notta, ni ningún servicio de transcripción con IA — ofrece. Replicación estructural real a partir de tus propios documentos."
+      }
+    ]
+  },
+
+  "pricing": {
+    "h2": "Precios simples y transparentes",
+    "p1": "Custom Format está disponible en todos los planes de Minutes.AI. Elige el plan que se adapte a tu flujo de trabajo.",
+    "trial": { "name": "Pack de prueba", "detail": "120 min", "foot": "$1.99 (Sin caducidad)" },
+    "light": { "name": "Pack Light", "detail": "1200 min", "foot": "$11.99 (Sin caducidad)" },
+    "monthly": { "name": "Mensual", "detail": "Ilimitado", "foot": "$16.99 / mes" },
+    "annual": { "name": "Anual", "detail": "Ilimitado", "foot": "$149.99 / año" },
+    "free": { "badge": "Boleto diario gratuito", "text": "Pruébalo gratis durante 3 minutos cada día — sin tarjeta de crédito." },
+    "bullets": [
+      "**Packs de tiempo**: Ideales para uso ocasional — los minutos nunca caducan.",
+      "**Suscripciones**: Grabación y formateo ilimitados para usuarios intensivos.",
+      "**100+ idiomas**: Graba y formatea minutas en más de 100 idiomas."
+    ],
+    "foot": {
+      "pre": "* Precios mostrados en {currency}.",
+      "post": "Pueden aplicarse impuestos en el pago."
+    }
+  },
+
+  "cta": {
+    "h2": "Prueba Custom Format ahora",
+    "text": "Sube tu plantilla de minutas existente, graba tu próxima reunión y observa la magia. Tus minutas generadas por IA por fin se verán como las tuyas.",
+    "openBrowser": "Abrir Minutes.AI (Web)",
+    "downloadIOS": "Descargar app iOS"
+  },
+
+  "meta": {
+    "h2": "Meta",
+    "published": "Publicado",
+    "type": "Función",
+    "category": "Actualización de producto"
+  }
+}
