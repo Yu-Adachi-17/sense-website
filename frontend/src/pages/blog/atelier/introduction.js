@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 /* ---------- Constants ---------- */
 const LAST_UPDATED_ISO = "2026-03-25";
-const APP_STORE_URL = "https://apps.apple.com/jp/app/atelier-ai-website-builder/id6760372324";
+const APP_STORE_URL = "https://apps.apple.com/us/app/atelier-ai-website-builder/id6760372324";
 const PRIVACY_URL = "https://a-telier.ai/privacy-policy";
 const TERMS_URL = "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/";
 
