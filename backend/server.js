@@ -44,6 +44,7 @@ const zoomRecordingRoute = require('./routes/zoomRecordingRoute');
 // Stripe (extracted)
 const stripeCheckoutRoute = require('./routes/stripeCheckoutRoute');
 const stripeSubscriptionRoute = require('./routes/stripeSubscriptionRoute');
+const stripeTeamPlanRoute = require('./routes/stripeTeamPlanRoute');
 const livekitRouter = require('./routes/livekit');
 const meetingsRouter = require('./routes/meetings');
 const egressRouter = require('./routes/egress');
@@ -344,6 +345,7 @@ app.use('/', zoomOAuthCallbackRoute);
 app.use('/api', zoomRecordingRoute);
 app.use('/api', stripeCheckoutRoute);
 app.use('/api', stripeSubscriptionRoute);
+app.use('/api/team', stripeTeamPlanRoute);
 app.use('/api/livekit', livekitRouter);
 app.use('/api/meetings', meetingsRouter);
 app.use('/api', egressRouter);
