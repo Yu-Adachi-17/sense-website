@@ -794,6 +794,46 @@ export default function Home() {
               </NeonCircle>
             </div>
 
+            {/* ===== Team Plan ===== */}
+            <div className="teamPlanSection">
+              <h3 className="teamPlanH3">{t("Team Plan")}</h3>
+              <p className="teamPlanSub">{t("Build your organization's knowledge base. Share meeting intelligence across your entire team.")}</p>
+
+              <div className="teamPlanGrid">
+                <NeonCircle size={560} mobileSize={360} ariaLabel={t("Team plan base pricing")}>
+                  <div className="pCard teamCard">
+                    <div className="pKicker teamKicker">{t("Team Base")}</div>
+                    <div className="pPrice">
+                      <span className="big">$24.99</span>
+                      <span className="unit">/month</span>
+                    </div>
+                    <ul className="pBullets">
+                      <li>{t("Team space for shared minutes")}</li>
+                      <li>{t("Project knowledge dashboard")}</li>
+                      <li>{t("AI knowledge extraction")}</li>
+                      <li>{t("Cross-meeting search")}</li>
+                    </ul>
+                  </div>
+                </NeonCircle>
+
+                <NeonCircle size={560} mobileSize={360} ariaLabel={t("Team seat pricing")}>
+                  <div className="pCard teamCard">
+                    <div className="pKicker teamKicker">{t("Per Seat")}</div>
+                    <div className="pPrice">
+                      <span className="big">$6.99</span>
+                      <span className="unit">/person/month</span>
+                    </div>
+                    <ul className="pBullets">
+                      <li>{t("500 min/month recording included")}</li>
+                      <li>{t("View all team minutes")}</li>
+                      <li>{t("Contribute to knowledge base")}</li>
+                      <li>{t("Project tracking & timeline")}</li>
+                    </ul>
+                  </div>
+                </NeonCircle>
+              </div>
+            </div>
+
             <p className="pricingNote">{t("Prices in USD. Taxes may apply by region. Auto-renew; cancel anytime.")}</p>
           </section>
 
@@ -955,6 +995,13 @@ export default function Home() {
         .pBullets { list-style:none; padding:0; margin:8px 0 0 0; font-weight:700; font-size: clamp(12px, 1.7vw, 16px); line-height:1.5; opacity:0.95; }
         .pBullets li::before { content:"• "; opacity:0.9; }
         .pricingNote { margin-top:10px; opacity:0.7; font-size:12px; }
+        .teamPlanSection { margin-top: clamp(32px, 6vh, 60px); text-align:center; }
+        .teamPlanH3 { margin:0 0 8px 0; font-weight:900; letter-spacing:-0.02em; line-height:1.1; font-size: clamp(28px, 5vw, 64px); background: linear-gradient(90deg, #65e0c4 0%, #8db4ff 65%, #7cc7ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+        .teamPlanSub { margin:0 0 18px 0; opacity:0.85; font-weight:700; font-size: clamp(13px, 1.8vw, 17px); color:#eaf4f7; }
+        .teamPlanGrid { display:grid; grid-template-columns:1fr 1fr; gap: clamp(16px, 3vw, 40px); align-items:center; justify-items:center; }
+        .teamCard { border:1px solid rgba(101,224,196,0.15); border-radius:16px; padding:20px; background: rgba(101,224,196,0.04); }
+        .teamKicker { color:#65e0c4; }
+        @media (max-width: 1220px) { .teamPlanGrid { grid-template-columns:1fr; } }
         .appPromo { margin: clamp(18px, 4vh, 36px) auto clamp(64px, 10vh, 120px); padding:0 22px; max-width:1200px; text-align:left; }
         .promoGrid { display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap: clamp(16px, 3vw, 32px); }
         .promoH2 { margin:0 0 10px 0; font-weight:800; letter-spacing:-0.02em; line-height:1.05; font-size: clamp(36px, 7vw, 84px); color:#eaf4f7; }
